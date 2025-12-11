@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Desk Setup – Neo Monserrat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/desksetup.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <div class="logo-dot"></div>
+        <a href="/public/index.html" class="nav-title">Neo Monserrat</a>
+      </div>
+
+      <nav class="nav-links">
+        <a href="/public/index.html">Home</a>
+        <a href="/public/about.html">About</a>
+        <a href="/public/projects.html">Projects</a>
+      </nav>
+
+      <a class="nav-cta" href="/public/contact.html">
+        Contact
+        <span>↗</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page">
+    <section class="section section-desk">
+
+      <div class="section-header">
+        <a href="/public/about.html" class="desk-back-link">← Back to About</a>
+        <h1 class="section-title">Desk Setup</h1>
+        <p class="section-subtitle">
+          A detailed breakdown of the devices and peripherals I use every day for coding,
+          game development, XR research, gaming, and music production.
+        </p>
+      </div>
+
+      <!-- Cards will be injected here by desksetup.js using DESK_ITEMS -->
+      <div class="desk-grid"></div>
+    </section>
+  </main>
+
+  <!-- DESK MODAL -->
+  <div class="desk-modal" id="desk-modal" aria-hidden="true">
+    <div class="desk-modal-backdrop" data-modal-close></div>
+
+    <div class="desk-modal-dialog">
+      <button class="desk-modal-close" type="button" aria-label="Close details" data-modal-close>
+        ×
+      </button>
+
+      <div class="desk-modal-inner">
+        <div class="desk-modal-media">
+          <img id="desk-modal-image" src="" alt="" />
+        </div>
+
+        <div class="desk-modal-content">
+          <h2 class="desk-modal-title" id="desk-modal-title"></h2>
+          <p class="desk-modal-meta" id="desk-modal-meta"></p>
+
+          <ul class="desk-spec-list desk-modal-specs" id="desk-modal-specs">
+            <!-- Filled by JS -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="page footer-inner">
+      <span>© <span id="year"></span> Neo Monserrat</span>
+      <span class="footer-muted">Built with HTML &amp; CSS</span>
+    </div>
+  </footer>
+
+  <!-- Data first, then logic -->
+  <script src="/js/desksetup-data.js"></script>
+  <script src="/js/desksetup.js"></script>
+
+  <!-- Footer year -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
