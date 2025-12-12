@@ -21,34 +21,6 @@ No frameworks or build tools are required.
 
 ---
 
-## 📁 Project Structure
-/public
-├── index.html
-├── about.html
-├── projects.html
-├── project.html
-├── contact.html
-
-/css
-├── styles.css
-├── index.css
-├── about.css
-├── projects.css
-├── contact.css
-
-/js
-├── project-data.js
-├── projects.js
-├── project.js
-├── about.js
-
-/assets
-├── images
-├── media
-└── docs
-
----
-
 ## 📦 Assets & Media Files
 Due to **GitHub repository size limits**, the **full assets folder (images, videos, high-resolution media)** is **not fully included** in this repository.
 
