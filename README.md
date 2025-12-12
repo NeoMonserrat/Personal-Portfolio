@@ -1,4 +1,4 @@
-# Neo Monserrat – Personal Portfolio Website
+# Personal Portfolio Website
 
 This repository contains the source code for my personal portfolio website.  
 It showcases my background, projects, and contact information, built with a clean and minimal front-end stack.
