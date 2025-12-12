@@ -1,0 +1,393 @@
+<<<<<<< HEAD
+.nav-links a[href="/public/about.html"] {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------
+   Image carousel on About page
+--------------------------------------------- */
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-top: 1rem;
+}
+
+/* ------------------------------------------------------------------
+   Gaming + Desk Setup + Instruments split section
+------------------------------------------------------------------ */
+
+.about-interests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-interest-card {
+  height: 450px;
+  flex: 1 1 min(320px, 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .about-interest-card {
+    height: auto;
+  }
+}
+
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-link-btn {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.03);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.card-link-btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.4);
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------------
+   Lightbox
+------------------------------------------------------------------ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------
+   Carousel
+------------------------------------------------------------------ */
+
+.carousel-img,
+.carousel-video,
+.carousel-embed {
+  width: calc((100% / 3) - 12px);
+  height: 300px;
+  flex: 0 0 calc((100% / 3) - 12px);
+  margin: 0 6px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.carousel-img {
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.carousel-video {
+  object-fit: cover;
+  cursor: pointer;
+  border: none;
+}
+
+.carousel-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s ease-in-out;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.carousel-btn.prev { left: -18px; }
+.carousel-btn.next { right: -18px; }
+
+.carousel-btn:hover {
+  background: rgba(255,255,255,0.20);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-empty .carousel-btn {
+  display: none;
+}
+
+/* Text spacing */
+.card-text {
+  margin-bottom: 1.1rem;
+}
+
+/* ------------------------------------------------------------------
+   INTEREST CARD ICON STYLING
+------------------------------------------------------------------ */
+
+.card-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.interest-icon {
+  width: 25px;
+  height: 25px;
+  opacity: 0.85;
+  flex-shrink: 0;
+  margin-right: 4px;
+  stroke: currentColor;
+}
+=======
+.nav-links a[href="/public/about.html"] {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------
+   Image carousel on About page
+--------------------------------------------- */
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-top: 1rem;
+}
+
+/* ------------------------------------------------------------------
+   Gaming + Desk Setup + Instruments split section
+------------------------------------------------------------------ */
+
+.about-interests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-interest-card {
+  height: 450px;
+  flex: 1 1 min(320px, 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .about-interest-card {
+    height: auto;
+  }
+}
+
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-link-btn {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.03);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.card-link-btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.4);
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------------
+   Lightbox
+------------------------------------------------------------------ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------
+   Carousel
+------------------------------------------------------------------ */
+
+.carousel-img,
+.carousel-video,
+.carousel-embed {
+  width: calc((100% / 3) - 12px);
+  height: 300px;
+  flex: 0 0 calc((100% / 3) - 12px);
+  margin: 0 6px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.carousel-img {
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.carousel-video {
+  object-fit: cover;
+  cursor: pointer;
+  border: none;
+}
+
+.carousel-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s ease-in-out;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.carousel-btn.prev { left: -18px; }
+.carousel-btn.next { right: -18px; }
+
+.carousel-btn:hover {
+  background: rgba(255,255,255,0.20);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-empty .carousel-btn {
+  display: none;
+}
+
+/* Text spacing */
+.card-text {
+  margin-bottom: 1.1rem;
+}
+
+/* ------------------------------------------------------------------
+   INTEREST CARD ICON STYLING
+------------------------------------------------------------------ */
+
+.card-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.interest-icon {
+  width: 25px;
+  height: 25px;
+  opacity: 0.85;
+  flex-shrink: 0;
+  margin-right: 4px;
+  stroke: currentColor;
+}
+>>>>>>> e55c8a46eba6b5dd05ce18a1c74a21e1d1a222a4
