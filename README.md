@@ -40,3 +40,5 @@ I’ll be happy to provide access.
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
 
+2. Open public/index.html in your browser
+(or use a simple local server for best results).
