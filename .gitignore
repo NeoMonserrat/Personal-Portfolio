@@ -1,0 +1,33 @@
+# ===========================
+# Assets (excluded from repo)
+# ===========================
+assets/
+public/assets/
+
+# ===========================
+# OS / Editor junk
+# ===========================
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# ===========================
+# Logs & temp files
+# ===========================
+*.log
+*.tmp
+*.temp
+
+# ===========================
+# Node / tooling (if added later)
+# ===========================
+node_modules/
+dist/
+build/
+
+# ===========================
+# Optional local configs
+# ===========================
+.env
