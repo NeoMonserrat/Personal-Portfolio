@@ -1,4 +1,16 @@
-// /js/desksetup-data.js
+// js/data/desksetup-data.js
+// Central source of truth for desk setup items (CDN-powered)
+
+const CLOUD_NAME = "dcnwpgvj5";
+const CDN_IMAGE_BASE = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
+
+/**
+ * CDN helper for desk setup images
+ * - Uses Cloudinary public IDs (case-sensitive)
+ * - Matches your current uploads (root IDs like "monitor", "webcam")
+ */
+const cdnDeskImg = (publicId, w = 900) =>
+  `${CDN_IMAGE_BASE}/q_auto,f_auto,c_limit,w_${w}/${publicId}`;
 
 window.DESK_ITEMS = [
   {
@@ -7,7 +19,7 @@ window.DESK_ITEMS = [
     title: "Laptop",
     meta: "My main system.",
     image: {
-      src: "/assets/images/desksetup/laptop.png",
+      src: cdnDeskImg("laptop", 1200),
       alt: "Laptop",
     },
     specs: [
@@ -17,59 +29,63 @@ window.DESK_ITEMS = [
       { label: "RAM", value: "32GB DDR5 (5600MHz)" },
     ],
   },
+
   {
     id: "primary-monitor",
     tag: "Display",
     title: "Primary Monitor",
     meta: "Main screen.",
     image: {
-      src: "/assets/images/desksetup/monitor.png",
+      src: cdnDeskImg("monitor", 1200),
       alt: "Primary monitor",
     },
     specs: [
       { label: "Model", value: "ASUS TUF VG249Q1A" },
       { label: "Size", value: "23.8-inch" },
-      { label: "Refresh Rate", value: "165HD" },
-      { label: "Resolution", value: "FHD (1920x1080)" },
+      { label: "Refresh Rate", value: "165Hz" },
+      { label: "Resolution", value: "FHD (1920×1080)" },
     ],
   },
+
   {
     id: "keyboard",
     tag: "Input",
     title: "Keyboard",
     meta: "Fast, responsive, and adjustable.",
     image: {
-      src: "/assets/images/desksetup/keyboard.png",
+      src: cdnDeskImg("keyboard", 1200),
       alt: "Keyboard",
     },
     specs: [
       { label: "Model", value: "Wooting 60HE+" },
-      { label: "Polling Rate", value: "1000 hz" },
+      { label: "Polling Rate", value: "1000 Hz" },
       { label: "Switches", value: "Lekker Hall Effect switches" },
     ],
   },
+
   {
     id: "mouse",
     tag: "Navigation",
     title: "Mouse",
     meta: "Lightweight and precise.",
     image: {
-      src: "/assets/images/desksetup/mouse.png",
+      src: cdnDeskImg("mouse", 1200),
       alt: "Mouse",
     },
     specs: [
       { label: "Model", value: "Logitech G Pro X Superlight" },
-      { label: "Polling Rate", value: "1000 hz" },
+      { label: "Polling Rate", value: "1000 Hz" },
       { label: "Mouse Skates", value: "Corepad Mouse Skatez" },
     ],
   },
+
   {
     id: "mousepad",
     tag: "Navigation",
     title: "Mousepad",
     meta: "Surface tuned for control and consistency.",
     image: {
-      src: "/assets/images/desksetup/mousepad.png",
+      src: cdnDeskImg("mousepad", 1200),
       alt: "Mousepad",
     },
     specs: [
@@ -78,31 +94,30 @@ window.DESK_ITEMS = [
       { label: "Size", value: "XL" },
     ],
   },
+
   {
     id: "microphone",
     tag: "Audio",
     title: "Microphone",
     meta: "For clear calls and recordings.",
     image: {
-      src: "/assets/images/desksetup/microphone.png",
+      src: cdnDeskImg("microphone", 1200),
       alt: "Microphone",
     },
     specs: [
       { label: "Model", value: "HyperX Solocast" },
       { label: "Type", value: "Electret condenser microphone" },
-      {
-        label: "Bit Depth & Sample Rate",
-        value: "16-bit / 48 kHz recording",
-      },
+      { label: "Bit Depth & Sample Rate", value: "16-bit / 48 kHz" },
     ],
   },
+
   {
     id: "audio-interface",
     tag: "Audio",
     title: "Audio Interface",
     meta: "Central hub for instruments and monitoring.",
     image: {
-      src: "/assets/images/desksetup/audiointerface.png",
+      src: cdnDeskImg("audiointerface", 1200),
       alt: "Audio Interface",
     },
     specs: [
@@ -116,79 +131,86 @@ window.DESK_ITEMS = [
       },
     ],
   },
+
   {
     id: "headphones",
     tag: "Audio",
     title: "Headphones",
     meta: "Closed-back for focused listening.",
     image: {
-      src: "/assets/images/desksetup/headphones.png",
+      src: cdnDeskImg("headphones", 1200),
       alt: "Headphones",
     },
     specs: [
       { label: "Model", value: "Audio-Technica M50X" },
       { label: "Driver", value: "45 mm dynamic drivers" },
       { label: "Frequency Response", value: "15 Hz – 28,000 Hz" },
-      { label: "Impendance", value: "38 Ω" },
+      { label: "Impedance", value: "38 Ω" },
     ],
   },
+
   {
     id: "inears",
     tag: "Audio",
     title: "In-ear Monitors",
     meta: "Portable option for practice and travel.",
     image: {
-      src: "/assets/images/desksetup/in-ear.png",
+      src: cdnDeskImg("in-ear", 1200),
       alt: "In-ear Monitors",
     },
     specs: [
       { label: "Model", value: "KZ ZSN Pro X" },
       {
         label: "Driver",
-        value: "1× Dynamic Driver (10 mm) + 1× Balanced Armature",
+        value: "1× Dynamic (10 mm) + 1× Balanced Armature",
       },
       { label: "Frequency Response", value: "7 Hz – 40,000 Hz" },
-      { label: "Impendance", value: "25 Ω" },
+      { label: "Impedance", value: "25 Ω" },
     ],
   },
+
   {
     id: "webcam",
     tag: "Extras",
     title: "Webcam",
-    meta: "For meetings, calls, and screen-share demos.",
+    meta: "For meetings, calls, and demos.",
     image: {
-      src: "/assets/images/desksetup/webcam.png",
+      src: cdnDeskImg("webcam", 1200),
       alt: "Webcam",
     },
     specs: [
       { label: "Model", value: "Logitech Brio 100" },
-      { label: "Resolution", value: "1080p (1920×1080) at 30 FPS" },
-      { label: "Field of View", value: "58° FOV" },
+      { label: "Resolution", value: "1080p @ 30 FPS" },
+      { label: "Field of View", value: "58°" },
     ],
   },
+
   {
     id: "monitor-light",
     tag: "Extras",
     title: "Monitor Light",
     meta: "Desk lighting for comfort and clarity.",
     image: {
-      src: "/assets/images/desksetup/monitorlight.png",
+      src: cdnDeskImg("monitorlight", 1200),
       alt: "Monitor Light Bar",
     },
     specs: [{ label: "Model", value: "Baseus Iwok 3" }],
   },
+
   {
     id: "controller",
     tag: "Extras",
     title: "Controller",
     meta: "Used for selected games.",
     image: {
-        src: "/assets/images/desksetup/controller.png", 
-        alt: "Xbox Wireless Controller – Gold Shadow Special Edition",
+      src: cdnDeskImg("controller", 1200),
+      alt: "Xbox Wireless Controller – Gold Shadow Special Edition",
     },
     specs: [
-        { label: "Model", value: "Xbox Wireless Controller – Gold Shadow Special Edition" }
+      {
+        label: "Model",
+        value: "Xbox Wireless Controller – Gold Shadow Special Edition",
+      },
     ],
-    },
-
+  },
 ];

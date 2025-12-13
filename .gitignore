@@ -1,8 +1,15 @@
 # ===========================
-# Assets (excluded from repo)
+# Assets
 # ===========================
-assets/
-public/assets/
+
+# Ignore everything under assets by default
+assets/**
+
+# Re-include specific asset folders
+!assets/docs/
+!assets/docs/**
+!assets/icons/
+!assets/icons/**
 
 # ===========================
 # OS / Editor junk

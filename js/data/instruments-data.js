@@ -1,4 +1,16 @@
 // /js/instruments-data.js
+// Central source of truth for instruments data (CDN-powered)
+
+const CLOUD_NAME = "dcnwpgvj5";
+const CDN_IMAGE_BASE = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
+
+/**
+ * CDN helper for instrument photos
+ * - Safe defaults
+ * - Auto quality & format
+ */
+const cdnInstrumentImg = (publicId, w = 900) =>
+  `${CDN_IMAGE_BASE}/q_auto,f_auto,c_limit,w_${w}/${publicId}`;
 
 window.instrumentsData = [
   {
@@ -7,14 +19,10 @@ window.instrumentsData = [
     title: "Acoustic Kit",
     meta: "My main drum kit for live playing and natural sound.",
     image: {
-      src: "/assets/images/instruments/drums.png",
+      src: cdnInstrumentImg("drums"),
       alt: "Acoustic Drums",
     },
-    // First spec = what appears on the card
-    specs: [
-      { label: "Model", value: "Pearl Export EXX" },
-    ],
-    // All specs = what appears in the modal
+    specs: [{ label: "Model", value: "Pearl Export EXX" }],
     detailSpecs: [
       { label: "Model", value: "Pearl Export" },
       { label: "Cymbals", value: "Zildjian ZBT" },
@@ -30,15 +38,11 @@ window.instrumentsData = [
     title: "Electronic Drum Kit",
     meta: "Quiet practice and MIDI recording for XR/improv.",
     image: {
-      src: "/assets/images/instruments/edrums.png",
+      src: cdnInstrumentImg("edrums"),
       alt: "Electronic Drum Kit",
     },
-    specs: [
-      { label: "Model", value: "Alesis Nitro Mesh" },
-    ],
-    detailSpecs: [
-      { label: "Model", value: "Alesis Nitro Mesh" },
-    ],
+    specs: [{ label: "Model", value: "Alesis Nitro Mesh" }],
+    detailSpecs: [{ label: "Model", value: "Alesis Nitro Mesh" }],
     description:
       "My go-to kit for silent practice and experiments with XR drum improvisation, MIDI recording, and prototyping ideas.",
   },
@@ -49,12 +53,10 @@ window.instrumentsData = [
     title: "Keyboard / Piano",
     meta: "Used for composing, chord practice, and songwriting.",
     image: {
-      src: "/assets/images/instruments/piano.png",
+      src: cdnInstrumentImg("piano"),
       alt: "Keyboard",
     },
-    specs: [
-      { label: "Model", value: "Casio WK-110" },
-    ],
+    specs: [{ label: "Model", value: "Casio WK-110" }],
     detailSpecs: [
       { label: "Model", value: "Casio WK-110" },
       { label: "Keys", value: "76 keys" },
@@ -69,12 +71,10 @@ window.instrumentsData = [
     title: "Electric Guitar",
     meta: "My main instrument for riffs, practice, and recording.",
     image: {
-      src: "/assets/images/instruments/guitar.png",
+      src: cdnInstrumentImg("guitar"),
       alt: "Electric Guitar",
     },
-    specs: [
-      { label: "Brand", value: "Yamaha Pacifica 012" },
-    ],
+    specs: [{ label: "Brand", value: "Yamaha Pacifica 012" }],
     detailSpecs: [
       { label: "Brand", value: "Yamaha Pacifica 012" },
       { label: "Pickups", value: "Single Coil / Humbucker" },
@@ -90,12 +90,10 @@ window.instrumentsData = [
     title: "Guitar Amp",
     meta: "My amplifier for tone shaping and live play.",
     image: {
-      src: "/assets/images/instruments/amplifier.png",
+      src: cdnInstrumentImg("amplifier"),
       alt: "Guitar Amplifier",
     },
-    specs: [
-      { label: "Brand", value: "Laney AH-FREESTYLE" },
-    ],
+    specs: [{ label: "Brand", value: "Laney AH-FREESTYLE" }],
     detailSpecs: [
       { label: "Brand", value: "Laney AH-FREESTYLE" },
       { label: "Power", value: "5W" },

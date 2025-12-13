@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (game.type) {
           const typeEl = createEl("span", "game-type", game.type);
-          typeEl.setAttribute("data-type", game.type); // for color pill
+          typeEl.setAttribute("data-type", game.type);
           main.append(typeEl);
         }
 
@@ -77,6 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const img = createEl("img", "game-photo");
           img.src = game.imageSrc;
           img.alt = game.imageAlt || game.title || "";
+          img.loading = "lazy";
+          img.decoding = "async";
           entry.append(img);
         }
 
@@ -156,6 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (modalImage) {
       modalImage.src = image || "";
       modalImage.alt = title || "";
+      modalImage.loading = "eager";
+      modalImage.decoding = "async";
     }
 
     if (modalLink) {
