@@ -21,24 +21,40 @@ No frameworks or build tools are required.
 
 ---
 
-## 📦 Assets & Media Files
-Due to **GitHub repository size limits**, the **full assets folder (images, videos, high-resolution media)** is **not fully included** in this repository.
+## 📦 Assets & Media Handling (Cloudinary CDN)
 
-Only essential placeholders and references are kept here so the structure remains clear.
+To keep this repository lightweight and within **GitHub size limits**, **large media assets** (images, galleries, high-resolution photos, and videos) are **not stored directly in the repo**.
 
-### 🔐 Request Full Assets
-If you need access to the **complete assets folder** (for review, collaboration, or academic purposes), feel free to contact me:
+Instead, this project uses **Cloudinary** as a **Content Delivery Network (CDN)** to host and serve media assets efficiently.
+
+### Why Cloudinary?
+- 🚀 Fast global delivery via CDN  
+- 📦 Keeps the GitHub repository small and clean  
+- 🔧 Automatic image optimization (`q_auto`, `f_auto`)  
+- 📱 Responsive image sizing support  
+
+Media files are dynamically loaded at runtime using Cloudinary URLs defined in the JavaScript layer.
+
+> The repository still includes placeholders and references so the project structure remains clear and easy to understand.
+
+---
+
+## 🔐 Access to Original / Local Assets
+If you need access to the **original local assets** (raw images, videos, or uncompressed media used during development) for **review, collaboration, or academic purposes**, feel free to reach out:
 
 📧 **neo.monserrat@gmail.com**
 
-I’ll be happy to provide access.
+I’ll be happy to provide access when appropriate.
 
 ---
 
 ## 🚀 Running the Project Locally
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
+Open the site:
 
 2. Open public/index.html in your browser
-(or use a simple local server for best results).
+or
+Use a simple local server for best results
