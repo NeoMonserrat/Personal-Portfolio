@@ -1,12 +1,13 @@
-/* --------------------------------------------------
-   GAMING PAGE
--------------------------------------------------- */
+/* gaming.css */
+
+/* Page spacing */
 
 .section-gaming {
   padding-top: 2.5rem;
 }
 
 /* Back link */
+
 .gaming-back-link {
   display: inline-flex;
   align-items: center;
@@ -21,7 +22,8 @@
   color: #ffffff;
 }
 
-/* Layout: catalog + IGNs side by side on desktop */
+/* Layout */
+
 .gaming-layout {
   display: grid;
   grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.2fr);
@@ -37,21 +39,23 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* Genre cards (left column) */
+/* Genre cards */
+
 .genre-card {
   margin-bottom: 1.5rem;
   padding: 1.25rem 1.4rem;
   border-radius: 1.25rem;
   background: radial-gradient(
-      circle at top left,
-      rgba(97, 155, 255, 0.08),
-      rgba(8, 8, 18, 0.92)
-    );
+    circle at top left,
+    rgba(97, 155, 255, 0.08),
+    rgba(8, 8, 18, 0.92)
+  );
   border: 1px solid rgba(255, 255, 255, 0.04);
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6);
 }
 
-/* Header + toggle button */
+/* Header + toggle */
+
 .genre-header {
   display: flex;
   align-items: center;
@@ -105,7 +109,8 @@
   opacity: 0.7;
 }
 
-/* Game list inside each genre */
+/* Game list */
+
 .game-list {
   list-style: none;
   margin: 0;
@@ -117,26 +122,20 @@
   overflow: hidden;
   opacity: 1;
   transform: translateY(0);
-  transition:
-    max-height 0.24s ease,
-    opacity 0.2s ease,
+  transition: max-height 0.24s ease, opacity 0.2s ease,
     transform 0.2s ease;
 }
 
-/* Collapsed state */
 .genre-card.collapsed .game-list {
   max-height: 0;
   opacity: 0;
   transform: translateY(-4px);
 }
 
-/* Game item + hover */
 .game-item {
   border-radius: 0.75rem;
   padding: 0.7rem 0.85rem;
-  transition:
-    background 0.2s ease,
-    transform 0.18s ease,
+  transition: background 0.2s ease, transform 0.18s ease,
     box-shadow 0.18s ease;
   cursor: pointer;
 }
@@ -147,7 +146,6 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
 }
 
-/* Text + photo container */
 .game-entry {
   display: flex;
   justify-content: space-between;
@@ -160,6 +158,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  min-width: 0;
 }
 
 .game-main {
@@ -175,7 +174,6 @@
   color: #ffffff;
 }
 
-/* Type pill (list + modal) */
 .game-type,
 .game-modal-type {
   display: inline-flex;
@@ -188,9 +186,9 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 
-/* Steam = blue */
 .game-type[data-type="Steam"],
 .game-modal-type[data-type="Steam"] {
   background: rgba(86, 160, 255, 0.15);
@@ -198,7 +196,6 @@
   color: #7bb4ff;
 }
 
-/* Riot = red */
 .game-type[data-type="Riot"],
 .game-modal-type[data-type="Riot"] {
   background: rgba(255, 77, 77, 0.16);
@@ -206,7 +203,6 @@
   color: #ff8a8a;
 }
 
-/* Mobile = yellow */
 .game-type[data-type="Mobile"],
 .game-modal-type[data-type="Mobile"] {
   background: rgba(224, 193, 75, 0.16);
@@ -221,7 +217,6 @@
   color: rgba(220, 225, 255, 0.78);
 }
 
-/* Game photo (right side) */
 .game-photo {
   width: 48px;
   height: 48px;
@@ -229,6 +224,7 @@
   border-radius: 0.5rem;
   opacity: 0.85;
   transition: opacity 0.2s ease, transform 0.2s ease;
+  flex: 0 0 48px;
 }
 
 .game-item:hover .game-photo {
@@ -236,7 +232,8 @@
   transform: scale(1.03);
 }
 
-/* IGN card (right column) */
+/* IGN card */
+
 .ign-card {
   position: sticky;
   top: 6rem;
@@ -280,31 +277,7 @@
   color: rgba(184, 195, 238, 0.78);
 }
 
-/* Responsive adjustments */
-@media (max-width: 960px) {
-  .gaming-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .ign-card {
-    position: static;
-  }
-}
-
-@media (max-width: 640px) {
-  .genre-card {
-    padding: 1.1rem 1.1rem;
-  }
-
-  .game-photo {
-    width: 42px;
-    height: 42px;
-  }
-}
-
-/* --------------------------------------------------
-   GAME MODAL (POPUP)
--------------------------------------------------- */
+/* Modal */
 
 .game-modal-overlay {
   position: fixed;
@@ -328,10 +301,10 @@
   border-radius: 1.4rem;
   padding: 1.6rem 1.6rem 1.7rem;
   background: radial-gradient(
-      circle at top left,
-      rgba(97, 155, 255, 0.14),
-      rgba(8, 8, 18, 0.96)
-    );
+    circle at top left,
+    rgba(97, 155, 255, 0.14),
+    rgba(8, 8, 18, 0.96)
+  );
   border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow: 0 28px 65px rgba(0, 0, 0, 0.8);
   position: relative;
@@ -353,19 +326,18 @@
   color: #ffffff;
 }
 
-/* Make both columns equal height */
 .game-modal-body {
   display: flex;
   align-items: stretch;
   gap: 1.6rem;
 }
 
-/* LEFT: image column */
 .game-modal-image-wrapper {
   flex: 0 0 40%;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 0;
 }
 
 .game-modal-image {
@@ -376,17 +348,17 @@
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.75);
 }
 
-/* RIGHT: details column */
 .game-modal-details {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
 }
 
 .game-modal-tag {
-  display: inline-block;
-  width: 109px;
+  display: inline-flex;
+  width: fit-content;
   padding: 0.18rem 0.55rem;
   font-size: 0.7rem;
   letter-spacing: 0.06em;
@@ -413,9 +385,9 @@
   color: rgba(220, 225, 255, 0.85);
 }
 
-/* Button stays at the bottom of the right column */
 .game-modal-link {
-  min-width: 400px;
+  width: 100%;
+  max-width: 420px;
   align-self: flex-start;
   margin-top: 1rem;
   display: inline-flex;
@@ -435,27 +407,40 @@
   background: rgba(46, 80, 153, 0.98);
 }
 
-/* Mobile layout: stack image above details */
+/* Responsive */
+
+@media (max-width: 960px) {
+  .gaming-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ign-card {
+    position: static;
+  }
+}
+
 @media (max-width: 640px) {
+  .genre-card {
+    padding: 1.1rem 1.1rem;
+  }
+
+  .game-photo {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+
   .game-modal-body {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .game-modal-image-wrapper {
-    flex: 0 0 auto;
   }
 
   .game-modal {
     padding: 1.4rem;
   }
 
-  .game-modal-details {
-    justify-content: flex-start;
-  }
-
   .game-modal-link {
-    min-width: 0;
+    max-width: 100%;
     width: 100%;
     margin-top: 0.8rem;
   }

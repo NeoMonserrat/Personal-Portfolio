@@ -1,52 +1,34 @@
-/* ==================================================
-   ACTIVE NAV
-================================================== */
+/* contact.css */
 
-.nav-links a[href="contact.html"] {
+/* Active nav */
+.nav-links a[href="/public/contact.html"] {
   color: #ffffff;
   font-weight: 600;
 }
 
-/* ==================================================
-   CONTACT SECTION
-================================================== */
-
 .section-contact {
   margin-top: 3.6rem;
 }
-
-/* ==================================================
-   MAIN CONTACT CARD
-================================================== */
 
 .contact-main-card {
   max-width: 420px;
   margin: 0 auto 2.5rem;
   padding: 2rem 1.9rem;
   border-radius: 26px;
-
-  background:
-    radial-gradient(circle at top, #171729, #090910);
-
+  background: radial-gradient(circle at top, #171729, #090910);
   border: 1px solid rgba(255, 255, 255, 0.08);
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.6),
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6),
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-
   text-align: center;
 }
 
-/* Profile */
 .contact-photo {
   width: 110px;
   height: 110px;
   border-radius: 999px;
   object-fit: cover;
-
   border: 2px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.9);
-
   margin: 0 auto 1rem;
 }
 
@@ -62,15 +44,10 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ==================================================
-   CONTACT METHODS (PHONE / EMAIL / LINKEDIN / GITHUB)
-================================================== */
-
 .contact-methods {
   list-style: none;
   margin: 1.2rem 0 0;
   padding: 0;
-
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
@@ -80,10 +57,7 @@
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(255, 255, 255, 0.03);
-
-  transition:
-    transform 0.15s ease,
-    border-color 0.18s ease,
+  transition: transform 0.15s ease, border-color 0.18s ease,
     background 0.18s ease;
 }
 
@@ -104,7 +78,6 @@
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -121,6 +94,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.08rem;
+  min-width: 0;
 }
 
 .contact-method-title {
@@ -146,10 +120,6 @@
   fill: rgba(79, 140, 255, 1);
 }
 
-/* ==================================================
-   SOCIALS PANEL
-================================================== */
-
 .contact-socials {
   margin-top: 1.25rem;
   padding-top: 1.15rem;
@@ -165,7 +135,6 @@
   margin-bottom: 0.85rem;
 }
 
-/* Layout */
 .social-main {
   display: flex;
   flex-direction: column;
@@ -177,93 +146,84 @@
 .social-down {
   display: flex;
   gap: 0.55rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
-/* ==================================================
-   SOCIAL CARDS (Uiverse-style)
-================================================== */
 
 .social-card {
   width: 86px;
   height: 86px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
-
-  box-shadow:
-    0 10px 26px rgba(0, 0, 0, 0.45),
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
-
   text-decoration: none;
-
-  transition:
-    transform 0.15s ease,
-    background 0.15s ease,
+  transition: transform 0.15s ease, background 0.15s ease,
     border-color 0.15s ease;
 }
 
-/* Corner geometry */
-.card1 { border-radius: 86px 10px 10px 10px; }
-.card2 { border-radius: 10px 86px 10px 10px; }
-.card3 { border-radius: 10px 10px 10px 86px; }
-.card4 { border-radius: 10px 10px 86px 10px; }
-
-/* ==================================================
-   ✅ PERFECT ICON CENTERING FIX
-================================================== */
+.card1 {
+  border-radius: 86px 10px 10px 10px;
+}
+.card2 {
+  border-radius: 10px 86px 10px 10px;
+}
+.card3 {
+  border-radius: 10px 10px 10px 86px;
+}
+.card4 {
+  border-radius: 10px 10px 86px 10px;
+}
 
 .social-card svg {
   display: block;
   width: 30px;
   height: 30px;
-
   margin: 0 !important;
   padding: 0 !important;
-
   transition: fill 0.15s ease;
 }
 
-/* Icon base colors */
-.instagram { fill: #cc39a4; }
-.facebook  { fill: #1877f2; }
-.tiktok { fill: #00f2ea; }
-.discord   { fill: #8c9eff; }
-
-/* Optical micro-alignment (SVGs are uneven by nature) */
 .instagram {
-  transform: translate(3px, 6px);      /* X, Y */
+  fill: #cc39a4;
+  transform: translate(3px, 6px);
 }
 
 .facebook {
-  transform: translate(-6px, 2px);     /* X, Y */
+  fill: #1877f2;
+  transform: translate(-6px, 2px);
 }
 
 .tiktok {
-  transform: translate(5px, -3px);   /* X, Y */
+  fill: #00f2ea;
+  transform: translate(5px, -3px);
 }
 
 .discord {
-  transform: translate(-6px, -2px);   /* X, Y */
+  fill: #8c9eff;
+  transform: translate(-6px, -2px);
 }
-
-
-/* ==================================================
-   HOVER STATES
-================================================== */
 
 .social-card:hover {
   transform: translateY(-2px) scale(1.05);
   border-color: rgba(255, 255, 255, 0.22);
 }
 
-.card1:hover { background: #cc39a4; }
-.card2:hover { background: #1877f2; }
-.card3:hover { background: #ff0033; }
-.card4:hover { background: #8c9eff; }
+.card1:hover {
+  background: #cc39a4;
+}
+.card2:hover {
+  background: #1877f2;
+}
+.card3:hover {
+  background: #ff0033;
+}
+.card4:hover {
+  background: #8c9eff;
+}
 
 .card1:hover .instagram,
 .card2:hover .facebook,
@@ -272,23 +232,32 @@
   fill: #ffffff;
 }
 
-/* Keyboard focus */
 .social-card:focus-visible {
   outline: 2px solid rgba(79, 140, 255, 0.9);
   outline-offset: 3px;
 }
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
-
+/* Responsive */
 @media (max-width: 520px) {
   .contact-main-card {
+    max-width: 100%;
     padding: 1.6rem 1.25rem;
+    border-radius: 22px;
+  }
+
+  .contact-method-link {
+    padding: 0.7rem 0.75rem;
   }
 
   .social-card {
     width: 82px;
     height: 82px;
+  }
+}
+
+@media (max-width: 380px) {
+  .social-card {
+    width: 78px;
+    height: 78px;
   }
 }

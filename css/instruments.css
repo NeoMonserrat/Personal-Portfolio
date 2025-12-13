@@ -1,9 +1,11 @@
-/* Overall section spacing */
+/* instruments.css */
+
+/* Desk section spacing */
 .section-desk {
   padding-top: 2.5rem;
 }
 
-/* Back link to About */
+/* Back link */
 .desk-back-link {
   display: inline-flex;
   align-items: center;
@@ -18,7 +20,7 @@
   color: #ffffff;
 }
 
-/* Grid layout for whole page */
+/* Grid layout */
 .desk-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -26,28 +28,23 @@
   margin-top: 1.5rem;
 }
 
-/* Card base (all same height) */
+/* Card base */
 .desk-card {
   display: flex;
   flex-direction: column;
   height: 400px;
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.2s ease,
-    border-color 0.2s ease;
+  transition: box-shadow 0.25s ease, transform 0.25s ease,
+    border-color 0.25s ease, background 0.25s ease;
 }
 
-/* Glow effect on hover */
 .desk-card:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 0 0 1px rgba(120, 180, 255, 0.6),
-    0 18px 45px rgba(0, 0, 0, 0.9),
-    0 0 40px rgba(79, 140, 255, 0.65);
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 1px rgba(120, 180, 255, 0.6),
+    0 18px 45px rgba(0, 0, 0, 0.9), 0 0 40px rgba(79, 140, 255, 0.65);
   border-color: rgba(120, 180, 255, 0.9);
 }
 
-/* Titles & meta text */
+/* Titles & meta */
 .desk-card-title {
   font-weight: 600;
   letter-spacing: 0.015em;
@@ -93,7 +90,7 @@
   margin-bottom: 0;
 }
 
-/* Photo area (consistent bottom alignment) */
+/* Photo area */
 .desk-card-photo {
   margin-top: auto;
   display: flex;
@@ -110,74 +107,34 @@
   display: block;
 }
 
-/* Responsive behavior */
-@media (max-width: 768px) {
-  .desk-card {
-    height: auto;
-  }
-
-  .desk-card-photo {
-    height: 120px;
-  }
-}
-
-@media (max-width: 600px) {
-  .section-desk .section-header {
-    text-align: left;
-  }
-
-  .desk-grid {
-    gap: 1.2rem;
-  }
-}
-
-/* Pill-style category tag */
+/* Category pill */
 .card-tag {
-  display: inline-block;        /* ensures pill adapts to text width */
+  display: inline-block;
   width: auto;
   max-width: fit-content;
-
   padding: 2px 12px;
   margin-bottom: 0.75rem;
-
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-
   background: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
 }
 
-/* Accent on hover (matches card hover glow) */
 .desk-card:hover .card-tag {
   background: rgba(120, 180, 255, 0.16);
   border-color: rgba(120, 180, 255, 0.35);
   color: #ffffff;
 }
 
-.desk-card {
-  transition:
-    box-shadow 0.25s ease,
-    transform 0.25s ease,
-    background 0.25s ease;
-}
-
-.desk-card:hover {
-  transform: translateY(-4px);
-}
-
-/* ===========================
-   MODAL – COMPACT LAYOUT
-   =========================== */
-
+/* Modal */
 body.no-scroll {
   overflow: hidden;
 }
 
-/* Overlay */
 .instrument-modal {
   position: fixed;
   inset: 0;
@@ -196,24 +153,22 @@ body.no-scroll {
   pointer-events: auto;
 }
 
-/* Dialog */
 .instrument-modal-dialog {
   position: relative;
   background: linear-gradient(145deg, #050914, #060812);
   border-radius: 18px;
-  padding: 1.3rem 1.6rem 1.2rem;   /* was 1.7rem 2rem 1.9rem */
+  padding: 1.3rem 1.6rem 1.2rem;
   width: 100%;
-  max-width: 900px;                /* slightly narrower */
-  box-shadow:
-    0 0 0 1px rgba(120, 180, 255, 0.4),
-    0 18px 45px rgba(0, 0, 0, 0.9),
-    0 0 60px rgba(79, 140, 255, 0.6);
+  max-width: 900px;
+  margin: 0 1rem;
+  box-shadow: 0 0 0 1px rgba(120, 180, 255, 0.4),
+    0 18px 45px rgba(0, 0, 0, 0.9), 0 0 60px rgba(79, 140, 255, 0.6);
 }
 
 /* Close button */
 .instrument-modal-close {
   position: absolute;
-  top: 0.7rem;                     /* closer to top */
+  top: 0.7rem;
   right: 0.9rem;
   border: none;
   background: transparent;
@@ -221,15 +176,18 @@ body.no-scroll {
   font-size: 1.3rem;
   line-height: 1;
   cursor: pointer;
+  border-radius: 999px;
+  padding: 0.2rem 0.45rem;
 }
 
 .instrument-modal-close:hover {
   color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* Header */
 .instrument-modal-header {
-  margin-bottom: 0.8rem;           /* was 1.2rem */
+  margin-bottom: 0.8rem;
 }
 
 .instrument-modal-title {
@@ -244,19 +202,19 @@ body.no-scroll {
   margin: 0;
 }
 
-/* Two-column body: image + description */
+/* Body layout */
 .instrument-modal-layout {
   display: grid;
   grid-template-columns: minmax(0, 40%) minmax(0, 60%);
-  gap: 1.25rem;                    /* was 1.9rem */
+  gap: 1.25rem;
   align-items: center;
-  margin-top: 0.4rem;
-  margin-bottom: 0.6rem;           /* was 1.2rem */
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
 }
 
 .instrument-modal-photo img {
   width: 100%;
-  max-height: 240px;               /* slightly shorter */
+  max-height: 240px;
   object-fit: contain;
   border-radius: 14px;
 }
@@ -268,25 +226,23 @@ body.no-scroll {
   margin: 0;
 }
 
-/* Specs as a compact row block */
+/* Specs list */
 .instrument-modal-specs {
   list-style: none;
-  padding: 0.5rem 0 0 0;           /* was 0.9rem top */
-  margin: 0.4rem auto 0;           /* was 1rem auto 0 */
+  padding: 0.5rem 0 0 0;
+  margin: 30px auto 0;
   border-top: 1px solid rgba(120, 180, 255, 0.25);
-  margin-top: 30px;
-  max-width: 350px;                /* slightly narrower */
+  max-width: 350px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0rem;                     /* was 0.65rem */
+  gap: 0;
 }
 
 .modal-spec-item {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
   display: grid;
-  grid-template-columns: 1fr auto;   /* Label left, value right */
+  grid-template-columns: 1fr auto;
   align-items: center;
   font-size: 0.9rem;
   column-gap: 0.5rem;
@@ -311,9 +267,18 @@ body.no-scroll {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .desk-card {
+    height: auto;
+  }
+
+  .desk-grid {
+    gap: 1.2rem;
+  }
+
   .instrument-modal-dialog {
     padding: 1.1rem 1.1rem 1.2rem;
     max-width: 94%;
+    margin: 0 0.75rem;
   }
 
   .instrument-modal-layout {
@@ -327,5 +292,15 @@ body.no-scroll {
 
   .instrument-modal-title {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .desk-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instrument-modal-dialog {
+    margin: 0 0.6rem;
   }
 }

@@ -1,10 +1,12 @@
-.nav-links a[href="index.html"] {
+/* index.css */
+
+/* Active nav */
+.nav-links a[href="/public/index.html"] {
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* Hero section on Home */
-
+/* Hero */
 .hero {
   padding-top: calc(var(--nav-height) + 2rem);
   min-height: 420px;
@@ -13,7 +15,7 @@
 }
 
 .hero-content {
-  display: flex !important;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2.5rem;
@@ -149,8 +151,7 @@
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.95);
 }
 
-/* Skills section on Home */
-
+/* Skills */
 .skills-layout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -177,8 +178,7 @@
   margin-bottom: 3rem;
 }
 
-/* Responsive tweaks specific to Home */
-
+/* Responsive */
 @media (max-width: 850px) {
   .hero {
     padding-top: calc(var(--nav-height) + 1.5rem);
@@ -193,4 +193,31 @@
     width: 100%;
     justify-content: flex-start;
   }
+
+  .hero-photo {
+    height: 320px;
+    border-radius: 20px;
+  }
 }
+
+@media (max-width: 520px) {
+  .hero {
+    min-height: unset;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 7vw, 2.4rem);
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.nav-links a[href="index.html"] {
+  color: #ffffff;
+  font-weight: 700;
+}
+
