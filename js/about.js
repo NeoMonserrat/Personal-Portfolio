@@ -43,29 +43,37 @@ function setupLightbox() {
   const open = (src, altText = "") => {
     imgEl.src = src;
     imgEl.alt = altText;
-    lightbox.classList.remove("hidden");
+
+    lightbox.classList.add("is-visible");
     lightbox.setAttribute("aria-hidden", "false");
   };
 
   const close = () => {
     imgEl.src = "";
     imgEl.alt = "";
-    lightbox.classList.add("hidden");
+
+    lightbox.classList.remove("is-visible");
     lightbox.setAttribute("aria-hidden", "true");
   };
 
+  // Click outside image
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) close();
   });
 
+  // Close button
   closeBtn?.addEventListener("click", close);
 
+  // ESC key
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !lightbox.classList.contains("hidden")) close();
+    if (e.key === "Escape" && lightbox.classList.contains("is-visible")) {
+      close();
+    }
   });
 
   return { open, close };
 }
+
 
 // --------------------------------------------------
 // Helpers: safe image probing (prevents broken/filler)
@@ -316,3 +324,76 @@ function renderTravelRegions() {
     root.append(groupEl);
   });
 }
+
+  window.addEventListener("load", () => {
+    document.querySelectorAll(".thumb-gallery").forEach((gallery) => {
+      const top = gallery.querySelector(".gallery-top");
+      const rail = gallery.querySelector(".gallery-rail");
+      if (!top || !rail) return;
+
+      let btn = top.querySelector(".gallery-toggle");
+      if (!btn) {
+        btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "gallery-toggle";
+        btn.textContent = "View gallery";
+        btn.setAttribute("aria-expanded", "false");
+        top.appendChild(btn);
+      }
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isOpen = gallery.classList.toggle("rail-open");
+        btn.textContent = isOpen ? "Hide gallery" : "View gallery";
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    });
+  });
+  
+  window.addEventListener("load", () => {
+    const root = document.querySelector(".about-view");
+    const links = Array.from(document.querySelectorAll(".about-subnav-link"));
+    const allowed = new Set(["general", "music", "sports", "travel"]);
+
+    const scrollToView = (view) => {
+      const target = document.getElementById(view);
+      if (!target) return;
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    const setActive = (view, opts = {}) => {
+      if (!root) return;
+
+      const { pushHash = true, scroll = true } = opts;
+
+      root.setAttribute("data-view", view);
+
+      links.forEach((a) => {
+        a.classList.toggle("is-active", a.dataset.view === view);
+      });
+
+      if (pushHash) {
+        history.replaceState(null, "", "#" + view);
+      }
+
+      if (scroll) {
+        scrollToView(view);
+      }
+    };
+
+    // Click behavior (switch pane + focus scroll)
+    links.forEach((a) => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const view = a.dataset.view;
+        if (!allowed.has(view)) return;
+        setActive(view, { pushHash: true, scroll: true });
+      });
+    });
+
+    // Deep link on load (#music, #sports, #travel)
+    const initial = (location.hash || "#general").replace("#", "");
+    setActive(allowed.has(initial) ? initial : "general", { pushHash: false, scroll: false });
+  });

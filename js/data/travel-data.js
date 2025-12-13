@@ -17,7 +17,7 @@
       id: "singapore",
       name: "Singapore",
       region: "Southeast Asia",
-      year: "2018",
+      year: "20xx",
       flag: "singapore.png",
       hero: "City views, night lights, and clean streets that feel futuristic.",
       description:
@@ -34,7 +34,7 @@
       id: "thailand",
       name: "Thailand",
       region: "Southeast Asia",
-      year: "2017",
+      year: "20xx",
       flag: "thailand.png",
       hero: "Street food, temples, and warm, welcoming locals.",
       description:
@@ -51,7 +51,7 @@
       id: "indonesia",
       name: "Indonesia",
       region: "Southeast Asia",
-      year: "2016",
+      year: "20xx",
       flag: "indonesia.png",
       hero: "Islands, beaches, and sunsets that feel like wallpapers.",
       description:
@@ -68,7 +68,7 @@
       id: "malaysia",
       name: "Malaysia",
       region: "Southeast Asia",
-      year: "2019",
+      year: "20xx",
       flag: "malaysia.png",
       hero: "A blend of cultures, food, and cityscapes.",
       description:
@@ -103,7 +103,7 @@
       id: "hongkong-macau",
       name: "Hong Kong / Macau",
       region: "East Asia",
-      year: "2015",
+      year: "20xx / 20xx",
       flag: "hongkong.png",
       hero: "Skyline, harbor views, and a mix of East-meets-West.",
       description:
@@ -120,7 +120,7 @@
       id: "japan",
       name: "Japan",
       region: "East Asia",
-      year: "2023",
+      year: "20xx / 20xx / 20xx",
       flag: "japan.png",
       hero: "Anime, trains, food, and a culture that balances calm and chaos.",
       description:
@@ -137,7 +137,7 @@
       id: "south-korea",
       name: "South Korea",
       region: "East Asia",
-      year: "2022",
+      year: "20xx",
       flag: "southkorea.png",
       hero: "Cafés, night streets, food, and pop culture everywhere.",
       description:
@@ -156,7 +156,7 @@
       id: "uae",
       name: "United Arab Emirates",
       region: "Middle East",
-      year: "2014",
+      year: "20xx",
       flag: "uae.png",
       hero: "Skyscrapers in the desert and massive malls.",
       description:
@@ -175,7 +175,7 @@
       id: "usa",
       name: "United States",
       region: "North America",
-      year: "2020",
+      year: "20xx / 20xx",
       flag: "usa.png",
       hero: "Big roads, big spaces, and very varied cities.",
       description:

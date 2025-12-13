@@ -50,12 +50,8 @@
 
         <div class="travel-hero-overlay">
           <div class="travel-hero-text">
-            <div id="travel-region-pill" class="travel-region-pill">
-              Region
-            </div>
-            <h1 id="travel-page-title" class="travel-hero-title">
-              Destination
-            </h1>
+            <div id="travel-region-pill" class="travel-region-pill">Region</div>
+            <h1 id="travel-page-title" class="travel-hero-title">Destination</h1>
             <p id="travel-page-subtitle" class="travel-hero-subtitle">
               Loading destination...
             </p>
@@ -69,12 +65,9 @@
         <article class="card travel-summary-card">
           <div class="travel-summary-header">
             <h3 class="card-title">Trip Overview</h3>
-            <!-- Year will be filled by travel.js -->
             <p id="travel-year" class="travel-year-meta">Year visited</p>
           </div>
-          <p id="travel-destination-description" class="card-text travel-summary-text">
-            <!-- Filled by travel.js -->
-          </p>
+          <p id="travel-destination-description" class="card-text travel-summary-text"></p>
         </article>
 
         <!-- GALLERY CARD -->
@@ -88,7 +81,6 @@
             </div>
           </div>
 
-          <!-- Carousel (images auto-loaded via about.js) -->
           <div class="carousel" id="travel-carousel"></div>
         </article>
       </div>
@@ -99,14 +91,14 @@
   <footer class="footer">
     <div class="page footer-inner">
       <span>© <span id="year"></span> Neo Monserrat</span>
-      <span class="footer-muted">Built with HTML &amp; CSS</span>
+      <span class="footer-muted">Built with HTML, CSS &amp; JavaScript</span>
     </div>
   </footer>
 
   <!-- LIGHTBOX (for gallery images) -->
-  <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+  <div id="lightbox" class="lightbox" aria-hidden="true">
     <button class="lightbox-close" aria-label="Close image">&times;</button>
-    <img id="lightbox-img" alt="Expanded travel photo" />
+    <img id="lightbox-img" alt="" />
   </div>
 
   <!-- SCRIPTS -->
