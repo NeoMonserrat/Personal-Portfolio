@@ -435,3 +435,38 @@ img {
 }
 
 
+/* --------------------------------
+   Nav CTA hover / active states
+-------------------------------- */
+
+.nav-cta {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.12s ease;
+}
+
+.nav-cta:hover {
+  background: radial-gradient(circle at top left, #24306b, #12162a);
+  border-color: rgba(159, 180, 255, 0.85);
+  box-shadow:
+    0 0 0 2px rgba(79, 140, 255, 0.35),
+    0 10px 30px rgba(79, 140, 255, 0.45);
+  transform: translateY(-1px);
+}
+
+.nav-cta:active {
+  transform: translateY(0);
+  box-shadow:
+    0 0 0 1px rgba(79, 140, 255, 0.35),
+    0 6px 18px rgba(79, 140, 255, 0.35);
+}
+
+/* Keyboard accessibility */
+.nav-cta:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(79, 140, 255, 0.5),
+    0 12px 30px rgba(79, 140, 255, 0.45);
+}
