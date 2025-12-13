@@ -125,9 +125,6 @@ async function initThumbGallery(root) {
     const full = cdnImg(`${prefix}${i}`, 1600);
     const thumb = cdnImg(`${prefix}${i}`, 400);
 
-    // Probe thumb (lighter) to confirm existence
-    // If thumb exists, assume full exists too.
-    // If you want stricter checks, probe full instead (slower).
     // eslint-disable-next-line no-await-in-loop
     const ok = await probeImage(thumb);
 
@@ -251,22 +248,23 @@ function renderTravelRegions() {
   });
 
   const REGION_ORDER = [
-      "Southeast Asia",
-      "East Asia",
-      "Middle East",
-      "North America",
-      "Europe"
-    ];
+    "Southeast Asia",
+    "East Asia",
+    "Middle East",
+    "North America",
+    "Europe",
+  ];
 
-    const regionKeys = Array.from(regionsMap.keys());
+  const regionKeys = Array.from(regionsMap.keys());
+  const orderedRegions = [
+    ...REGION_ORDER.filter((r) => regionKeys.includes(r)),
+    ...regionKeys.filter((r) => !REGION_ORDER.includes(r)).sort(),
+  ];
 
-    const orderedRegions = [
-      ...REGION_ORDER.filter((r) => regionKeys.includes(r)),
-      ...regionKeys.filter((r) => !REGION_ORDER.includes(r)).sort()
-    ];
+  // Build a deploy-safe base URL for assets (works on GitHub Pages repo subpaths)
+  const assetsBase = new URL("assets/", document.baseURI);
 
-    orderedRegions.forEach((regionName) => {
-
+  orderedRegions.forEach((regionName) => {
     const destinations = regionsMap
       .get(regionName)
       .slice()
@@ -294,9 +292,10 @@ function renderTravelRegions() {
 
       const flag = document.createElement("div");
       flag.className = "travel-flag-icon";
+
       if (dest.flag) {
-        // About page is in /public/, assets is one level up
-        const flagUrl = new URL(`../assets/icons/flags/${dest.flag}`, window.location.href).href;
+        // ✅ This is the fix: resolves correctly regardless of repo base path
+        const flagUrl = new URL(`icons/flags/${dest.flag}`, assetsBase).href;
         flag.style.setProperty("--flag", `url('${flagUrl}')`);
       }
 
