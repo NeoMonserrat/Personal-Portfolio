@@ -1,4 +1,4 @@
-// /js/desksetup.js
+// js/desksetup.js
 
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".desk-grid");

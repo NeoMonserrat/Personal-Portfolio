@@ -2,7 +2,7 @@
 // Single source of truth for all travel destinations.
 //
 // NOTE: Photos are now CDN-powered (Cloudinary).
-// Flags are local and live under: /assets/icons/flags/
+// Flags are local and live under: assets/icons/flags/
 
 (() => {
   const CLOUD_NAME = "dcnwpgvj5";

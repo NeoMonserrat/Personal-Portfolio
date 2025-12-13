@@ -1,4 +1,4 @@
-// /js/instruments.js
+// js/instruments.js
 
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("instrument-grid");

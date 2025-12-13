@@ -1,4 +1,4 @@
-// /js/about.js
+// js/about.js
 // About page: footer year, lightbox, CDN galleries (main + thumbnail rail),
 // auto-discover images prefix1..N with miss-streak stop, keyboard + swipe,
 // travel region list (flags local).
@@ -295,7 +295,7 @@ function renderTravelRegions() {
       const flag = document.createElement("div");
       flag.className = "travel-flag-icon";
       if (dest.flag) {
-        flag.style.setProperty("--flag", `url('/assets/icons/flags/${dest.flag}')`);
+        flag.style.setProperty("--flag", `url('assets/icons/flags/${dest.flag}')`);
       }
 
       const nameSpan = document.createElement("span");

@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     descEl.textContent = entry.description || "";
   }
 
-  // Flags are now in /assets/icons/flags/
+  // Flags are now in assets/icons/flags/
   if (bannerEl && entry.flag) {
-    bannerEl.style.backgroundImage = `url('/assets/icons/flags/${entry.flag}')`;
+    bannerEl.style.backgroundImage = `url('assets/icons/flags/${entry.flag}')`;
   }
 
   // CDN-powered gallery

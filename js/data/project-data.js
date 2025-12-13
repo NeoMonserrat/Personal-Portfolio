@@ -27,7 +27,7 @@
       github: "https://github.com/NeoMonserrat/DrumXRoll",
       summary:
         "An XR-based interactive drumming system with a 3D piano-roll guide, real-time visual feedback, and immersive improvisation training sequences.",
-      thumbnail: "/assets/images/thumbnails/DrumXRoll.png",
+      thumbnail: "assets/images/thumbnails/DrumXRoll.png",
       media: {
         images: [
           {
@@ -64,7 +64,7 @@
       github: "https://github.com/NeoMonserrat/LPPWDFI",
       summary:
         "A responsive web-based record management system with CRUD operations, authentication, and streamlined data handling to improve organizational workflow.",
-      thumbnail: "/assets/images/thumbnails/LPPWDFI.png",
+      thumbnail: "assets/images/thumbnails/LPPWDFI.png",
       media: {
         images: [],
         videos: [],
@@ -81,7 +81,7 @@
       meta: "Song Covers · Improvisation · Mixing",
       summary:
         "A collection of remote band covers and collaborations, combining individually recorded parts into full arrangements and mixes for online release.",
-      thumbnail: "/assets/images/thumbnails/RemoteBandCovers.png",
+      thumbnail: "assets/images/thumbnails/RemoteBandCovers.png",
       media: {
         images: [],
         videos: [],
@@ -124,7 +124,7 @@
       meta: "Music Production · Freelance · Short Film",
       summary:
         "Handled end-to-end music production for an APPPKP short film project—composing, arranging, and mixing soundtrack cues that support mood, pacing, and narrative impact, while collaborating with directors and editors for final delivery.",
-      thumbnail: "/assets/images/thumbnails/APPPKP.png",
+      thumbnail: "assets/images/thumbnails/APPPKP.png",
       media: {
         images: [],
         videos: [],
@@ -158,7 +158,7 @@
       meta: "Drum Covers · Improvisation · Mixing",
       summary:
         "A growing collection of drum covers highlighting my groove versatility, timing precision, and improvisational style. Each cover is recorded and mixed with attention to tone, clarity, and musical expression.",
-      thumbnail: "/assets/images/thumbnails/DrumCovers.png",
+      thumbnail: "assets/images/thumbnails/DrumCovers.png",
       media: {
         images: [],
         videos: [],

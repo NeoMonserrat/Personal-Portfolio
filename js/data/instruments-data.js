@@ -1,4 +1,4 @@
-// /js/instruments-data.js
+// js/instruments-data.js
 // Central source of truth for instruments data (CDN-powered)
 
 const CLOUD_NAME = "dcnwpgvj5";
