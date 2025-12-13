@@ -1,5 +1,5 @@
 /* Highlight active nav link */
-.nav-links a[href="/public/contact.html"] {
+.nav-links a[href="contact.html"] {
   color: #ffffff;
   font-weight: 500;
 }

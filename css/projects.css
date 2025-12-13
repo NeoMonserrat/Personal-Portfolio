@@ -3,7 +3,7 @@
 =================================== */
 
 /* Highlight Projects in nav */
-.nav-links a[href="/public/projects.html"] {
+.nav-links a[href="projects.html"] {
   color: #ffffff;
   font-weight: 500;
 }
