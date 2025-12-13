@@ -295,7 +295,9 @@ function renderTravelRegions() {
       const flag = document.createElement("div");
       flag.className = "travel-flag-icon";
       if (dest.flag) {
-        flag.style.setProperty("--flag", `url('/assets/icons/flags/${dest.flag}')`);
+        // About page is in /public/, assets is one level up
+        const flagUrl = new URL(`../assets/icons/flags/${dest.flag}`, window.location.href).href;
+        flag.style.setProperty("--flag", `url('${flagUrl}')`);
       }
 
       const nameSpan = document.createElement("span");
