@@ -18,20 +18,23 @@
 </head>
 <body>
   <!-- NAVBAR -->
-    <header class="nav">
-    <div class="nav-inner">
-      <div class="nav-left">
-        <div class="logo-dot"></div>
-        <a href="index.html" class="nav-title">Neo Monserrat</a>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-      </nav>
-      <a class="nav-cta" href="contact.html">
-        Contact
-        <span>↗</span>
+  <header class="topbar">
+    <div class="topbar-left">
+      <img class="topbar-avatar" src="/assets/icons/profileLogo.png" alt="Neo avatar" />
+    </div>
+
+    <nav class="topbar-nav">
+      <a class="topbar-link" href="/index.html">Home</a>
+      <span class="topbar-sep">/</span>
+      <a class="topbar-link" href="/about.html">About</a>
+      <span class="topbar-sep">/</span>
+      <a class="topbar-link is-active" href="/projects.html">Projects</a>
+    </nav>
+
+    <div class="topbar-right">
+      <a class="topbar-cta" href="/assets/docs/AntonioMonserrat_CV.pdf" download>
+        <span class="cta-icon">⬇</span>
+        Download CV
       </a>
     </div>
   </header>
@@ -71,12 +74,52 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="page footer-inner">
-      <span>© <span id="year"></span> Antonio Enrique Monserrat</span>
-      <span class="footer-muted">Built with HTML, CSS &amp; JavaScript</span>
+<footer class="site-footer">
+  <div class="footer-inner">
+    
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="footer-name">Neo Monserrat</div>
+      <div class="footer-meta">
+        Software Technology · XR / Interactive Systems
+      </div>
     </div>
-  </footer>
+
+    <!-- Contact -->
+    <div class="footer-contact">
+      <div class="footer-contact-title">Contact</div>
+
+      <ul class="footer-contact-list">
+        <li>
+          <span class="contact-label">Phone</span>
+          <a href="tel:+639276646821">+63 927 664 6821</a>
+        </li>
+        <li>
+          <span class="contact-label">Email</span>
+          <a href="mailto:neo.monserrat@gmail.com">neo.monserrat@gmail.com</a>
+        </li>
+        <li>
+          <span class="contact-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/antonio-enrique-monserrat" target="_blank" rel="noopener">
+            antonio-enrique-monserrat
+          </a>
+        </li>
+        <li>
+          <span class="contact-label">GitHub</span>
+          <a href="https://github.com/NeoMonserrat" target="_blank" rel="noopener">
+            @NeoMonserrat
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+      © <span id="year"></span>
+    </div>
+
+  </div>
+</footer>
 
   <script src="js/data/project-data.js"></script>
   <script src="js/project.js"></script>

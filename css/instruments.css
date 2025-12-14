@@ -1,8 +1,11 @@
-/* instruments.css */
+/* ================================
+   INSTRUMENTS PAGE – DESK-STYLE
+================================ */
 
-/* Desk section spacing */
+/* Section spacing */
 .section-desk {
   padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 /* Back link */
@@ -20,101 +23,60 @@
   color: #ffffff;
 }
 
-/* Grid layout */
+/* ================================
+   GRID (MATCHES DESK SETUP)
+================================ */
+
 .desk-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.6rem;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
-/* Card base */
+/* ================================
+   CARD (MATCH DESK SETUP)
+================================ */
+
 .desk-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  height: 400px;
-  transition: box-shadow 0.25s ease, transform 0.25s ease,
-    border-color 0.25s ease, background 0.25s ease;
+  padding: 1.35rem 1.4rem 1.4rem;
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(15, 20, 45, 0.9),
+    rgba(10, 12, 30, 0.95)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.02),
+    0 10px 30px rgba(0,0,0,0.55);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .desk-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 0 1px rgba(120, 180, 255, 0.6),
-    0 18px 45px rgba(0, 0, 0, 0.9), 0 0 40px rgba(79, 140, 255, 0.65);
-  border-color: rgba(120, 180, 255, 0.9);
+  border-color: rgba(120, 180, 255, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(120, 180, 255, 0.45),
+    0 18px 45px rgba(0, 0, 0, 0.85),
+    0 0 45px rgba(79, 140, 255, 0.45);
 }
 
-/* Titles & meta */
-.desk-card-title {
-  font-weight: 600;
-  letter-spacing: 0.015em;
-}
+/* ================================
+   CARD CONTENT
+================================ */
 
-.desk-card-meta {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 0.9rem;
-}
-
-/* Specs list */
-.desk-spec-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.desk-spec-label {
-  display: block;
-  font-size: 0.88rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 0.15rem;
-}
-
-.desk-spec-value {
-  display: block;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.35;
-}
-
-/* Optional notes */
-.desk-card-notes {
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 0.4rem;
-  margin-bottom: 0;
-}
-
-/* Photo area */
-.desk-card-photo {
-  margin-top: auto;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 120px;
-}
-
-.desk-card-photo img {
-  height: 120px;
-  width: auto;
-  object-fit: contain;
-  border-radius: 12px;
-  display: block;
-}
-
-/* Category pill */
 .card-tag {
-  display: inline-block;
-  width: auto;
-  max-width: fit-content;
+  align-self: flex-start;
+  margin-bottom: 0.7rem;
   padding: 2px 12px;
-  margin-bottom: 0.75rem;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -124,10 +86,116 @@
   border-radius: 999px;
 }
 
-.desk-card:hover .card-tag {
-  background: rgba(120, 180, 255, 0.16);
-  border-color: rgba(120, 180, 255, 0.35);
-  color: #ffffff;
+.desk-card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.desk-card-meta {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 0.9rem;
+}
+
+/* Specs */
+.desk-spec-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.desk-spec-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.desk-spec-value {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ================================
+   IMAGE AREA (FIX FLOATING)
+================================ */
+
+.desk-card-photo {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.desk-card-photo img {
+  max-height: 110px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.65));
+}
+
+/* ================================
+   MODAL (UNCHANGED, SAFE)
+================================ */
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.instrument-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.instrument-modal.is-visible {
+  display: flex;
+}
+
+.instrument-modal-dialog {
+  background: linear-gradient(145deg, #050914, #060812);
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 1rem;
+  box-shadow:
+    0 0 0 1px rgba(120, 180, 255, 0.4),
+    0 18px 45px rgba(0, 0, 0, 0.9),
+    0 0 60px rgba(79, 140, 255, 0.6);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .desk-grid {
+    gap: 1.2rem;
+  }
+
+  .desk-card {
+    padding: 1.2rem;
+  }
+
+  .desk-card-photo img {
+    max-height: 95px;
+  }
+}
+
+@media (max-width: 420px) {
+  .desk-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Modal */
@@ -135,20 +203,25 @@ body.no-scroll {
   overflow: hidden;
 }
 
+/* ✅ HARD-HIDE MODAL WHEN CLOSED (prevents random × from appearing) */
 .instrument-modal {
+  display: none;                 /* <-- key fix */
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
-  display: flex;
+
   align-items: center;
   justify-content: center;
+
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.22s ease;
   z-index: 60;
 }
 
+/* Visible state */
 .instrument-modal.is-visible {
+  display: flex;                 /* <-- key fix */
   opacity: 1;
   pointer-events: auto;
 }
@@ -265,42 +338,13 @@ body.no-scroll {
   text-align: right;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .desk-card {
-    height: auto;
-  }
+/* ================================
+   PAGE SIDE MARGINS (MATCH DESK SETUP)
+================================ */
 
-  .desk-grid {
-    gap: 1.2rem;
-  }
-
-  .instrument-modal-dialog {
-    padding: 1.1rem 1.1rem 1.2rem;
-    max-width: 94%;
-    margin: 0 0.75rem;
-  }
-
-  .instrument-modal-layout {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-  }
-
-  .instrument-modal-photo img {
-    max-height: 200px;
-  }
-
-  .instrument-modal-title {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 420px) {
-  .desk-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .instrument-modal-dialog {
-    margin: 0 0.6rem;
-  }
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }

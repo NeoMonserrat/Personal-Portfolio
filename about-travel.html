@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta data-include="partials/head.html" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/about-travel.css" />
+  <link rel="stylesheet" href="css/about-gallery.css" />
+</head>
+
+<body class="about">
+  <div class="page-scroll" id="top">
+
+    <div data-include="partials/header.html"></div>
+
+    <div data-include="partials/about-subnav.html"></div>
+
+    <main class="page about-view" data-view="travel">
+      <section class="section">
+
+        <div id="travel" class="about-anchor"></div>
+
+        <div class="about-pane" data-pane="travel" style="display:block;">
+          <header class="section-header">
+            <h1 class="section-title">Travel</h1>
+            <p class="section-subtitle">
+              Experiencing new places and cultures broadens perspective.
+            </p>
+          </header>
+
+          <div class="card">
+            <div class="card-tag">Exploration</div>
+            <h3 class="card-title">Travel</h3>
+            <p class="card-text">
+              Experiencing new places and cultures broadens perspective.
+            </p>
+            <div id="travel-regions-root"></div>
+          </div>
+
+        </section>
+    </main>
+
+    <div data-include="partials/footer.html"></div>
+
+  </div>
+
+  <script src="js/includes.js"></script>
+  <script src="js/data/travel-data.js"></script>
+  <script src="js/about.js"></script>
+</body>
+</html>

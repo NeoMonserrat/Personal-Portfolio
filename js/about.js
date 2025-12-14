@@ -23,10 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   lightboxApi = setupLightbox();
 
+  // Build all thumb galleries on the page (music/sports pages will have them)
   document.querySelectorAll(".thumb-gallery").forEach((el) => {
     initThumbGallery(el);
   });
 
+  // Travel page only (safe: function early-returns if root missing)
   renderTravelRegions();
 });
 
@@ -74,7 +76,6 @@ function setupLightbox() {
   return { open, close };
 }
 
-
 // --------------------------------------------------
 // Helpers: safe image probing (prevents broken/filler)
 // --------------------------------------------------
@@ -100,7 +101,7 @@ function probeImage(url) {
 // --------------------------------------------------
 async function initThumbGallery(root) {
   const prefix = (root.dataset.cdnPrefix || "").trim(); // e.g., music
-  const max = Number(root.dataset.max || "80");         // safety cap
+  const max = Number(root.dataset.max || "80"); // safety cap
   const missLimit = Number(root.dataset.missLimit || "6"); // stop after N misses in a row
 
   if (!prefix) return;
@@ -186,7 +187,11 @@ async function initThumbGallery(root) {
 
     if (scrollThumbIntoView) {
       const thumbEl = rail.children[active];
-      thumbEl?.scrollIntoView?.({ behavior: "smooth", inline: "center", block: "nearest" });
+      thumbEl?.scrollIntoView?.({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
     }
   };
 
@@ -214,29 +219,41 @@ async function initThumbGallery(root) {
 
   // Swipe on main (touch)
   let touchStartX = 0;
-  top.addEventListener("touchstart", (e) => {
-    const t = e.touches[0];
-    if (!t) return;
-    touchStartX = t.clientX;
-  }, { passive: true });
+  top.addEventListener(
+    "touchstart",
+    (e) => {
+      const t = e.touches[0];
+      if (!t) return;
+      touchStartX = t.clientX;
+    },
+    { passive: true }
+  );
 
-  top.addEventListener("touchend", (e) => {
-    const t = e.changedTouches[0];
-    if (!t) return;
-    const dx = t.clientX - touchStartX;
-    if (Math.abs(dx) < 35) return;
+  top.addEventListener(
+    "touchend",
+    (e) => {
+      const t = e.changedTouches[0];
+      if (!t) return;
+      const dx = t.clientX - touchStartX;
+      if (Math.abs(dx) < 35) return;
 
-    if (dx < 0) setActive(active + 1, true);
-    else setActive(active - 1, true);
-  }, { passive: true });
+      if (dx < 0) setActive(active + 1, true);
+      else setActive(active - 1, true);
+    },
+    { passive: true }
+  );
 
-  // Mouse wheel vertical -> horizontal scroll on rail (nice UX)
-  rail.addEventListener("wheel", (e) => {
-    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      rail.scrollLeft += e.deltaY;
-      e.preventDefault();
-    }
-  }, { passive: false });
+  // Mouse wheel vertical -> horizontal scroll on rail
+  rail.addEventListener(
+    "wheel",
+    (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        rail.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }
+    },
+    { passive: false }
+  );
 }
 
 // --------------------------------------------------
@@ -302,7 +319,6 @@ function renderTravelRegions() {
       flag.className = "travel-flag-icon";
 
       if (dest.flag) {
-        // ✅ This is the fix: resolves correctly regardless of repo base path
         const flagUrl = new URL(`icons/flags/${dest.flag}`, assetsBase).href;
         flag.style.setProperty("--flag", `url('${flagUrl}')`);
       }
@@ -325,75 +341,69 @@ function renderTravelRegions() {
   });
 }
 
-  window.addEventListener("load", () => {
-    document.querySelectorAll(".thumb-gallery").forEach((gallery) => {
-      const top = gallery.querySelector(".gallery-top");
-      const rail = gallery.querySelector(".gallery-rail");
-      if (!top || !rail) return;
+// --------------------------------------------------
+// Gallery toggle button ("View gallery" / "Hide gallery")
+// --------------------------------------------------
+window.addEventListener("load", () => {
+  document.querySelectorAll(".thumb-gallery").forEach((gallery) => {
+    const top = gallery.querySelector(".gallery-top");
+    const rail = gallery.querySelector(".gallery-rail");
+    if (!top || !rail) return;
 
-      let btn = top.querySelector(".gallery-toggle");
-      if (!btn) {
-        btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "gallery-toggle";
-        btn.textContent = "View gallery";
-        btn.setAttribute("aria-expanded", "false");
-        top.appendChild(btn);
-      }
+    let btn = top.querySelector(".gallery-toggle");
+    if (!btn) {
+      btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "gallery-toggle";
+      btn.textContent = "View gallery";
+      btn.setAttribute("aria-expanded", "false");
+      top.appendChild(btn);
+    }
 
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
 
-        const isOpen = gallery.classList.toggle("rail-open");
-        btn.textContent = isOpen ? "Hide gallery" : "View gallery";
-        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
+      const isOpen = gallery.classList.toggle("rail-open");
+      btn.textContent = isOpen ? "Hide gallery" : "View gallery";
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
   });
-  
-  window.addEventListener("load", () => {
-    const root = document.querySelector(".about-view");
+});
+
+// --------------------------------------------------
+// ABOUT SUBNAV (multi-page)
+// - Works even if subnav is injected AFTER load via includes.js
+// --------------------------------------------------
+(function initAboutSubnavActive() {
+  const applyActive = () => {
     const links = Array.from(document.querySelectorAll(".about-subnav-link"));
-    const allowed = new Set(["general", "music", "sports", "travel"]);
+    if (!links.length) return false;
 
-    const scrollToView = (view) => {
-      const target = document.getElementById(view);
-      if (!target) return;
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    };
+    const currentFile =
+      (window.location.pathname.split("/").pop() || "about.html").toLowerCase();
 
-    const setActive = (view, opts = {}) => {
-      if (!root) return;
-
-      const { pushHash = true, scroll = true } = opts;
-
-      root.setAttribute("data-view", view);
-
-      links.forEach((a) => {
-        a.classList.toggle("is-active", a.dataset.view === view);
-      });
-
-      if (pushHash) {
-        history.replaceState(null, "", "#" + view);
-      }
-
-      if (scroll) {
-        scrollToView(view);
-      }
-    };
-
-    // Click behavior (switch pane + focus scroll)
     links.forEach((a) => {
-      a.addEventListener("click", (e) => {
-        e.preventDefault();
-        const view = a.dataset.view;
-        if (!allowed.has(view)) return;
-        setActive(view, { pushHash: true, scroll: true });
-      });
+      const href = (a.getAttribute("href") || "").toLowerCase();
+
+      // remove hash/query, get filename only
+      const targetFile = href.split("#")[0].split("?")[0].split("/").pop();
+
+      a.classList.toggle("is-active", targetFile === currentFile);
     });
 
-    // Deep link on load (#music, #sports, #travel)
-    const initial = (location.hash || "#general").replace("#", "");
-    setActive(allowed.has(initial) ? initial : "general", { pushHash: false, scroll: false });
-  });
+    return true;
+  };
+
+  // Try immediately
+  if (applyActive()) return;
+
+  // Retry for injected partials (fast + safe)
+  let tries = 0;
+  const tick = () => {
+    tries++;
+    if (applyActive()) return;
+    if (tries < 80) requestAnimationFrame(tick); // ~1.3s max
+  };
+  requestAnimationFrame(tick);
+})();
