@@ -13,31 +13,12 @@
   />
 
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/instruments.css" />
+  <link rel="stylesheet" href="css/about/instruments.css" />
 </head>
 
 <body>
-  <!-- NAVBAR -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <img class="topbar-avatar" src="/assets/icons/profileLogo.png" alt="Neo avatar" />
-    </div>
-
-    <nav class="topbar-nav">
-      <a class="topbar-link" href="/index.html">Home</a>
-      <span class="topbar-sep">/</span>
-      <a class="topbar-link is-active" href="/about.html">About</a>
-      <span class="topbar-sep">/</span>
-      <a class="topbar-link" href="/projects.html">Projects</a>
-    </nav>
-
-    <div class="topbar-right">
-      <a class="topbar-cta" href="/assets/docs/AntonioMonserrat_CV.pdf" download>
-        <span class="cta-icon">⬇</span>
-        Download CV
-      </a>
-    </div>
-  </header>
+  <!-- header include -->
+  <div data-include="partials/header2.html"></div>
 
   <!-- MAIN -->
   <main class="page">
@@ -77,7 +58,7 @@
         <p id="instrument-modal-meta" class="instrument-modal-meta"></p>
       </div>
 
-      <!-- New layout: image + description -->
+      <!-- image + description -->
       <div class="instrument-modal-layout">
         <div class="instrument-modal-photo">
           <img id="instrument-modal-image" src="" alt="" />
@@ -91,68 +72,24 @@
         </div>
       </div>
 
-      <!-- Specs now live in their own full-width row -->
+      <!-- specs -->
       <ul id="instrument-modal-specs" class="instrument-modal-specs">
         <!-- injected by JS -->
       </ul>
     </div>
   </div>
 
+  <!-- footer include -->
+  <div data-include="partials/footer.html"></div>
 
-  <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    
-    <!-- Brand -->
-    <div class="footer-brand">
-      <div class="footer-name">Neo Monserrat</div>
-      <div class="footer-meta">
-        Software Technology · XR / Interactive Systems
-      </div>
-    </div>
-
-    <!-- Contact -->
-    <div class="footer-contact">
-      <div class="footer-contact-title">Contact</div>
-
-      <ul class="footer-contact-list">
-        <li>
-          <span class="contact-label">Phone</span>
-          <a href="tel:+639276646821">+63 927 664 6821</a>
-        </li>
-        <li>
-          <span class="contact-label">Email</span>
-          <a href="mailto:neo.monserrat@gmail.com">neo.monserrat@gmail.com</a>
-        </li>
-        <li>
-          <span class="contact-label">LinkedIn</span>
-          <a href="https://www.linkedin.com/in/antonio-enrique-monserrat" target="_blank" rel="noopener">
-            antonio-enrique-monserrat
-          </a>
-        </li>
-        <li>
-          <span class="contact-label">GitHub</span>
-          <a href="https://github.com/NeoMonserrat" target="_blank" rel="noopener">
-            @NeoMonserrat
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Copyright -->
-    <div class="footer-copy">
-      © <span id="year"></span>
-    </div>
-
-  </div>
-</footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <!-- scripts -->
+  <script src="js/includes.js"></script>
 
   <!-- Instruments data + logic -->
   <script src="js/data/instruments-data.js"></script>
   <script src="js/instruments.js"></script>
+
+  <!-- footer year (external) -->
+  <script src="js/footer-year.js"></script>
 </body>
 </html>

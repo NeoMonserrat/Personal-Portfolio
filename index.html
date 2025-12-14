@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- includes.js will inject partials/head.html content into this <head> -->
+  <!-- head partial -->
   <meta data-include="partials/head.html" />
+  
+  <link rel="stylesheet" href="css/home/index.css" />
+  <link rel="stylesheet" href="css/home/offer.css" />
+  <link rel="stylesheet" href="css/home/techstack.css" />
 </head>
 
 <body class="home">
-  <!-- ✅ One scroll container for EVERYTHING (including sticky header) -->
+  <!-- page wrapper -->
   <div class="page-scroll" id="top">
+    <!-- header -->
     <div data-include="partials/header.html"></div>
 
     <main>
-      <div data-include="partials/hero.html"></div>
-      <div data-include="partials/offer.html"></div>
-      <div data-include="partials/techstack.html"></div>
+      <!-- hero -->
+      <div data-include="partials/home/hero.html"></div>
+
+      <!-- offer -->
+      <div data-include="partials/home/offer.html"></div>
+
+      <!-- tech stack -->
+      <div data-include="partials/home/techstack.html"></div>
     </main>
 
+    <!-- footer -->
     <div data-include="partials/footer.html"></div>
   </div>
 
+  <!-- includes loader -->
   <script src="js/includes.js"></script>
 </body>
 </html>

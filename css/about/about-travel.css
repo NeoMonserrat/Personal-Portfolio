@@ -1,0 +1,116 @@
+/* TRAVEL REGIONS */
+#travel-regions-root{
+  display:grid;
+  gap:.65rem;
+  margin-top:.45rem;
+  grid-auto-rows:minmax(84px, auto);
+}
+
+@media (min-width:860px){
+  #travel-regions-root{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width:1280px){
+  #travel-regions-root{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* REGION CARD */
+.travel-region-group{
+  display:flex;
+  flex-direction:column;
+  padding:.6rem .7rem;
+  border-radius:13px;
+  background:radial-gradient(
+    120% 140% at 20% 0%,
+    rgba(79,140,255,0.09),
+    rgba(255,255,255,0.018) 60%
+  );
+  border:1px solid rgba(255,255,255,0.085);
+  box-shadow:0 8px 22px rgba(0,0,0,0.32), inset 0 0 0 1px rgba(255,255,255,0.035);
+  transition:transform .12s ease, border-color .12s ease;
+}
+
+.travel-region-group:hover{
+  transform:translateY(-1px);
+  border-color:rgba(79,140,255,0.28);
+}
+
+/* TITLE */
+.travel-region-title{
+  margin-bottom:.45rem;
+  padding:.28rem .45rem;
+  border-radius:8px;
+  font-size:.68rem;
+  letter-spacing:.14em;
+  font-weight:700;
+  text-transform:uppercase;
+  background:rgba(0,0,0,0.22);
+  border:1px solid rgba(255,255,255,0.07);
+  color:rgba(255,255,255,0.78);
+}
+
+/* LIST */
+.travel-country-select{
+  display:flex;
+  flex-direction:column;
+  gap:.38rem;
+}
+
+/* ROW */
+.travel-select-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.5rem;
+  padding:.45rem .6rem;
+  border-radius:10px;
+  text-decoration:none;
+  background:rgba(255,255,255,0.022);
+  border:1px solid rgba(255,255,255,0.055);
+  transition:background .12s ease, transform .1s ease;
+}
+
+.travel-select-row:hover{
+  background:rgba(255,255,255,0.055);
+  transform:translateY(-1px);
+}
+
+/* LEFT */
+.travel-select-left{
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+  min-width:0;
+}
+
+/* FLAG */
+.travel-flag-icon{
+  width:22px;
+  height:15px;
+  border-radius:4px;
+  flex-shrink:0;
+  background-image:var(--flag);
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.12), 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* NAME */
+.travel-select-row .travel-name{
+  font-size:.82rem;
+  font-weight:600;
+  color:rgba(255,255,255,0.9);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* CHEVRON */
+.travel-chevron{
+  font-size:.95rem;
+  color:rgba(255,255,255,0.45);
+}

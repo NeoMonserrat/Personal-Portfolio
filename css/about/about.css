@@ -1,0 +1,154 @@
+/* ABOUT TOKENS */
+:root{
+  --about-sidebar-w:228px;
+  --about-sidebar-gap:1.4rem;
+  --about-content-max:1180px;
+}
+
+/* SIDEBAR */
+.about-subnav-wrap{
+  position:fixed;
+  top:110px;
+  left:1.25rem;
+  z-index:70;
+  width:var(--about-sidebar-w);
+  height:auto;
+  display:block;
+}
+
+.about-subnav{
+  width:100%;
+  padding:.95rem;
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+  gap:.45rem;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.10);
+  box-shadow:0 10px 32px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+.about-subnav-link{
+  font-size:.95rem;
+  font-weight:650;
+  color:rgba(244,241,255,0.72);
+  padding:.65rem .9rem;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  transition:.15s ease;
+}
+
+.about-subnav-link:hover{
+  color:rgba(244,241,255,0.95);
+  background:rgba(255,255,255,0.06);
+}
+
+.about-subnav-link.is-active{
+  color:#fff;
+  background:rgba(124,92,255,0.18);
+  border:1px solid rgba(124,92,255,0.55);
+  box-shadow:0 0 0 3px rgba(124,92,255,0.15);
+}
+
+/* LAYOUT */
+.section{
+  max-width:var(--about-content-max);
+  margin-top:4.75rem;
+  margin-left:calc(var(--about-sidebar-w) + (var(--about-sidebar-gap) * 2));
+  margin-right:auto;
+  padding-bottom:4rem;
+}
+
+.about-pane[data-pane="general"] .about-section-card{ margin-bottom:2.8rem; }
+
+/* CARDS */
+.card{
+  border-radius:18px;
+  padding:1.5rem 1.6rem;
+  background:
+    radial-gradient(120% 140% at 20% 0%, rgba(124,92,255,0.10), rgba(255,255,255,0.02) 60%);
+  border:1px solid rgba(255,255,255,0.10);
+  box-shadow:0 10px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.card-title{
+  font-size:1.15rem;
+  margin-bottom:.8rem;
+}
+
+.card-text{
+  max-width:760px;
+  line-height:1.65;
+  color:rgba(244,241,255,0.8);
+}
+
+.card-text + .card-text{ margin-top:1rem; }
+
+.card-header{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  margin-bottom:.6rem;
+}
+
+.card-actions{
+  margin-top:auto;
+  display:flex;
+  justify-content:flex-end;
+}
+
+/* ✅ GALLERY spacing on About page */
+.about .thumb-gallery{
+  margin: 0 0 2rem;
+}
+
+/* INTERESTS */
+.about-interests-grid{
+  display:grid;
+  gap:1.8rem;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  margin-top:1.8rem;
+}
+
+.about-interest-card{
+  min-height:210px;
+  display:flex;
+  flex-direction:column;
+  transition:transform .18s ease;
+}
+
+.about-interest-card:hover{ transform:translateY(-3px); }
+
+/* RESPONSIVE */
+@media (max-width:720px){
+  .about-subnav-wrap{
+    position:sticky;
+    top:200px;
+    left:0;
+    width:100%;
+  }
+
+  .about-subnav{
+    max-height:320px;
+    flex-direction:row;
+    border-radius:999px;
+    padding:.5rem;
+  }
+
+  .about-subnav-link{
+    font-size:.85rem;
+    padding:.45rem .75rem;
+  }
+
+  .section{
+    margin:0 auto;
+    padding:0 1rem 3rem;
+  }
+
+  .section-subtitle{ max-width:none; }
+}
+
+@media (max-width:640px){
+  .about-interests-grid{ grid-template-columns:1fr; }
+}

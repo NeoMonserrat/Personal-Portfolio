@@ -24,7 +24,7 @@
     {
       id: "drumxroll",
       category: "academic",
-      tag: "Thesis · 2024–2025",
+      tag: "Thesis · 2024–2026",
       title: "DrumXRoll: Exploring XR Piano Roll in Teaching Drum Improvisation",
       meta: "Unity · C# · XR Interaction Toolkit · Meta Quest SDK",
       github: "https://github.com/NeoMonserrat/DrumXRoll",

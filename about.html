@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta data-include="partials/head.html" />
-  <link rel="stylesheet" href="css/about.css" />
-  <link rel="stylesheet" href="css/about-gallery.css" />
+  <link rel="stylesheet" href="css/about/about.css" />
+  <link rel="stylesheet" href="css/about/about-gallery.css" />
 </head>
 
 <body class="about">
@@ -42,6 +42,9 @@
               sports.
             </p>
           </div>
+
+          <!-- ✅ GALLERY: This will load about1, about2, about3... from Cloudinary -->
+          <div class="thumb-gallery" data-cdn-prefix="about" data-max="30" data-miss-limit="6"></div>
 
           <div class="about-interests-grid">
 
