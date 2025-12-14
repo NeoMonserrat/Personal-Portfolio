@@ -9,6 +9,26 @@
   font-weight:800;
 }
 
+/* ---------------------------------------------------------
+   FIX: Ensure content starts BELOW the fixed header/topbar
+   --------------------------------------------------------- */
+
+/* Adjust this if your header height changes */
+:root{
+  --topbar-height: 78px;          /* estimated fixed header height */
+  --topbar-gap: 22px;             /* breathing room below header */
+}
+
+/* If your header partial uses .topbar and it is fixed, this prevents overlap */
+.page--with-topbar{
+  padding-top: calc(var(--topbar-height) + var(--topbar-gap));
+}
+
+/* When jumping to anchors (or reloading with #...), keep section visible */
+#project-section{
+  scroll-margin-top: calc(var(--topbar-height) + 16px);
+}
+
 /* If your header partial uses .topbar instead of .nav */
 .topbar,
 header.topbar{
@@ -237,6 +257,11 @@ header.topbar{
 
 /* RESPONSIVE */
 @media (max-width:860px){
+  :root{
+    --topbar-height: 74px;
+    --topbar-gap: 18px;
+  }
+
   .page{ width:calc(100% - 2rem); }
 
   #project-section .section-header{ padding:.85rem 1.05rem 1.1rem; }
@@ -244,6 +269,11 @@ header.topbar{
 }
 
 @media (max-width:520px){
+  :root{
+    --topbar-height: 72px;
+    --topbar-gap: 16px;
+  }
+
   .project-info-row,
   #project-section #project-summary,
   #project-section .section-title{ padding-left:0; }
