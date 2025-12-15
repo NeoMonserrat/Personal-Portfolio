@@ -205,7 +205,7 @@
   /* Header stays fixed */
   .offer-header{
     flex: 0 0 auto;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   /* Grid scrolls internally */
@@ -214,63 +214,108 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 6px;
+
+    /* tighter list density */
+    gap: 10px !important;
   }
 
   /* ---- SLIDE SHRINK PACK (Offer-specific) ---- */
   .offer-inner{
-    padding: var(--slide-pad, 14px) var(--container-pad) 12px !important;
-    gap: 10px !important;
-  }
-
-  .offer-title{
-    font-size: clamp(26px, 6.6vw, 34px) !important;
-    line-height: 1.05 !important;
-    margin: 0 !important;
-  }
-
-  .offer-subtitle{
-    font-size: 14px !important;
-    line-height: 1.35 !important;
-    margin-top: 6px !important;
+    padding: 12px var(--container-pad) 10px !important;
+    gap: 8px !important;
   }
 
   .offer-eyebrow{
+    font-size: 10.5px !important;
+    letter-spacing: .14em !important;
+    margin-bottom: .45rem !important;
+  }
+
+  .offer-title{
+    font-size: clamp(24px, 6.3vw, 32px) !important;
+    line-height: 1.05 !important;
+    margin: 0 0 .35rem !important;
+  }
+
+  .offer-subtitle{
+    font-size: 13.5px !important;
+    line-height: 1.32 !important;
+    margin: 0 !important;
+
+    /* keep subtitle compact */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  /* ---- CARD: smaller footprint but still clear ---- */
+  .offer-pillar{
+    padding: 12px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 16px 42px rgba(0,0,0,0.30) !important;
+  }
+
+  /* thinner top gradient strip */
+  .offer-pillar::after{
+    height: 4px !important;
+  }
+
+  .pillar-top{
+    margin: 0 0 6px !important;
+    gap: .6rem !important;
+  }
+
+  .pillar-num{
+    padding: .28rem .52rem !important;
     font-size: 11px !important;
     letter-spacing: .14em !important;
   }
 
-  .offer-pillar-grid{
-    gap: 12px !important;
-  }
-
-  /* Reduce card footprint */
-  .offer-pillar{
-    padding: 14px !important;
-    border-radius: 16px !important;
-  }
-
-  .pillar-top{
-    margin-bottom: 8px !important;
+  .pillar-tag{
+    font-size: 11px !important;
+    letter-spacing: .10em !important;
   }
 
   .pillar-title{
-    font-size: 18px !important;
+    font-size: 16px !important;
     line-height: 1.12 !important;
     margin: 0 0 6px !important;
   }
 
   .pillar-text{
-    font-size: 13.5px !important;
-    line-height: 1.35 !important;
+    font-size: 13px !important;
+    line-height: 1.32 !important;
     margin: 0 !important;
+
+    /* biggest win: clamp description so cards stay short */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
   .pillar-foot{
-    margin-top: 10px !important;
-    gap: 8px !important;
+    margin-top: 8px !important;
+    padding-top: 10px !important;
+    gap: 6px !important;
+
+    /* keep chips from making cards tall */
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Disable hover lift on mobile (important!) */
+  .pillar-foot::-webkit-scrollbar{ display: none; }
+
+  .pillar-chip{
+    padding: .30rem .52rem !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+    flex: 0 0 auto;
+  }
+
+  /* Disable hover lift on mobile */
   .offer-pillar:hover{
     transform: none;
   }
