@@ -192,3 +192,37 @@
 @media (max-width:980px){
   .offer-pillar-grid{ grid-template-columns:1fr; }
 }
+
+@media (max-width: 430px){
+
+  /* Lock offer section content */
+  .offer-inner{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header stays fixed */
+  .offer-header{
+    flex: 0 0 auto;
+    margin-bottom: 12px;
+  }
+
+  /* Grid scrolls internally */
+  .offer-pillar-grid{
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+
+  /* Reduce card footprint */
+  .offer-pillar{
+    padding: 14px;
+  }
+
+  /* Disable hover lift on mobile (important!) */
+  .offer-pillar:hover{
+    transform: none;
+  }
+}

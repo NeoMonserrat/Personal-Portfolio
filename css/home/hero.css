@@ -296,7 +296,7 @@
   .hero-intro{
     position: relative;
     z-index: 3;
-    margin-top: clamp(260px, 38vh, 330px);
+    margin-top: min(38vh, 300px);
     transform: none;
 
     margin-inline: auto;
