@@ -195,51 +195,46 @@
 
 @media (max-width: 430px){
 
-  /* Lock offer section content */
+  /* ===============================
+     OFFER: keep content BELOW topbar
+  =============================== */
   .offer-inner{
     height: 100%;
     display: flex;
     flex-direction: column;
-  }
 
-  /* Header stays fixed */
-  .offer-header{
-    flex: 0 0 auto;
-    margin-bottom: 10px;
-  }
+    /* KEY FIX: push everything below the sticky header/topbar */
+    padding-top: calc(var(--topbar-offset, 0px) + 14px) !important;
 
-  /* Grid scrolls internally */
-  .offer-pillar-grid{
-    flex: 1 1 auto;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 6px;
-
-    /* tighter list density */
-    gap: 10px !important;
-  }
-
-  /* ---- SLIDE SHRINK PACK (Offer-specific) ---- */
-  .offer-inner{
-    padding: 12px var(--container-pad) 10px !important;
+    /* tighter overall pack */
+    padding-right: var(--container-pad) !important;
+    padding-left:  var(--container-pad) !important;
+    padding-bottom: 10px !important;
     gap: 8px !important;
   }
 
-  .offer-eyebrow{
-    font-size: 10.5px !important;
-    letter-spacing: .14em !important;
-    margin-bottom: .45rem !important;
+  /* Header stays visible */
+  .offer-header{
+    flex: 0 0 auto;
+    margin: 0 0 8px !important;
   }
 
-  .offer-title{
-    font-size: clamp(24px, 6.3vw, 32px) !important;
-    line-height: 1.05 !important;
+  /* tighter header typography */
+  .offer-eyebrow{
+    font-size: 10px !important;
+    letter-spacing: .14em !important;
     margin: 0 0 .35rem !important;
   }
 
+  .offer-title{
+    font-size: clamp(22px, 6vw, 30px) !important;
+    line-height: 1.04 !important;
+    margin: 0 0 .25rem !important;
+  }
+
   .offer-subtitle{
-    font-size: 13.5px !important;
-    line-height: 1.32 !important;
+    font-size: 13px !important;
+    line-height: 1.28 !important;
     margin: 0 !important;
 
     /* keep subtitle compact */
@@ -249,46 +244,61 @@
     overflow: hidden;
   }
 
-  /* ---- CARD: smaller footprint but still clear ---- */
+  /* ===============================
+     Grid scrolls internally
+  =============================== */
+  .offer-pillar-grid{
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px !important;
+
+    /* tighter list density */
+    gap: 9px !important;
+  }
+
+  /* ===============================
+     CARD: smaller footprint
+  =============================== */
   .offer-pillar{
-    padding: 12px !important;
-    border-radius: 16px !important;
-    box-shadow: 0 16px 42px rgba(0,0,0,0.30) !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+    box-shadow: 0 14px 36px rgba(0,0,0,0.28) !important;
   }
 
   /* thinner top gradient strip */
   .offer-pillar::after{
-    height: 4px !important;
+    height: 3px !important;
   }
 
   .pillar-top{
     margin: 0 0 6px !important;
-    gap: .6rem !important;
+    gap: .55rem !important;
   }
 
   .pillar-num{
-    padding: .28rem .52rem !important;
-    font-size: 11px !important;
+    padding: .24rem .48rem !important;
+    font-size: 10.5px !important;
     letter-spacing: .14em !important;
   }
 
   .pillar-tag{
-    font-size: 11px !important;
+    font-size: 10.5px !important;
     letter-spacing: .10em !important;
   }
 
   .pillar-title{
-    font-size: 16px !important;
+    font-size: 15px !important;
     line-height: 1.12 !important;
-    margin: 0 0 6px !important;
+    margin: 0 0 5px !important;
   }
 
   .pillar-text{
-    font-size: 13px !important;
-    line-height: 1.32 !important;
+    font-size: 12.5px !important;
+    line-height: 1.28 !important;
     margin: 0 !important;
 
-    /* biggest win: clamp description so cards stay short */
+    /* clamp description so cards stay short */
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -296,8 +306,8 @@
   }
 
   .pillar-foot{
-    margin-top: 8px !important;
-    padding-top: 10px !important;
+    margin-top: 7px !important;
+    padding-top: 8px !important;
     gap: 6px !important;
 
     /* keep chips from making cards tall */
@@ -309,8 +319,8 @@
   .pillar-foot::-webkit-scrollbar{ display: none; }
 
   .pillar-chip{
-    padding: .30rem .52rem !important;
-    font-size: 11px !important;
+    padding: .28rem .50rem !important;
+    font-size: 10.5px !important;
     white-space: nowrap !important;
     flex: 0 0 auto;
   }
@@ -320,3 +330,4 @@
     transform: none;
   }
 }
+

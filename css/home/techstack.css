@@ -146,39 +146,100 @@
 
 @media (max-width: 430px){
 
+  /* ONE-SLIDE: everything must stay inside the viewport */
   .tech-inner{
-    height: 100%;
+    min-height: calc(100dvh - var(--topbar-offset));
+    min-height: calc(100svh - var(--topbar-offset));
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    padding: 10px var(--container-pad) 8px !important; /* tighter */
   }
 
-  /* Header stays visible */
+  /* Header tighter */
   .tech-header{
     flex: 0 0 auto;
-    margin-bottom: 12px;
+    margin-bottom: 6px !important;
   }
 
-  /* All groups scroll inside slide */
+  .tech-title,
+  .tech-header .section-title{
+    font-size: clamp(20px, 5.8vw, 26px) !important;
+    line-height: 1.04 !important;
+    margin: 0 0 4px !important;
+  }
+
+  .tech-subtitle,
+  .tech-header .section-subtitle{
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+
+    /* keep header from pushing everything down */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* was 2 */
+    overflow: hidden;
+  }
+
+  /* Groups: NO scroll, minimal spacing */
   .tech-group{
-    flex: 1 1 auto;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: 18px;
+    flex: 0 0 auto;
+    overflow: hidden !important;
+    margin-bottom: 8px !important;
+  }
+  .tech-group:last-child{ margin-bottom: 0 !important; }
+
+  /* Group labels */
+  .tech-group-title,
+  .tech-label{
+    margin: 6px 0 4px !important;
+    font-size: 10.5px !important;
+    letter-spacing: .14em !important;
+    opacity: .75;
   }
 
-  /* Compact grid */
+  /* Grid: denser */
   .tech-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
   }
 
+  /* Cards: fixed height so total rows stay predictable */
   .tech-card{
-    min-height: 110px;
-    padding: 12px;
+    height: 74px !important;     /* KEY: forces compact rows */
+    min-height: 0 !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+
+    display: flex;               /* makes icon+text align nicely */
+    flex-direction: column;
+    justify-content: center;
   }
 
-  /* Disable hover motion */
-  .tech-card:hover{
-    transform: none;
+  /* Icon smaller */
+  .tech-card img,
+  .tech-card svg{
+    width: 28px !important;
+    height: 28px !important;
   }
+
+  /* Label smaller but readable */
+  .tech-card .tech-name,
+  .tech-card h3,
+  .tech-card .label{
+    font-size: 12.5px !important;
+    line-height: 1.1 !important;
+    margin-top: 6px !important;
+
+    /* prevent wrapping from increasing height */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Disable hover motion on mobile */
+  .tech-card:hover{ transform: none; }
 }
+
+
