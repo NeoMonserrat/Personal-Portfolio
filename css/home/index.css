@@ -259,3 +259,38 @@
     justify-self:start;
   }
 }
+
+/* ========================================
+   HERO CTA VARIANTS
+======================================== */
+
+/* Primary CTA — Contact Me */
+.btn-primary{
+  background:linear-gradient(
+    135deg,
+    var(--accent),
+    rgba(124,92,255,0.95)
+  );
+  color:#0b0818;
+  font-weight:800;
+  box-shadow:0 10px 30px rgba(124,92,255,0.35);
+}
+
+.btn-primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 16px 40px rgba(124,92,255,0.45);
+}
+
+/* Secondary CTA — Download CV */
+.btn-outline{
+  background:transparent;
+  color:rgba(244,241,255,0.88);
+  font-weight:800;
+  border:1px solid rgba(255,255,255,0.22);
+  box-shadow:none;
+}
+
+.btn-outline:hover{
+  background:rgba(255,255,255,0.08);
+  transform:translateY(-1px);
+}

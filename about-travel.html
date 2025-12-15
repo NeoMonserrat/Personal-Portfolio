@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta data-include="partials/head.html" />
-  <link rel="stylesheet" href="css/about/about.css" />
-  <link rel="stylesheet" href="css/about/about-travel.css" />
-  <link rel="stylesheet" href="css/about/about-gallery.css" />
-</head>
+  <head>
+    <meta data-include="partials/head.html" />
 
-<body class="about">
-  <div class="page-scroll" id="top">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/about/about-subnav.css" />
+    <link rel="stylesheet" href="css/about/about-travel.css" />
+  </head>
 
-    <div data-include="partials/header.html"></div>
+  <body class="about">
+    <div class="page-scroll" id="top">
+      <div data-include="partials/header.html"></div>
+      <div data-include="partials/about-subnav.html"></div>
 
-    <div data-include="partials/about-subnav.html"></div>
+      <main class="page about-view" data-view="travel">
+        <section class="section">
+          <div id="travel" class="about-anchor"></div>
 
-    <main class="page about-view" data-view="travel">
-      <section class="section">
+          <div class="about-pane" data-pane="travel" style="display: block;">
+            <header class="section-header compact">
+              <h1 class="section-title">Travel</h1>
+              <p class="section-subtitle">
+                Experiencing new places and cultures broadens perspective.
+              </p>
+            </header>
 
-        <div id="travel" class="about-anchor"></div>
+            <div class="card travel-card compact">
+              <h3 class="card-title">Places I’ve been</h3>
+              <p class="card-text">
+                Organized by region — tap a country to view highlights.
+              </p>
 
-        <div class="about-pane" data-pane="travel" style="display:block;">
-          <header class="section-header">
-            <h1 class="section-title">Travel</h1>
-            <p class="section-subtitle">
-              Experiencing new places and cultures broadens perspective.
-            </p>
-          </header>
-
-          <div class="card">
-            <div class="card-tag">Exploration</div>
-            <h3 class="card-title">Travel</h3>
-            <p class="card-text">
-              Experiencing new places and cultures broadens perspective.
-            </p>
-            <div id="travel-regions-root"></div>
+              <div id="travel-regions-root"></div>
+            </div>
           </div>
-
         </section>
-    </main>
+      </main>
 
-    <div data-include="partials/footer.html"></div>
+      <div data-include="partials/footer.html"></div>
+    </div>
 
-  </div>
-
-  <script src="js/includes.js"></script>
-  <script src="js/data/travel-data.js"></script>
-  <script src="js/about.js"></script>
-</body>
+    <script src="js/includes.js"></script>
+    <script src="js/data/travel-data.js"></script>
+    <script src="js/about.js"></script>
+  </body>
 </html>

@@ -3,69 +3,46 @@
   --about-sidebar-w:228px;
   --about-sidebar-gap:1.4rem;
   --about-content-max:1180px;
+
+  --about-pill-bg: rgba(255,255,255,0.06);
+  --about-pill-bd: rgba(255,255,255,0.14);
+  --about-accent: rgba(124,92,255,0.85);
+  --about-accent-soft: rgba(124,92,255,0.18);
 }
 
-/* SIDEBAR */
-.about-subnav-wrap{
-  position:fixed;
-  top:110px;
-  left:1.25rem;
-  z-index:70;
-  width:var(--about-sidebar-w);
-  height:auto;
-  display:block;
+/* PAGE BACKGROUND + SPACING FIX */
+.about .page-scroll{
+  min-height:100vh;
+  background:
+    radial-gradient(1100px 700px at 18% 12%, rgba(124,92,255,0.22), transparent 60%),
+    radial-gradient(900px 520px at 85% 18%, rgba(79,140,255,0.14), transparent 55%),
+    radial-gradient(900px 520px at 55% 92%, rgba(124,92,255,0.10), transparent 60%);
+  padding-bottom: 16px;
 }
 
-.about-subnav{
-  width:100%;
-  padding:.95rem;
-  border-radius:18px;
-  display:flex;
-  flex-direction:column;
-  gap:.45rem;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.10);
-  box-shadow:0 10px 32px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.03);
-}
-
-.about-subnav-link{
-  font-size:.95rem;
-  font-weight:650;
-  color:rgba(244,241,255,0.72);
-  padding:.65rem .9rem;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  transition:.15s ease;
-}
-
-.about-subnav-link:hover{
-  color:rgba(244,241,255,0.95);
-  background:rgba(255,255,255,0.06);
-}
-
-.about-subnav-link.is-active{
-  color:#fff;
-  background:rgba(124,92,255,0.18);
-  border:1px solid rgba(124,92,255,0.55);
-  box-shadow:0 0 0 3px rgba(124,92,255,0.15);
+/* ACCOUNT FOR LEFT SUBNAV (so content doesn't look dragged left) */
+.about .page.about-view{
+  padding-left: calc(var(--about-sidebar-w) + var(--about-sidebar-gap));
+  padding-right: var(--about-sidebar-gap);
 }
 
 /* LAYOUT */
 .section{
   max-width:var(--about-content-max);
-  margin-top:4.75rem;
-  margin-left:calc(var(--about-sidebar-w) + (var(--about-sidebar-gap) * 2));
+  margin-left:auto;
   margin-right:auto;
-  padding-bottom:4rem;
+  padding-bottom:1.25rem;
 }
 
-.about-pane[data-pane="general"] .about-section-card{ margin-bottom:2.8rem; }
+.section-header{
+  margin-bottom: 1rem;
+}
 
 /* CARDS */
 .card{
+  height:auto;
   border-radius:18px;
-  padding:1.5rem 1.6rem;
+  padding:1.15rem 1.3rem;
   background:
     radial-gradient(120% 140% at 20% 0%, rgba(124,92,255,0.10), rgba(255,255,255,0.02) 60%);
   border:1px solid rgba(255,255,255,0.10);
@@ -73,23 +50,43 @@
 }
 
 .card-title{
-  font-size:1.15rem;
-  margin-bottom:.8rem;
+  font-size:1.1rem;
+  margin:0 0 .5rem;
+  letter-spacing:0.2px;
 }
 
 .card-text{
   max-width:760px;
-  line-height:1.65;
-  color:rgba(244,241,255,0.8);
+  line-height:1.52;
+  color:rgba(244,241,255,0.82);
+  font-size:.94rem;
 }
 
-.card-text + .card-text{ margin-top:1rem; }
+.card-text + .card-text{ margin-top:.6rem; }
 
 .card-header{
   display:flex;
   align-items:center;
   gap:.6rem;
-  margin-bottom:.6rem;
+  margin:0 0 .4rem;
+}
+
+.card-icon{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.10);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.03);
+  flex:0 0 auto;
+}
+
+.card-icon svg{
+  width:22px;
+  height:22px;
+  fill:rgba(255,255,255,0.88);
 }
 
 .card-actions{
@@ -98,33 +95,193 @@
   justify-content:flex-end;
 }
 
-/* ✅ GALLERY spacing on About page */
-.about .thumb-gallery{
-  margin: 0 0 2rem;
+/* Tag row (Interests label) */
+.card-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  width:fit-content;
+  padding:.42rem .68rem;
+  border-radius:999px;
+  background:rgba(0,0,0,0.30);
+  border:1px solid rgba(255,255,255,0.10);
+  color:rgba(244,241,255,0.78);
+  font-size:.82rem;
+  font-weight:650;
+  margin: .55rem 0 .55rem;
 }
 
-/* INTERESTS */
-.about-interests-grid{
+/* Buttons */
+.card-link-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  padding:.5rem .82rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.92rem;
+  color:rgba(255,255,255,0.92);
+  background:var(--about-pill-bg);
+  border:1px solid var(--about-pill-bd);
+  transition:transform .12s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.card-link-btn .btn-arrow{
+  font-size:1.05em;
+  opacity:.9;
+}
+
+.card-link-btn:hover{
+  border-color:rgba(124,92,255,0.55);
+  box-shadow:0 0 0 3px rgba(124,92,255,0.16);
+  background:rgba(124,92,255,0.12);
+  transform:translateY(-1px);
+}
+
+.card-link-btn:active{ transform:translateY(0); }
+
+/* =========================
+   FIT LAYOUT (2-column top)
+   ========================= */
+
+.about .page{
+  padding-bottom: 0 !important;
+}
+
+.about .section-title{ margin: 0 0 .2rem; }
+
+.about .section-subtitle{
+  margin: 0;
+  max-width: 72ch;
+}
+
+/* ✅ 2-column: EQUAL (left = journey, right = gallery) */
+.about-top-grid{
   display:grid;
-  gap:1.8rem;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-  margin-top:1.8rem;
+  grid-template-columns: 1fr 1fr;
+  gap: .9rem;
+  align-items: start;
+  margin-bottom: 2rem;
 }
 
-.about-interest-card{
-  min-height:210px;
+.about-hero{ min-width: 0; }
+.about-gallery{
+  padding: .75rem;
   display:flex;
   flex-direction:column;
-  transition:transform .18s ease;
 }
 
-.about-interest-card:hover{ transform:translateY(-3px); }
+/* ✅ Gallery container: fixed visual frame (prevents duplicate images stacking) */
+.thumb-gallery{
+  position:relative;
+  width:100%;
+  height: clamp(220px, 30vh, 320px); /* adjust if you want taller */
+  border-radius:16px;
+  overflow:hidden;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
-/* RESPONSIVE */
+/* ✅ Make all media overlap inside the same frame */
+.thumb-gallery img,
+.thumb-gallery video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+
+.gallery-btn{
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  border:0;
+  padding:.42rem .65rem;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.82rem;
+  color:rgba(255,255,255,0.9);
+  background:rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,0.12);
+  cursor:pointer;
+}
+
+.gallery-counter{
+  position:absolute;
+  left:12px;
+  bottom:12px;
+  padding:.35rem .55rem;
+  border-radius:999px;
+  font-size:.78rem;
+  font-weight:700;
+  color:rgba(255,255,255,0.85);
+  background:rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,0.12);
+}
+
+/* =========================
+   Interests row
+   ========================= */
+
+.about-interests{ margin-top: .6rem; }
+
+.about-interests-row{
+  display:flex;
+  gap: 2rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.about-interests-row::-webkit-scrollbar{ height: 12px; }
+
+.about-interest-card{
+  flex: 1 1 360px;
+  max-width: 420px;
+  height: 320px;
+}
+
+.about-interest-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(124,92,255,0.32);
+  box-shadow:0 14px 36px rgba(0,0,0,0.42), inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.about-interest-card .card-text{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 980px){
+  .about-top-grid{ grid-template-columns: 1fr; }
+  .about-gallery{ padding: .85rem; }
+
+  .thumb-gallery{
+    height: clamp(180px, 24vh, 235px);
+    min-height: unset;
+  }
+
+  .about-interest-card{ flex-basis: 290px; }
+
+  /* collapse sidebar offset on smaller screens */
+  .about .page.about-view{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 @media (max-width:720px){
   .about-subnav-wrap{
     position:sticky;
-    top:200px;
+    top: calc(var(--topbar-offset) + 14px);
     left:0;
     width:100%;
   }
@@ -134,21 +291,39 @@
     flex-direction:row;
     border-radius:999px;
     padding:.5rem;
+    overflow:auto;
   }
 
   .about-subnav-link{
     font-size:.85rem;
     padding:.45rem .75rem;
+    white-space:nowrap;
   }
 
   .section{
     margin:0 auto;
-    padding:0 1rem 3rem;
+    padding:0 1rem 1.25rem;
   }
 
   .section-subtitle{ max-width:none; }
+  .about-interest-card{ flex-basis: 280px; }
 }
 
-@media (max-width:640px){
-  .about-interests-grid{ grid-template-columns:1fr; }
+.about main{
+  margin-bottom: 8.5rem;
+}
+
+.about-interest-card .card-actions{
+  margin-top: auto;
+}
+
+/* Force the button itself to sit at the bottom of the card */
+.about-interest-card{
+  display:flex;
+  flex-direction:column;
+}
+
+.about-interest-card .card-link-btn{
+  margin-top:auto;
+  align-self:flex-end;
 }

@@ -19,7 +19,7 @@
 .section-desk .section-title{ margin-bottom:.35rem; }
 
 .section-desk .section-subtitle{
-  margin-top:.35rem;
+  margin-top:0;
   margin-bottom:1.6rem;
   max-width:72ch;
 }

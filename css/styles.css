@@ -343,3 +343,13 @@ img{ display:block; max-width:100%; }
     white-space:normal;
   }
 }
+
+/* Generic page wrapper: pushes content below fixed topbar */
+.page{
+  padding-top: calc(var(--topbar-offset) + 28px);
+  padding-bottom: var(--section-pad-bottom);
+}
+
+.section{
+  padding: 0;
+}

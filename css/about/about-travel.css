@@ -1,8 +1,76 @@
-/* TRAVEL REGIONS */
+/* =========================
+   TRAVEL – LAYOUT / CENTERING
+   ========================= */
+
+.about-view[data-view="travel"] .section{
+  display:flex;
+  justify-content:center;
+}
+
+.about-pane[data-pane="travel"]{
+  width:min(1180px, 100%);
+  padding-inline:clamp(14px, 2.2vw, 28px);
+}
+
+.about-pane[data-pane="travel"] .travel-card{
+  width:100%;
+}
+
+
+/* =========================
+   TRAVEL – HEADER
+   ========================= */
+
+.about-pane[data-pane="travel"] .section-header.compact{
+  margin-bottom:.85rem;
+  padding-bottom:.65rem;
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+  position:relative;
+}
+
+.about-pane[data-pane="travel"] .section-header.compact::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:56px;
+  height:2px;
+  border-radius:2px;
+  background:linear-gradient(
+    90deg,
+    rgba(79,140,255,0.85),
+    rgba(79,140,255,0.15)
+  );
+}
+
+.about-pane[data-pane="travel"] .section-header.compact .section-title{
+  font-size:clamp(2.4rem, 3.2vw, 3.1rem);
+  font-weight:800;
+  letter-spacing:-0.02em;
+  color:#fff;
+  line-height:1.08;
+  margin-bottom:.15rem;
+}
+
+.about-pane[data-pane="travel"] .section-header.compact .section-subtitle{
+  max-width:520px;
+  font-size:.9rem;
+  line-height:1.45;
+  color:rgba(255,255,255,0.68);
+  margin-top:0;
+}
+
+
+/* =========================
+   TRAVEL – REGIONS GRID
+   ========================= */
+
 #travel-regions-root{
   display:grid;
-  gap:.65rem;
   margin-top:.45rem;
+  gap:.55rem;
   grid-auto-rows:minmax(84px, auto);
 }
 
@@ -15,10 +83,15 @@
 @media (min-width:1280px){
   #travel-regions-root{
     grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:.6rem;
   }
 }
 
-/* REGION CARD */
+
+/* =========================
+   TRAVEL – REGION CARDS
+   ========================= */
+
 .travel-region-group{
   display:flex;
   flex-direction:column;
@@ -30,7 +103,9 @@
     rgba(255,255,255,0.018) 60%
   );
   border:1px solid rgba(255,255,255,0.085);
-  box-shadow:0 8px 22px rgba(0,0,0,0.32), inset 0 0 0 1px rgba(255,255,255,0.035);
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.32),
+    inset 0 0 0 1px rgba(255,255,255,0.035);
   transition:transform .12s ease, border-color .12s ease;
 }
 
@@ -39,7 +114,6 @@
   border-color:rgba(79,140,255,0.28);
 }
 
-/* TITLE */
 .travel-region-title{
   margin-bottom:.45rem;
   padding:.28rem .45rem;
@@ -53,14 +127,17 @@
   color:rgba(255,255,255,0.78);
 }
 
-/* LIST */
+
+/* =========================
+   TRAVEL – COUNTRY LIST ROWS
+   ========================= */
+
 .travel-country-select{
   display:flex;
   flex-direction:column;
   gap:.38rem;
 }
 
-/* ROW */
 .travel-select-row{
   display:flex;
   align-items:center;
@@ -79,7 +156,6 @@
   transform:translateY(-1px);
 }
 
-/* LEFT */
 .travel-select-left{
   display:flex;
   align-items:center;
@@ -87,7 +163,6 @@
   min-width:0;
 }
 
-/* FLAG */
 .travel-flag-icon{
   width:22px;
   height:15px;
@@ -96,10 +171,11 @@
   background-image:var(--flag);
   background-size:cover;
   background-position:center;
-  box-shadow:0 0 0 1px rgba(255,255,255,0.12), 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.12),
+    0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* NAME */
 .travel-select-row .travel-name{
   font-size:.82rem;
   font-weight:600;
@@ -109,8 +185,26 @@
   text-overflow:ellipsis;
 }
 
-/* CHEVRON */
 .travel-chevron{
   font-size:.95rem;
   color:rgba(255,255,255,0.45);
 }
+
+.about main{
+  margin-bottom: 1rem;
+}
+
+/* FORCE the travel pane to center like the other pages */
+.about-view[data-view="travel"] .section{
+  width: 100%;
+}
+
+.about-pane[data-pane="travel"]{
+  margin-inline: auto;   /* ✅ centers the whole travel block */
+}
+
+/* If your layout is grid-based in the parent, this helps too */
+.about-view[data-view="travel"]{
+  justify-items: center;
+}
+

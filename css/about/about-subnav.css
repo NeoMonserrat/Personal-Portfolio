@@ -1,0 +1,92 @@
+/* =========================
+   ABOUT SUBNAV
+   ========================= */
+
+/* Tokens specific to subnav */
+:root{
+  --about-sidebar-w:228px;
+  --about-sidebar-gap:1.4rem;
+
+  --about-pill-bg: rgba(255,255,255,0.06);
+  --about-pill-bd: rgba(255,255,255,0.14);
+  --about-accent: rgba(124,92,255,0.85);
+  --about-accent-soft: rgba(124,92,255,0.18);
+}
+
+/* Wrapper */
+.about-subnav-wrap{
+  position: fixed;
+  top: calc(var(--topbar-offset) + 24px);
+  left: 1.25rem;
+  z-index: 70;
+  width: var(--about-sidebar-w);
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.about-subnav{
+  width: 100%;
+  padding: .9rem;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: .42rem;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 10px 32px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+/* Links */
+.about-subnav-link{
+  font-size: .95rem;
+  font-weight: 650;
+  color: rgba(244,241,255,0.72);
+  padding: .62rem .88rem;
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  transition: .15s ease;
+}
+
+.about-subnav-link:hover{
+  color: rgba(244,241,255,0.95);
+  background: rgba(255,255,255,0.06);
+}
+
+.about-subnav-link.is-active{
+  color: #fff;
+  background: var(--about-accent-soft);
+  border: 1px solid rgba(124,92,255,0.55);
+  box-shadow: 0 0 0 3px rgba(124,92,255,0.15);
+}
+
+/* =========================
+   MOBILE SUBNAV
+   ========================= */
+@media (max-width: 720px){
+  .about-subnav-wrap{
+    position: sticky;
+    top: calc(var(--topbar-offset) + 14px);
+    left: 0;
+    width: 100%;
+  }
+
+  .about-subnav{
+    flex-direction: row;
+    max-height: 320px;
+    border-radius: 999px;
+    padding: .5rem;
+    overflow-x: auto;
+  }
+
+  .about-subnav-link{
+    font-size: .85rem;
+    padding: .45rem .75rem;
+    white-space: nowrap;
+  }
+}

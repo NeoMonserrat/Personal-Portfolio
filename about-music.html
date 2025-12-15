@@ -1,48 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta data-include="partials/head.html" />
-  <link rel="stylesheet" href="css/about/about.css" />
-  <link rel="stylesheet" href="css/about/about-gallery.css" />
-</head>
+  <head>
+    <meta data-include="partials/head.html" />
 
-<body class="about">
-  <div class="page-scroll" id="top">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/about/about-subnav.css" />
+    <link rel="stylesheet" href="css/about/about-gallery.css" />
+  </head>
 
-    <div data-include="partials/header.html"></div>
+  <body class="about">
+    <div class="page-scroll" id="top">
+      <div data-include="partials/header.html"></div>
+      <div data-include="partials/about-subnav.html"></div>
 
-    <div data-include="partials/about-subnav.html"></div>
+      <main class="page about-view" data-view="music">
+        <section class="section">
+          <div id="music" class="about-anchor"></div>
 
-    <main class="page about-view" data-view="music">
-      <section class="section">
+          <div
+            class="about-pane"
+            data-pane="music"
+            style="display: block;"
+          >
+            <!-- centered container shell -->
+            <div class="about-shell">
+              <div class="about-hero">
+                <div class="about-hero-text">
+                  <h1 class="about-title">Music</h1>
+                  <p class="about-lead">
+                    A creative outlet that shaped my discipline, timing, and
+                    sense of flow.
+                  </p>
 
-        <div id="music" class="about-anchor"></div>
+                  <!--
+                  <div class="about-chips">
+                    <span class="chip">Drumming</span>
+                    <span class="chip">Timing</span>
+                    <span class="chip">Consistency</span>
+                    <span class="chip">Live + Remote</span>
+                  </div>
+                  -->
+                </div>
 
-        <div class="about-pane" data-pane="music" style="display:block;">
-          <header class="section-header">
-            <h1 class="section-title">Music</h1>
-            <p class="section-subtitle">
-              A creative outlet that shaped my discipline, timing, and sense of flow.
-            </p>
-          </header>
+                <!--
+                <div class="about-hero-card">
+                  <div class="mini-card">
+                    <div class="mini-kicker">What it built</div>
+                    <div class="mini-title">
+                      Rhythm → Problem-solving
+                    </div>
+                    <p class="mini-text">
+                      Practice taught me iteration, attention to detail,
+                      and staying calm under pressure — the same mindset
+                      I bring to builds and deadlines.
+                    </p>
+                  </div>
+                </div>
+                -->
+              </div>
 
-          <div class="card">
-            <div class="card-tag">Creative Outlet</div>
-            <h3 class="card-title">Music</h3>
-            <p class="card-text">
-              Drumming has shaped my discipline, timing, and sense of flow.
-            </p>
-            <div class="thumb-gallery" data-cdn-prefix="music" data-count="15"></div>
+              <!-- content grid -->
+              <div class="about-grid">
+                <!-- LEFT: description + highlights -->
+                <article class="panel panel-primary">
+                  <div class="panel-head">
+                    <div class="panel-tag">Creative Outlet</div>
+                    <h2 class="panel-title">Music</h2>
+                    <p class="panel-sub">
+                      Drumming has shaped my discipline, timing, and
+                      sense of flow.
+                    </p>
+                  </div>
+
+                  <div class="panel-body">
+                    <div class="feature-list">
+                      <div class="feature">
+                        <div class="feature-title">
+                          Drums
+                          <span class="chip" style="margin-left: 8px;">
+                            Primary
+                          </span>
+                        </div>
+                        <div class="feature-text">
+                          Groove, timing, and coordination built through
+                          consistent practice, live playing, and remote
+                          collaboration.
+                        </div>
+                      </div>
+
+                      <div class="feature">
+                        <div class="feature-title">
+                          Guitar
+                          <span class="chip" style="margin-left: 8px;">
+                            Secondary
+                          </span>
+                        </div>
+                        <div class="feature-text">
+                          Rhythm, chord structures, and musical support
+                          across different styles.
+                        </div>
+                      </div>
+
+                      <div class="feature">
+                        <div class="feature-title">
+                          Keyboard
+                          <span class="chip" style="margin-left: 8px;">
+                            Secondary
+                          </span>
+                        </div>
+                        <div class="feature-text">
+                          Harmony, melody, and translating musical ideas
+                          into structured parts.
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--
+                    <div class="callout">
+                      <div class="callout-title">
+                        How I apply this to tech
+                      </div>
+                      <p class="callout-text">
+                        I treat projects like practice: break problems
+                        into drills, track progress, and iterate until
+                        it feels “tight.”
+                      </p>
+                    </div>
+                    -->
+                  </div>
+                </article>
+
+                <!-- RIGHT: gallery -->
+                <article class="panel panel-gallery">
+                  <div class="panel-head">
+                    <div class="panel-tag">Gallery</div>
+                    <h2 class="panel-title">Moments</h2>
+                    <p class="panel-sub">
+                      A quick look at key memories and milestones.
+                    </p>
+                  </div>
+
+                  <div class="panel-body">
+                    <div
+                      class="thumb-gallery"
+                      data-cdn-prefix="music"
+                      data-count="15"
+                    ></div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <!-- /about-shell -->
           </div>
-
         </section>
-    </main>
+      </main>
 
-    <div data-include="partials/footer.html"></div>
+      <div data-include="partials/footer.html"></div>
+    </div>
 
-  </div>
-
-  <script src="js/includes.js"></script>
-  <script src="js/about.js"></script>
-</body>
+    <script src="js/includes.js"></script>
+    <script src="js/about.js"></script>
+  </body>
 </html>
