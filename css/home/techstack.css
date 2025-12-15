@@ -146,17 +146,11 @@
 
 @media (max-width: 430px){
 
-  /* ====== TUNABLE KNOBS (keep uniform) ====== */
-  :root{
-    --tech-card-h: 68px;  /* lower this to 64px if still not fitting */
-    --tech-gap: 7px;
-  }
-
-  /* Ensure the whole section is a slide and doesn't crash into the topbar */
+  /* Keep the section as a slide; allow vertical space to be stable */
   .tech-stack.screen-section,
   #tech.tech-stack{
-    padding-top: calc(var(--topbar-offset) + 10px) !important;
-    padding-bottom: 8px !important;
+    padding-top: calc(var(--topbar-offset) + 8px) !important;
+    padding-bottom: 10px !important;
     overflow: hidden !important;
   }
 
@@ -171,15 +165,14 @@
 
   /* Header: compact */
   .tech-header{
-    flex: 0 0 auto;
-    margin-bottom: 6px !important;
+    margin: 0 0 8px !important;
   }
 
   .tech-title,
   .tech-header .section-title{
-    font-size: clamp(21px, 5.9vw, 26px) !important;
+    font-size: 20px !important;
     line-height: 1.05 !important;
-    margin: 0 0 4px !important;
+    margin: 0 0 2px !important;
   }
 
   .tech-subtitle,
@@ -187,195 +180,6 @@
     font-size: 12px !important;
     line-height: 1.2 !important;
     margin: 0 !important;
-
-    /* keep header from pushing content down */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-  }
-
-  /* Groups: tighter stack */
-  .tech-group{
-    flex: 0 0 auto;
-    overflow: hidden !important;
-    margin-bottom: 6px !important;
-  }
-  .tech-group:last-child{ margin-bottom: 0 !important; }
-
-  .tech-group-title,
-  .tech-label{
-    margin: 5px 0 3px !important;
-    font-size: 10.5px !important;
-    letter-spacing: .14em !important;
-    opacity: .75;
-  }
-
-  /* Grid: uniform rows */
-  .tech-grid{
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: var(--tech-gap) !important;
-
-    /* ✅ KEY: forces every card to the same height */
-    grid-auto-rows: var(--tech-card-h) !important;
-    align-items: stretch !important;
-  }
-
-  /* ✅ KEY: stop any "wide" / spanning cards (fixes tall JS card) */
-  .tech-grid > .tech-card{
-    grid-column: auto !important;
-  }
-
-  /* Cards: truly uniform */
-  .tech-card{
-    height: var(--tech-card-h) !important;
-    min-height: 0 !important;
-    padding: 8px 9px !important;
-    border-radius: 14px !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-
-    overflow: hidden !important;
-  }
-
-  /* Icon smaller */
-  .tech-card img,
-  .tech-card svg{
-    width: 24px !important;
-    height: 24px !important;
-    flex: 0 0 auto;
-  }
-
-  /* Label always visible, single line */
-  .tech-card .tech-name,
-  .tech-card h3,
-  .tech-card .label{
-    display: block !important;
-    opacity: 1 !important;
-
-    font-size: 11.5px !important;
-    line-height: 1.12 !important;
-    margin-top: 5px !important;
-
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
-  /* ✅ Make last group (Tools & Platforms) denser: 3 columns but SAME HEIGHT */
-  .tech-group:last-child .tech-grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    grid-auto-rows: var(--tech-card-h) !important;
-  }
-
-  /* No hover motion on mobile */
-  .tech-card:hover{ transform: none; }
-}
-
-@media (max-width: 430px){
-
-  /* ===== Compress TOP area like your "What I offer" sample ===== */
-
-  /* reduce section top padding a bit */
-  .tech-stack.screen-section,
-  #tech.tech-stack{
-    padding-top: calc(var(--topbar-offset) + 6px) !important;
-    padding-bottom: 8px !important;
-  }
-
-  /* remove extra whitespace above header */
-  .tech-header{
-    margin-top: 0 !important;
-    margin-bottom: 6px !important;
-  }
-
-  /* eyebrow ("TOOLS") tighter + smaller */
-  .tech-eyebrow,
-  .tech-kicker,
-  .tech-header .eyebrow,
-  .tech-header .section-eyebrow{
-    font-size: 10px !important;
-    letter-spacing: .16em !important;
-    line-height: 1.1 !important;
-    margin: 0 0 4px !important;
-    opacity: .75;
-  }
-
-  /* title: slightly smaller + tighter */
-  .tech-title,
-  .tech-header .section-title{
-    font-size: clamp(20px, 5.8vw, 25px) !important;
-    line-height: 1.03 !important;
-    margin: 0 0 2px !important;
-  }
-
-  /* subtitle: smaller + clamp to 1 line */
-  .tech-subtitle,
-  .tech-header .section-subtitle{
-    font-size: 12px !important;
-    line-height: 1.15 !important;
-    margin: 0 !important;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-  }
-
-  /* tighten the space before first group label */
-  .tech-group:first-of-type .tech-group-title,
-  .tech-group:first-of-type .tech-label{
-    margin-top: 6px !important;   /* smaller gap from header */
-  }
-}
-
-@media (max-width: 430px){
-
-  /* ===== ULTRA COMPRESSION MODE (TOP ONLY) ===== */
-
-  /* reclaim hidden vertical space */
-  .tech-stack.screen-section,
-  #tech.tech-stack{
-    padding-top: calc(var(--topbar-offset) + 2px) !important;
-    padding-bottom: 6px !important;
-  }
-
-  /* collapse header block */
-  .tech-header{
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* eyebrow (TOOLS) — almost label-sized */
-  .tech-eyebrow,
-  .tech-kicker,
-  .tech-header .eyebrow,
-  .tech-header .section-eyebrow{
-    font-size: 9px !important;
-    letter-spacing: .18em !important;
-    line-height: 1 !important;
-    margin: 0 0 2px !important;
-    opacity: .7;
-  }
-
-  /* title — dense like "What I offer" */
-  .tech-title,
-  .tech-header .section-title{
-    font-size: 19px !important;
-    line-height: 1.02 !important;
-    margin: 0 0 1px !important;
-  }
-
-  /* subtitle — single tight line */
-  .tech-subtitle,
-  .tech-header .section-subtitle{
-    font-size: 11.5px !important;
-    line-height: 1.12 !important;
-    margin: 0 !important;
-
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
@@ -383,15 +187,71 @@
     opacity: .85;
   }
 
-  /* pull first group UP HARD */
-  .tech-group:first-of-type{
-    margin-top: 4px !important;
+  /* Groups: tighter */
+  .tech-group{
+    margin-bottom: 10px !important;
+    overflow: hidden !important; /* prevents sideways bleed */
+  }
+  .tech-group:last-child{ margin-bottom: 0 !important; }
+
+  .tech-group-title,
+  .tech-label{
+    margin: 6px 0 6px !important;
+    font-size: 10.5px !important;
+    letter-spacing: .14em !important;
+    opacity: .75;
   }
 
-  .tech-group:first-of-type .tech-group-title,
-  .tech-group:first-of-type .tech-label{
-    margin-top: 2px !important;
+  /* ✅ CAROUSEL MODE: each grid becomes horizontal scroll row */
+  .tech-grid{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+
+    scroll-snap-type: x mandatory;
+    padding-bottom: 2px; /* tiny breathing room */
   }
+
+  /* Hide scrollbars (still scrollable) */
+  .tech-grid::-webkit-scrollbar{ display:none; }
+  .tech-grid{ scrollbar-width: none; }
+
+  /* Cards become fixed-width “slides” */
+  .tech-card{
+    flex: 0 0 auto !important;
+    width: 150px !important;          /* tweak: 140–165 */
+    min-height: 78px !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+
+    scroll-snap-align: start;
+  }
+
+  /* Keep icon + label readable */
+  .tech-card img,
+  .tech-card svg{
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .tech-card .tech-name,
+  .tech-card h3,
+  .tech-card .label{
+    font-size: 12px !important;
+    margin-top: 6px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* No hover lift on mobile */
+  .tech-card:hover{ transform: none; }
 }
+
+
 
 
