@@ -34,3 +34,99 @@
     display: none !important;
   }
 }
+
+/* =================================================
+   MOBILE: True "Slide" Snaps (<= 430px)
+   Each section fits the viewport. Internal content scrolls.
+================================================= */
+@media (max-width: 430px){
+
+  /* 1) Each snap section is exactly one screen (minus topbar) */
+  .hero-canvas,
+  #offer.offer-pillars,
+  #tech.tech-stack,
+  .site-footer,
+  #footer{
+    height: calc(100dvh - var(--topbar-offset)) !important;
+    min-height: calc(100dvh - var(--topbar-offset)) !important;
+    max-height: calc(100dvh - var(--topbar-offset)) !important;
+    overflow: hidden !important; /* IMPORTANT: no bleed to next slide */
+  }
+
+  /* 2) Standardize section padding so you don't waste vertical space */
+  #offer.offer-pillars,
+  #tech.tech-stack{
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+  }
+
+  /* 3) Make each slide layout: header fixed + content area scrolls */
+  #offer.offer-pillars .offer-inner,
+  #tech.tech-stack .tech-inner{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* This becomes the scrollable area INSIDE the slide */
+  #offer.offer-pillars .offer-pillar-grid,
+  #tech.tech-stack .tech-group{
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+
+    /* optional: hide scrollbar */
+    scrollbar-width: none;
+  }
+  #offer.offer-pillars .offer-pillar-grid::-webkit-scrollbar,
+  #tech.tech-stack .tech-group::-webkit-scrollbar{
+    display: none;
+  }
+
+  /* 4) Tighten headers so they fit */
+  .offer-title,
+  .tech-title{
+    font-size: clamp(30px, 7vw, 38px) !important;
+    line-height: 1.05 !important;
+  }
+  .offer-subtitle,
+  .tech-subtitle{
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    margin-top: 8px !important;
+  }
+
+  /* 5) Offer cards: reduce padding so 2+ cards fit nicer */
+  .offer-pillar{
+    padding: 16px !important;
+    border-radius: 18px !important;
+  }
+  .pillar-title{
+    font-size: 20px !important;
+    margin-top: 6px !important;
+  }
+  .pillar-text{
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* 6) Tech cards: smaller tiles so grid fits better */
+  .tech-grid{
+    gap: 12px !important;
+  }
+  .tech-card{
+    padding: 14px !important;
+    min-height: 120px !important;
+  }
+  .tech-name{
+    font-size: 16px !important;
+  }
+
+  /* 7) Footer slide: prevent dead space + keep content aligned */
+  .site-footer,
+  #footer{
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+  }
+}
