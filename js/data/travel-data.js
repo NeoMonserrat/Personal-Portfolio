@@ -12,16 +12,14 @@
     `${CDN_IMAGE_BASE}/q_auto,f_auto,c_limit,w_${w}/${publicId}`;
 
   const travelData = [
-    // ---------- SOUTHEAST ASIA ----------
     {
       id: "singapore",
       name: "Singapore",
       region: "Southeast Asia",
       year: "20xx",
       flag: "singapore.png",
-      hero: "City views, night lights, and clean streets that feel futuristic.",
-      description:
-        "A compact but dense city with stunning skylines, efficient public transport, and a mix of cultures. From Marina Bay to hawker centers, Singapore is one of my favorite examples of a city done right.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/singapore",
       prefix: "photo",
       images: [
@@ -36,9 +34,8 @@
       region: "Southeast Asia",
       year: "20xx",
       flag: "thailand.png",
-      hero: "Street food, temples, and warm, welcoming locals.",
-      description:
-        "Thailand is a mix of busy city life and calm temples. Markets, food, and culture are everywhere — it’s a place where the energy of the streets really stands out.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/thailand",
       prefix: "photo",
       images: [
@@ -53,9 +50,8 @@
       region: "Southeast Asia",
       year: "20xx",
       flag: "indonesia.png",
-      hero: "Islands, beaches, and sunsets that feel like wallpapers.",
-      description:
-        "Indonesia is full of natural scenery — from beaches to island views. It’s a great reminder of how beautiful Southeast Asia can be.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/indonesia",
       prefix: "photo",
       images: [
@@ -70,9 +66,8 @@
       region: "Southeast Asia",
       year: "20xx",
       flag: "malaysia.png",
-      hero: "A blend of cultures, food, and cityscapes.",
-      description:
-        "Malaysia combines modern city life with cultural neighborhoods and amazing food. It feels both familiar and new at the same time.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/malaysia",
       prefix: "photo",
       images: [
@@ -87,8 +82,8 @@
       region: "Southeast Asia",
       year: "Many years",
       flag: "philippines.png",
-      hero: "My home country.",
-      description: "...",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/philippines",
       prefix: "photo",
       images: [
@@ -97,17 +92,14 @@
         cdnImg("travel_philippines_3")
       ]
     },
-
-    // ---------- EAST ASIA ----------
     {
       id: "hongkong-macau",
       name: "Hong Kong / Macau",
       region: "East Asia",
       year: "20xx / 20xx",
       flag: "hongkong.png",
-      hero: "Skyline, harbor views, and a mix of East-meets-West.",
-      description:
-        "Hong Kong and Macau bring together dense city energy, iconic skylines, and a unique blend of cultures. Night views and cityscapes really stand out here.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/hongkong-macau",
       prefix: "photo",
       images: [
@@ -122,9 +114,8 @@
       region: "East Asia",
       year: "20xx / 20xx / 20xx",
       flag: "japan.png",
-      hero: "Anime, trains, food, and a culture that balances calm and chaos.",
-      description:
-        "Japan is one of those places where almost every corner feels intentional — from trains and streets to small shops. It’s a place I’d love to keep revisiting.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/japan",
       prefix: "photo",
       images: [
@@ -139,9 +130,8 @@
       region: "East Asia",
       year: "20xx",
       flag: "southkorea.png",
-      hero: "Cafés, night streets, food, and pop culture everywhere.",
-      description:
-        "South Korea has a very modern vibe — from food streets and cafés to nightlife and culture. It’s fun to just walk and explore.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/south-korea",
       prefix: "photo",
       images: [
@@ -150,17 +140,14 @@
         cdnImg("travel_southkorea_3")
       ]
     },
-
-    // ---------- MIDDLE EAST ----------
     {
       id: "uae",
       name: "United Arab Emirates",
       region: "Middle East",
       year: "20xx",
       flag: "uae.png",
-      hero: "Skyscrapers in the desert and massive malls.",
-      description:
-        "The UAE, especially Dubai, feels like a city built to impress. Tall buildings, huge malls, and desert activities create a very memorable contrast.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/uae",
       prefix: "photo",
       images: [
@@ -169,17 +156,14 @@
         cdnImg("travel_uae_3")
       ]
     },
-
-    // ---------- NORTH AMERICA ----------
     {
       id: "usa",
       name: "United States",
       region: "North America",
       year: "20xx / 20xx",
       flag: "usa.png",
-      hero: "Big roads, big spaces, and very varied cities.",
-      description:
-        "The US has a lot of variety depending on the state and city — from suburbs and highways to city centers and local spots.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/usa",
       prefix: "photo",
       images: [
@@ -188,17 +172,14 @@
         cdnImg("travel_usa_3")
       ]
     },
-
-    // ---------- EUROPE ----------
     {
       id: "italy",
       name: "Italy",
       region: "Europe",
       year: "2019",
       flag: "italy.png",
-      hero: "History, architecture, and food — everywhere.",
-      description:
-        "Italy is full of historic streets, old buildings, and great food. Walking around feels like moving through a movie set, especially in cities like Rome and Florence.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/italy",
       prefix: "photo",
       images: [
@@ -213,9 +194,8 @@
       region: "Europe",
       year: "2019",
       flag: "belgium.png",
-      hero: "Calm streets, classic architecture, and chill city vibes.",
-      description:
-        "Belgium feels cozy and calm, with beautiful older buildings and relaxed city spaces. It’s great for slow walks and quiet exploration.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/belgium",
       prefix: "photo",
       images: [
@@ -230,9 +210,8 @@
       region: "Europe",
       year: "2019",
       flag: "france.png",
-      hero: "Iconic landmarks and streets that feel cinematic.",
-      description:
-        "France has that iconic European atmosphere — especially in places like Paris. From landmarks to small cafés, it’s a place that’s easy to remember.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/france",
       prefix: "photo",
       images: [
@@ -247,9 +226,8 @@
       region: "Europe",
       year: "2019",
       flag: "switzerland.png",
-      hero: "Mountains, lakes, and views that don’t look real.",
-      description:
-        "Switzerland feels like a postcard in real life. Scenic trains, calm lakes, and snow-capped mountains make the whole place feel very peaceful.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/switzerland",
       prefix: "photo",
       images: [
@@ -264,9 +242,8 @@
       region: "Europe",
       year: "2019",
       flag: "vaticancity.png",
-      hero: "Small in size, massive in detail and history.",
-      description:
-        "Vatican City is tiny but packed with details — art, architecture, and history. It’s one of those places where you just look up a lot.",
+      hero: "[Description coming soon]",
+      description: "[Description coming soon]",
       folder: "travel/vatican-city",
       prefix: "photo",
       images: [

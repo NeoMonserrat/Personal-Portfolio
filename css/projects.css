@@ -24,6 +24,10 @@
 /* =====================================================
    MAIN PANEL (fits within viewport below fixed topbar)
    ===================================================== */
+.projects-page{
+  min-height: calc(100vh + 80px);
+}
+
 
 .projects-page .page{
   width: min(1200px, calc(100% - 3rem));
@@ -36,7 +40,7 @@
 
 /* The “fit” layout happens here */
 .projects-layout{
-  height: calc(100svh - var(--topbar-offset));
+  height: calc(110svh - var(--topbar-offset));
   display: grid;
   grid-template-rows: 1fr 1fr;   /* Academic | Personal */
   gap: var(--row-gap);

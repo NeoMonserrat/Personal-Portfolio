@@ -17,7 +17,7 @@ window.DESK_ITEMS = [
     id: "laptop",
     tag: "Core Machine",
     title: "Laptop",
-    meta: "My main system.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("laptop", 1200),
       alt: "Laptop",
@@ -34,7 +34,7 @@ window.DESK_ITEMS = [
     id: "primary-monitor",
     tag: "Display",
     title: "Primary Monitor",
-    meta: "Main screen.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("monitor", 1200),
       alt: "Primary monitor",
@@ -51,7 +51,7 @@ window.DESK_ITEMS = [
     id: "keyboard",
     tag: "Input",
     title: "Keyboard",
-    meta: "Fast, responsive, and adjustable.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("keyboard", 1200),
       alt: "Keyboard",
@@ -67,7 +67,7 @@ window.DESK_ITEMS = [
     id: "mouse",
     tag: "Navigation",
     title: "Mouse",
-    meta: "Lightweight and precise.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("mouse", 1200),
       alt: "Mouse",
@@ -83,7 +83,7 @@ window.DESK_ITEMS = [
     id: "mousepad",
     tag: "Navigation",
     title: "Mousepad",
-    meta: "Surface tuned for control and consistency.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("mousepad", 1200),
       alt: "Mousepad",
@@ -99,7 +99,7 @@ window.DESK_ITEMS = [
     id: "microphone",
     tag: "Audio",
     title: "Microphone",
-    meta: "For clear calls and recordings.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("microphone", 1200),
       alt: "Microphone",
@@ -115,7 +115,7 @@ window.DESK_ITEMS = [
     id: "audio-interface",
     tag: "Audio",
     title: "Audio Interface",
-    meta: "Central hub for instruments and monitoring.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("audiointerface", 1200),
       alt: "Audio Interface",
@@ -136,7 +136,7 @@ window.DESK_ITEMS = [
     id: "headphones",
     tag: "Audio",
     title: "Headphones",
-    meta: "Closed-back for focused listening.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("headphones", 1200),
       alt: "Headphones",
@@ -153,7 +153,7 @@ window.DESK_ITEMS = [
     id: "inears",
     tag: "Audio",
     title: "In-ear Monitors",
-    meta: "Portable option for practice and travel.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("in-ear", 1200),
       alt: "In-ear Monitors",
@@ -173,7 +173,7 @@ window.DESK_ITEMS = [
     id: "webcam",
     tag: "Extras",
     title: "Webcam",
-    meta: "For meetings, calls, and demos.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("webcam", 1200),
       alt: "Webcam",
@@ -189,7 +189,7 @@ window.DESK_ITEMS = [
     id: "monitor-light",
     tag: "Extras",
     title: "Monitor Light",
-    meta: "Desk lighting for comfort and clarity.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("monitorlight", 1200),
       alt: "Monitor Light Bar",
@@ -201,7 +201,7 @@ window.DESK_ITEMS = [
     id: "controller",
     tag: "Extras",
     title: "Controller",
-    meta: "Used for selected games.",
+    meta: "[Description coming soon]",
     image: {
       src: cdnDeskImg("controller", 1200),
       alt: "Xbox Wireless Controller – Gold Shadow Special Edition",

@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!grid || !Array.isArray(data)) return;
 
+  const PLACEHOLDER = "[Description coming soon]";
+
+  const isMeaningful = (text) => {
+    const t = (text ?? "").trim();
+    return t.length > 0 && t !== PLACEHOLDER;
+  };
+
   // --------- Render cards ----------
   grid.innerHTML = "";
 
@@ -14,13 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
     card.className = "card desk-card";
     card.dataset.instrumentId = item.id;
 
-    const firstSpec =
-      item.specs && item.specs.length > 0 ? item.specs[0] : null;
+    const firstSpec = item.specs && item.specs.length > 0 ? item.specs[0] : null;
+
+    const metaHTML = isMeaningful(item.meta)
+      ? `<p class="desk-card-meta">${item.meta}</p>`
+      : "";
 
     card.innerHTML = `
       <div class="card-tag">${item.tag}</div>
       <h2 class="desk-card-title">${item.title}</h2>
-      <p class="desk-card-meta">${item.meta}</p>
+      ${metaHTML}
 
       <ul class="desk-spec-list">
         ${
@@ -45,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // --------- Modal logic ----------
   const modal = document.getElementById("instrument-modal");
   const closeBtn = modal.querySelector(".instrument-modal-close");
-  // const modalTagEl = modal.querySelector("#instrument-modal-tag");
   const modalTitleEl = modal.querySelector("#instrument-modal-title");
   const modalMetaEl = modal.querySelector("#instrument-modal-meta");
   const modalImgEl = modal.querySelector("#instrument-modal-image");
@@ -53,17 +62,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalSpecsEl = modal.querySelector("#instrument-modal-specs");
 
   function openInstrumentModal(item) {
-    // Fill content
-    // modalTagEl.textContent = item.tag || "";
+    const meta = (item.meta ?? "").trim();
+    const desc = (item.description ?? "").trim();
+
     modalTitleEl.textContent = item.title || "";
-    modalMetaEl.textContent = item.meta || "";
+
+    // ✅ Show ONLY one “description-like” line in the modal:
+    // Hide meta if it's placeholder OR same as description OR empty.
+    const shouldShowMeta =
+      meta.length > 0 && meta !== PLACEHOLDER && meta !== desc;
+
+    if (shouldShowMeta) {
+      modalMetaEl.textContent = meta;
+      modalMetaEl.style.display = "";
+    } else {
+      modalMetaEl.textContent = "";
+      modalMetaEl.style.display = "none";
+    }
 
     if (item.image) {
       modalImgEl.src = item.image.src;
       modalImgEl.alt = item.image.alt || item.title || "";
     }
 
-    modalDescEl.textContent = item.description || "";
+    // Always show description (even if placeholder)
+    modalDescEl.textContent = desc || "";
 
     // Specs in modal (use detailSpecs if provided, else specs)
     const specs =
@@ -98,9 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Click outside dialog to close
   modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeInstrumentModal();
-    }
+    if (event.target === modal) closeInstrumentModal();
   });
 
   // Escape key to close
