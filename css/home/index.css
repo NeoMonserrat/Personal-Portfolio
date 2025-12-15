@@ -35,3 +35,199 @@
   }
 }
 
+
+/* =================================================
+   MOBILE SLIDE SHRINK PACK (<= 430px)
+   Goal: fit more content per slide without changing layout
+================================================= */
+@media (max-width: 430px){
+
+  /* ---------- GLOBAL: tighten vertical rhythm ---------- */
+  :root{
+    --slide-pad: 14px;
+  }
+
+  /* reduce default section padding if any */
+  .screen-section{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Make each slide use less “dead space” */
+  #offer .offer-inner,
+  #tech .tech-inner{
+    padding: var(--slide-pad) var(--container-pad) 12px !important;
+    gap: 10px !important;
+  }
+
+  /* Headings a bit smaller */
+  .offer-title,
+  .tech-title{
+    font-size: clamp(26px, 6.6vw, 34px) !important;
+    line-height: 1.05 !important;
+    margin: 0 !important;
+  }
+
+  .offer-subtitle,
+  .tech-subtitle{
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    margin-top: 6px !important;
+  }
+
+  /* Eyebrow labels tighter */
+  .offer-eyebrow,
+  .tech-eyebrow{
+    font-size: 11px !important;
+    letter-spacing: .14em !important;
+  }
+
+  /* Group labels (PROGRAMMING / FRAMEWORKS / TOOLS...) */
+  .tech-group-title{
+    margin: 10px 0 8px !important;
+    font-size: 12px !important;
+    letter-spacing: .18em !important;
+  }
+
+  /* ---------- HERO: shrink copy just a bit ---------- */
+  .hero-hi{
+    font-size: clamp(38px, 10vw, 48px) !important;
+    line-height: 1.0 !important;
+  }
+
+  .hero-subline{
+    font-size: 11px !important;
+    letter-spacing: .16em !important;
+    margin-top: 6px !important;
+  }
+
+  .hero-blurb{
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    margin-top: 10px !important;
+    margin-bottom: 14px !important;
+    max-width: 30ch !important;
+  }
+
+  /* Buttons slightly smaller */
+  .hero-actions .btn{
+    padding: .72rem 1.0rem !important;
+    font-size: 14px !important;
+  }
+
+    /* Circle: smaller + slightly higher */
+  .hero-circle.hero-circle--pop{
+    width: min(72vw, 280px) !important; /* was ~86vw / 340px */
+    top: calc(var(--topbar-offset) - 36px) !important;
+    opacity: .85;
+  }
+
+  /* Inner glow stays proportional */
+  .hero-circle-bg::before{
+    opacity: .5;
+  }
+
+  /* Figure: scale down + lift */
+  .hero-figure{
+    width: min(64vw, 240px) !important; /* was ~78vw / 300px */
+    top: calc(var(--topbar-offset) - 88px) !important;
+  }
+
+  /* Push intro slightly up now that visual is smaller */
+  .hero-intro{
+    margin-top: clamp(220px, 34vh, 290px) !important;
+  }
+
+  /* ---------- OFFER: shrink cards so 3 fit cleaner ---------- */
+  .offer-pillar-grid{
+    gap: 12px !important;
+  }
+
+  .offer-pillar{
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .pillar-top{
+    margin-bottom: 8px !important;
+  }
+
+  .pillar-title{
+    font-size: 18px !important;
+    line-height: 1.12 !important;
+    margin: 0 0 6px !important;
+  }
+
+  .pillar-text{
+    font-size: 13.5px !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+  }
+
+  /* chips / dots row tighter */
+  .pillar-foot{
+    margin-top: 10px !important;
+    gap: 8px !important;
+  }
+
+  /* ---------- TECH: shrink tiles so more fits ---------- */
+  .tech-grid{
+    gap: 10px !important;
+  }
+
+  .tech-card{
+    padding: 12px !important;
+    border-radius: 16px !important;
+    min-height: 110px !important; /* smaller tile */
+  }
+
+  .tech-icon-slot{
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .tech-icon-img{
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .tech-name{
+    font-size: 15px !important;
+    margin-top: 8px !important;
+  }
+
+  /* ---------- FOOTER: shrink typography + spacing ---------- */
+  .site-footer,
+  #footer{
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .footer-inner{
+    gap: 14px !important;
+  }
+
+  .footer-name{
+    font-size: 14px !important;
+  }
+
+  .footer-meta{
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  .footer-contact-title{
+    font-size: 11px !important;
+    letter-spacing: .18em !important;
+  }
+
+  .footer-contact-list li{
+    font-size: 12.5px !important;
+    gap: 6px !important;
+  }
+
+  .footer-copy{
+    font-size: 12px !important;
+    margin-top: 10px !important;
+  }
+}
