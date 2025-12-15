@@ -544,4 +544,28 @@ html.nav-open .mobile-sidebar{
     align-self:flex-start;
     white-space:normal;
   }
+
+  
+}
+
+/* FORCE MOBILE NAV TO USE VIEWPORT, NOT SCROLL CONTAINER */
+.mobile-sidebar,
+.nav-scrim{
+  position: fixed !important;
+  inset: 0;
+}
+
+.mobile-sidebar{
+  left: auto;
+  right: 0;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100dvh;
+}
+
+.mobile-sidebar{
+  width: 100vw;
+  border-left: 0;
+  border-radius: 0;
+  padding: 18px 16px 22px;
 }
