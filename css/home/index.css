@@ -238,25 +238,98 @@
 }
 
 @media (max-width:720px){
+  :root{
+    --topbar-offset:var(--topbar-h-mobile);
+  }
+
+  /* =========================
+     HERO (MOBILE FIX)
+     Goal: single column, readable text, image not blocking content
+  ========================== */
+
+  /* Turn hero into 1 column */
+  .hero-canvas{
+    grid-template-columns:1fr !important;
+    align-items:start !important;
+    gap:14px !important;
+
+    padding-inline:var(--container-pad);
+    padding-top:calc(var(--topbar-offset) + 14px) !important;
+    padding-bottom:clamp(72px, 12vh, 120px) !important;
+
+    min-height:100svh;
+  }
+
+  /* Background outline: keep it behind, smaller so it doesn’t shout */
   .hero-outline{
-    top:calc(var(--topbar-offset) + clamp(12px, 4vh, 26px));
-    left:3vw;
-    font-size:22vw;
+    display: none !important;
   }
 
-  .hero-circle{
-    left:50%;
-    transform:translateX(-50%);
-    width:86vw;
-    top:calc(var(--topbar-offset) + 12px);
+  .hero-note {
+    display: none !important;
   }
 
-  .hero-intro{ max-width:680px; }
+  /* The floating circle pop: center it, don’t overtake the text */
+  .hero-circle-pop{
+    top:calc(var(--topbar-offset) + 72px) !important;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+    width:min(86vw, 340px) !important;
+    height:min(86vw, 340px) !important;
+  }
 
-  .hero-note{
-    width:100%;
-    max-width:680px;
-    justify-self:start;
+  /* The illustration: place it above/behind, not covering your headline */
+  .hero-figure{
+    position:absolute !important;
+    top:0px;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+
+    width:min(78vw, 300px) !important;
+    height:auto !important;
+
+    opacity:.92;
+    pointer-events:none;
+    z-index:1;
+  }
+
+  /* Make the text block sit ABOVE the image */
+  .hero-intro{
+    position:relative;
+    z-index:3;
+    text-align:left;
+    margin-top: 300px; /* pushes text below the illustration */
+  }
+
+  /* If your title/subtitle feel tight */
+  .hero-title,
+  .hero-intro h1{
+    line-height:1.05 !important;
+  }
+
+  .hero-subtitle,
+  .hero-intro p{
+    max-width:42ch !important;
+    margin-top:50px;
+  }
+
+  /* Buttons: stack and full width for thumb reach */
+  .hero-actions{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+    margin-top:30px !important;
+  }
+  .hero-actions a,
+  .hero-actions button{
+    width:100% !important;
+    justify-content:center !important;
+  }
+
+  /* Scroll arrow: keep it visible and not under the phone bar */
+  .scroll-arrow{
+    bottom:16px !important;
+    z-index:4 !important;
   }
 }
 
