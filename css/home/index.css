@@ -237,101 +237,131 @@
   }
 }
 
+/* =========================================================
+   MOBILE (≤ 720px) — FINAL DROP-IN FIX
+   ========================================================= */
 @media (max-width:720px){
+
+  /* -----------------------------------------
+     GLOBAL MOBILE TOKENS
+  ------------------------------------------ */
   :root{
-    --topbar-offset:var(--topbar-h-mobile);
+    --topbar-offset: var(--topbar-h-mobile);
+    --container-pad: 16px;
   }
 
-  /* =========================
-     HERO (MOBILE FIX)
-     Goal: single column, readable text, image not blocking content
-  ========================== */
+  /* -----------------------------------------
+     TOPBAR (mobile = logo + burger only)
+  ------------------------------------------ */
+  header.topbar{
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
 
-  /* Turn hero into 1 column */
+  .topbar{
+    height: var(--topbar-h-mobile);
+    grid-template-columns: auto 1fr auto;
+    padding: 14px var(--container-pad);
+  }
+
+  /* HARD disable desktop-only nav */
+  .topbar-nav,
+  .topbar-cta-desktop,
+  .nav-pill,
+  .floating-contact{
+    display: none !important;
+  }
+
+  .topbar-burger{
+    display: inline-flex !important;
+  }
+
+  /* -----------------------------------------
+     MOBILE SIDEBAR (drawer must dominate)
+  ------------------------------------------ */
+  .mobile-sidebar{
+    position: fixed;
+    inset: 0;
+    z-index: 10010; /* higher than topbar */
+  }
+
+  .nav-scrim{
+    z-index: 10000;
+  }
+
+  body.sidebar-open{
+    overflow: hidden;
+  }
+
+  /* -----------------------------------------
+     HERO LAYOUT (fix overlap + height)
+  ------------------------------------------ */
   .hero-canvas{
-    grid-template-columns:1fr !important;
-    align-items:start !important;
-    gap:14px !important;
-
-    padding-inline:var(--container-pad);
-    padding-top:calc(var(--topbar-offset) + 14px) !important;
-    padding-bottom:clamp(72px, 12vh, 120px) !important;
-
-    min-height:100svh;
+    padding-top: calc(var(--topbar-offset) + 16px);
+    padding-bottom: 56px;
+    min-height: calc(100svh - var(--topbar-offset));
+    overflow: hidden;
   }
 
-  /* Background outline: keep it behind, smaller so it doesn’t shout */
-  .hero-outline{
-    display: none !important;
+  /* -----------------------------------------
+     HERO CIRCLE — FIXED CLASS NAME
+     (this was the main bug)
+  ------------------------------------------ */
+  .hero-circle.hero-circle--pop{
+    top: calc(var(--topbar-offset) + 72px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    width: min(86vw, 340px) !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+
+    opacity: 0.95;
   }
 
-  .hero-note {
-    display: none !important;
+  /* -----------------------------------------
+     HERO TEXT STACKING
+  ------------------------------------------ */
+  .hero-left{
+    margin-top: clamp(240px, 42vh, 300px);
+    text-align: left;
   }
 
-  /* The floating circle pop: center it, don’t overtake the text */
-  .hero-circle-pop{
-    top:calc(var(--topbar-offset) + 72px) !important;
-    left:50% !important;
-    transform:translateX(-50%) !important;
-    width:min(86vw, 340px) !important;
-    height:min(86vw, 340px) !important;
+  .hero-title{
+    font-size: clamp(2rem, 7vw, 2.6rem);
+    line-height: 1.1;
   }
 
-  /* The illustration: place it above/behind, not covering your headline */
-  .hero-figure{
-    position:absolute !important;
-    top:0px;
-    left:50% !important;
-    transform:translateX(-50%) !important;
-
-    width:min(78vw, 300px) !important;
-    height:auto !important;
-
-    opacity:.92;
-    pointer-events:none;
-    z-index:1;
+  .hero-subtitle{
+    font-size: 0.95rem;
+    max-width: none;
   }
 
-  /* Make the text block sit ABOVE the image */
-  .hero-intro{
-    position:relative;
-    z-index:3;
-    text-align:left;
-    margin-top: 300px; /* pushes text below the illustration */
-  }
-
-  /* If your title/subtitle feel tight */
-  .hero-title,
-  .hero-intro h1{
-    line-height:1.05 !important;
-  }
-
-  .hero-subtitle,
-  .hero-intro p{
-    max-width:42ch !important;
-    margin-top:50px;
-  }
-
-  /* Buttons: stack and full width for thumb reach */
+  /* -----------------------------------------
+     CTA STACKING
+  ------------------------------------------ */
   .hero-actions{
-    display:grid !important;
-    grid-template-columns:1fr !important;
-    gap:10px !important;
-    margin-top:30px !important;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
   }
+
   .hero-actions a,
   .hero-actions button{
-    width:100% !important;
-    justify-content:center !important;
+    width: 100%;
+    justify-content: center;
   }
 
-  /* Scroll arrow: keep it visible and not under the phone bar */
-  .scroll-arrow{
-    bottom:16px !important;
-    z-index:4 !important;
+  /* -----------------------------------------
+     NOTE CARD (optional but cleaner)
+  ------------------------------------------ */
+  .note-card{
+    margin-top: 24px;
   }
+
 }
+
 
 /* ========================================
    HERO CTA VARIANTS
