@@ -246,8 +246,7 @@
 
 /* =========================
    HERO (Mobile: <= 430px)
-   - Hide outline/note
-   - Center the content
+   - Text slightly higher
 ========================= */
 @media (max-width: 430px){
 
@@ -263,21 +262,50 @@
     justify-items: center;
     text-align: center;
 
-    /* your mobile sizing/spacing */
     min-height: calc(100svh - var(--topbar-offset)) !important;
     min-height: calc(100dvh - var(--topbar-offset)) !important;
 
-    padding-top: calc(var(--topbar-offset) + 16px) !important;
+    /* slightly tighter top spacing */
+    padding-top: calc(var(--topbar-offset) + 12px) !important;
     padding-bottom: 64px !important;
     padding-inline: var(--container-pad) !important;
   }
 
+  /* ---- TEXT SCALE (unchanged) ---- */
+  .hero-hi{
+    font-size: clamp(38px, 10vw, 48px) !important;
+    line-height: 1.0 !important;
+  }
+
+  .hero-subline{
+    font-size: 11px !important;
+    letter-spacing: .16em !important;
+    margin-top: 6px !important;
+    padding-top: 6px;
+    line-height: 1.25;
+  }
+
+  .hero-blurb{
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    margin-top: 10px !important;
+    margin-bottom: 14px !important;
+    max-width: 30ch !important;
+    margin-inline: auto;
+  }
+
+  .hero-actions .btn{
+    padding: .72rem 1.0rem !important;
+    font-size: 14px !important;
+  }
+
+  /* visuals unchanged */
   .hero-circle.hero-circle--pop{
     position: absolute;
-    top: calc(var(--topbar-offset) - 22px);
+    top: calc(var(--topbar-offset) - 36px) !important;
     left: 50%;
     transform: translateX(-50%);
-    width: min(86vw, 340px);
+    width: min(72vw, 280px) !important;
     max-height: 58vh;
     z-index: 1;
     opacity: .85;
@@ -285,19 +313,21 @@
 
   .hero-figure{
     position: absolute;
-    top: calc(var(--topbar-offset) - 100px);
+    top: calc(var(--topbar-offset) - 88px) !important;
     left: 50%;
     transform: translateX(-50%);
-    width: min(78vw, 300px);
+    width: min(64vw, 240px) !important;
     max-height: 58vh;
     z-index: 2;
   }
 
+  /* ⭐ KEY CHANGE: move text up slightly */
   .hero-intro{
     position: relative;
     z-index: 3;
-    margin-top: min(38vh, 300px);
-    transform: none;
+
+    /* was ~220–290px */
+    margin-top: clamp(190px, 30vh, 260px) !important;
 
     margin-inline: auto;
     max-width: 32ch;
@@ -308,23 +338,6 @@
     text-align: center;
   }
 
-  .hero-hi{
-    display: inline-block;
-    transform: translateY(-22px);
-  }
-
-  .hero-subline{
-    margin-top: 10px;
-    padding-top: 6px;
-    line-height: 1.25;
-  }
-
-  .hero-blurb{
-    margin-top: 16px !important;
-    margin-inline: auto;
-    max-width: 30ch;
-  }
-
   .hero-actions{
     display: flex;
     justify-content: center;
@@ -333,8 +346,8 @@
     flex-wrap: wrap;
   }
 
-  /* no arrows on mobile */
   .scroll-arrow{
     display: none !important;
   }
 }
+

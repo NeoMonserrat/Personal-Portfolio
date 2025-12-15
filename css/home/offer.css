@@ -216,9 +216,58 @@
     padding-bottom: 6px;
   }
 
+  /* ---- SLIDE SHRINK PACK (Offer-specific) ---- */
+  .offer-inner{
+    padding: var(--slide-pad, 14px) var(--container-pad) 12px !important;
+    gap: 10px !important;
+  }
+
+  .offer-title{
+    font-size: clamp(26px, 6.6vw, 34px) !important;
+    line-height: 1.05 !important;
+    margin: 0 !important;
+  }
+
+  .offer-subtitle{
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    margin-top: 6px !important;
+  }
+
+  .offer-eyebrow{
+    font-size: 11px !important;
+    letter-spacing: .14em !important;
+  }
+
+  .offer-pillar-grid{
+    gap: 12px !important;
+  }
+
   /* Reduce card footprint */
   .offer-pillar{
-    padding: 14px;
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .pillar-top{
+    margin-bottom: 8px !important;
+  }
+
+  .pillar-title{
+    font-size: 18px !important;
+    line-height: 1.12 !important;
+    margin: 0 0 6px !important;
+  }
+
+  .pillar-text{
+    font-size: 13.5px !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+  }
+
+  .pillar-foot{
+    margin-top: 10px !important;
+    gap: 8px !important;
   }
 
   /* Disable hover lift on mobile (important!) */
