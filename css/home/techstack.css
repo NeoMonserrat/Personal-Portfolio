@@ -1,4 +1,4 @@
-/* TECH STACK */
+/* TECH STACK BASE */
 .tech-stack{
   background:transparent;
   overflow:hidden;
@@ -23,7 +23,7 @@
   margin-inline:auto;
 }
 
-/* HEADER */
+/* TECH HEADER */
 .tech-header{
   max-width:640px;
   margin:0 0 clamp(20px, 2.5vh, 34px);
@@ -51,7 +51,7 @@
   color:rgba(244,241,255,0.72);
 }
 
-/* GROUPS */
+/* TECH GROUPS */
 .tech-group{ margin:0 0 clamp(26px, 3vh, 42px); }
 
 .tech-group-title{
@@ -63,14 +63,14 @@
   color:rgba(244,241,255,0.65);
 }
 
-/* GRID */
+/* TECH GRID */
 .tech-grid{
   display:grid;
   grid-template-columns:repeat(6, minmax(0, 1fr));
   gap:clamp(12px, 1.6vw, 18px);
 }
 
-/* CARDS */
+/* TECH CARDS */
 .tech-card{
   display:flex;
   flex-direction:column;
@@ -113,7 +113,7 @@
   color:rgba(244,241,255,0.68);
 }
 
-/* TECH STACK SCROLL ARROW */
+/* TECH SCROLL ARROW */
 .tech-stack .scroll-arrow{
   position:absolute;
   left:50%;
@@ -135,22 +135,23 @@
   100%{ transform:translateX(-50%) translateY(0); opacity:.45; }
 }
 
-/* RESPONSIVE */
+/* TECH <= 1100px */
 @media (max-width:1100px){
   .tech-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
 }
 
+/* TECH <= 680px */
 @media (max-width:680px){
   .tech-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
 }
 
+/* TECH <= 430px */
 @media (max-width: 430px){
 
-  /* Keep the section as a slide; allow vertical space to be stable */
   .tech-stack.screen-section,
   #tech.tech-stack{
-    padding-top: calc(var(--topbar-offset) + 8px) !important;
-    padding-bottom: 10px !important;
+    padding-top: calc(var(--topbar-offset) + 10px) !important;
+    padding-bottom: 6px !important;
     overflow: hidden !important;
   }
 
@@ -163,9 +164,8 @@
     padding: 0 var(--container-pad) !important;
   }
 
-  /* Header: compact */
   .tech-header{
-    margin: 0 0 8px !important;
+    margin: 0 0 6px !important;
   }
 
   .tech-title,
@@ -187,22 +187,21 @@
     opacity: .85;
   }
 
-  /* Groups: tighter */
   .tech-group{
-    margin-bottom: 10px !important;
-    overflow: hidden !important; /* prevents sideways bleed */
+    margin-bottom: 8px !important;
+    overflow: hidden !important;
   }
+
   .tech-group:last-child{ margin-bottom: 0 !important; }
 
   .tech-group-title,
   .tech-label{
-    margin: 6px 0 6px !important;
+    margin: 4px 0 5px !important;
     font-size: 10.5px !important;
     letter-spacing: .14em !important;
     opacity: .75;
   }
 
-  /* ✅ CAROUSEL MODE: each grid becomes horizontal scroll row */
   .tech-grid{
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -213,25 +212,31 @@
     -webkit-overflow-scrolling: touch;
 
     scroll-snap-type: x mandatory;
-    padding-bottom: 2px; /* tiny breathing room */
+    padding-bottom: 0 !important;
+    padding-right: 0 !important;
+
+    background: transparent !important;
+    scrollbar-width: none;
   }
 
-  /* Hide scrollbars (still scrollable) */
   .tech-grid::-webkit-scrollbar{ display:none; }
-  .tech-grid{ scrollbar-width: none; }
 
-  /* Cards become fixed-width “slides” */
   .tech-card{
     flex: 0 0 auto !important;
-    width: 150px !important;          /* tweak: 140–165 */
+    width: 150px !important;
     min-height: 78px !important;
     padding: 10px !important;
     border-radius: 14px !important;
 
     scroll-snap-align: start;
+
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid rgba(255,255,255,0.14) !important;
   }
 
-  /* Keep icon + label readable */
   .tech-card img,
   .tech-card svg{
     width: 26px !important;
@@ -248,177 +253,13 @@
     text-overflow: ellipsis !important;
   }
 
-  /* No hover lift on mobile */
   .tech-card:hover{ transform: none; }
-}
 
-@media (max-width: 430px){
-
-  /* ---------- 1) Fade edges (most universal cue) ---------- */
-  .tech-group{
-    position: relative; /* needed for overlays */
-  }
-
-  /* Right fade */
-  .tech-group::after{
-    content:"";
-    position:absolute;
-    top: 28px;                /* starts below the group label */
-    right: 0;
-    width: 36px;
-    height: calc(100% - 28px);
-    pointer-events:none;
-    background: linear-gradient(to right, rgba(0,0,0,0), rgba(12,8,24,0.85));
-    border-radius: 14px;
-    opacity: .95;
-  }
-
-  /* Left fade (only shows when user has scrolled a bit — still ok as a cue) */
-  .tech-group::before{
-    content:"";
-    position:absolute;
-    top: 28px;
-    left: 0;
-    width: 18px;
-    height: calc(100% - 28px);
-    pointer-events:none;
-    background: linear-gradient(to left, rgba(0,0,0,0), rgba(12,8,24,0.55));
-    border-radius: 14px;
-    opacity: .65;
-  }
-
-  /* ---------- 2) “Swipe” hint on the label row ---------- */
-  .tech-group-title,
-  .tech-label{
-    position: relative;
-    padding-right: 64px !important; /* room for hint */
-  }
-
-  .tech-group-title::after,
-  .tech-label::after{
-    content: "Swipe →";
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    font-size: 10px;
-    letter-spacing: .10em;
-    color: rgba(244,241,255,0.55);
-    opacity: .9;
-  }
-
-  /* ---------- 3) Optional chevron overlay near the right edge ---------- */
-  .tech-grid{
-    position: relative;
-  }
-
-  .tech-grid::after{
-    content: "›";
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 22px;
-    height: 22px;
-    display: grid;
-    place-items: center;
-
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.14);
-    background: rgba(0,0,0,0.20);
-    color: rgba(244,241,255,0.70);
-
-    pointer-events: none;
-    opacity: .85;
-  }
-
-  /* makes sure chevron isn't clipped */
-  .tech-grid{
-    padding-right: 28px !important;
-  }
-}
-
-@media (max-width: 430px){
-
-  /* Remove any carousel strip background */
-  .tech-grid{
-    background: transparent !important;
-  }
-
-  /* Remove fade indicators */
-  .tech-group::before,
-  .tech-group::after{
-    display: none !important;
-  }
-
-  /* Remove chevron indicator */
-  .tech-grid::after{
-    display: none !important;
-  }
-
-  /* Remove extra padding reserved for indicators */
-  .tech-grid{
-    padding-right: 0 !important;
-  }
-}
-
-@media (max-width: 430px){
-
-  /* Ensure no wrapper is painting a panel behind the carousel */
-  .tech-group,
-  .tech-grid{
-    background: transparent !important;
-    box-shadow: none !important;
-    border: 0 !important;
-  }
-
-  /* If any pseudo elements remain from earlier, kill them hard */
   .tech-group::before,
   .tech-group::after,
   .tech-grid::before,
   .tech-grid::after{
     content: none !important;
     display: none !important;
-  }
-
-  /* ✅ Remove the "background panel" look: cards become border-only */
-  .tech-card{
-    background: transparent !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-
-    border: 1px solid rgba(255,255,255,0.14) !important; /* keep a clean outline */
-  }
-}
-
-@media (max-width: 430px){
-
-  /* Pull the whole Tech section up a bit */
-  .tech-stack.screen-section,
-  #tech.tech-stack{
-    padding-top: calc(var(--topbar-offset) + 10px) !important; /* tighter */
-    padding-bottom: 6px !important;
-  }
-
-  /* Tighten header spacing */
-  .tech-header{
-    margin-bottom: 6px !important;
-  }
-
-  /* Tighten group label + group spacing */
-  .tech-group{
-    margin-bottom: 8px !important;
-  }
-
-  .tech-group-title,
-  .tech-label{
-    margin: 4px 0 5px !important;
-  }
-
-  /* Remove extra bottom padding used for indicators */
-  .tech-grid{
-    padding-bottom: 0 !important;
   }
 }

@@ -1,6 +1,4 @@
-/* =========================
-   HERO (Desktop / Base)
-========================= */
+/* HERO BASE */
 .hero-canvas{
   padding: 0;
   min-height: 100svh;
@@ -18,7 +16,7 @@
   padding-inline: var(--container-pad);
 }
 
-/* HERO BG OUTLINE */
+/* HERO BACKDROP */
 .hero-outline{
   position: absolute;
   top: calc(var(--topbar-offset) + clamp(18px, 5vh, 60px));
@@ -37,7 +35,7 @@
   z-index: 1;
 }
 
-/* HERO VISUAL */
+/* HERO VISUALS */
 .hero-circle{
   position: absolute;
   left: 52%;
@@ -132,7 +130,7 @@
   flex-wrap: wrap;
 }
 
-/* NOTE PANEL */
+/* HERO NOTE */
 .hero-note{
   position: relative;
   z-index: 5;
@@ -193,7 +191,7 @@
   background: rgba(255,255,255,0.10);
 }
 
-/* SCROLL ARROW (desktop/tablet) */
+/* HERO SCROLL ARROW */
 .hero-canvas .scroll-arrow{
   position: absolute;
   left: 50%;
@@ -217,9 +215,7 @@
   100%{ transform: translateX(-50%) translateY(0); opacity: .45; }
 }
 
-/* =========================
-   HERO (<= 980px)
-========================= */
+/* HERO <= 980px */
 @media (max-width: 980px){
   .hero-canvas{
     grid-template-columns: 1fr;
@@ -244,13 +240,9 @@
   }
 }
 
-/* =========================
-   HERO (Mobile: <= 430px)
-   - Text slightly higher
-========================= */
+/* HERO <= 430px */
 @media (max-width: 430px){
 
-  /* hide non-mobile elements */
   .hero-outline,
   .hero-note{
     display: none !important;
@@ -265,69 +257,63 @@
     min-height: calc(100svh - var(--topbar-offset)) !important;
     min-height: calc(100dvh - var(--topbar-offset)) !important;
 
-    /* slightly tighter top spacing */
-    padding-top: calc(var(--topbar-offset) + 12px) !important;
-    padding-bottom: 64px !important;
+    padding-top: calc(var(--topbar-offset) + 16px) !important;
+    padding-bottom: 56px !important;
     padding-inline: var(--container-pad) !important;
   }
 
-  /* ---- TEXT SCALE (unchanged) ---- */
   .hero-hi{
-    font-size: clamp(38px, 10vw, 48px) !important;
-    line-height: 1.0 !important;
+    font-size: clamp(36px, 9.4vw, 46px) !important;
+    line-height: 1.02 !important;
   }
 
   .hero-subline{
-    font-size: 11px !important;
-    letter-spacing: .16em !important;
+    font-size: 10.5px !important;
+    letter-spacing: .155em !important;
     margin-top: 6px !important;
     padding-top: 6px;
-    line-height: 1.25;
+    line-height: 1.22;
   }
 
   .hero-blurb{
-    font-size: 14px !important;
-    line-height: 1.45 !important;
+    font-size: 13.5px !important;
+    line-height: 1.42 !important;
     margin-top: 10px !important;
-    margin-bottom: 14px !important;
-    max-width: 30ch !important;
+    margin-bottom: 12px !important;
+    max-width: 31ch !important;
     margin-inline: auto;
   }
 
   .hero-actions .btn{
-    padding: .72rem 1.0rem !important;
-    font-size: 14px !important;
+    padding: .68rem .95rem !important;
+    font-size: 13.5px !important;
   }
 
-  /* visuals unchanged */
   .hero-circle.hero-circle--pop{
     position: absolute;
-    top: calc(var(--topbar-offset) - 36px) !important;
+    top: calc(var(--topbar-offset) + 8px) !important;
     left: 50%;
     transform: translateX(-50%);
-    width: min(72vw, 280px) !important;
-    max-height: 58vh;
+    width: min(74vw, 300px) !important;
+    max-height: 56vh;
     z-index: 1;
     opacity: .85;
   }
 
   .hero-figure{
     position: absolute;
-    top: calc(var(--topbar-offset) - 88px) !important;
+    top: calc(var(--topbar-offset) - 12px) !important;
     left: 50%;
     transform: translateX(-50%);
-    width: min(64vw, 240px) !important;
-    max-height: 58vh;
+    width: min(66vw, 255px) !important;
+    max-height: 56vh;
     z-index: 2;
   }
 
-  /* ⭐ KEY CHANGE: move text up slightly */
   .hero-intro{
     position: relative;
     z-index: 3;
-
-    /* was ~220–290px */
-    margin-top: clamp(190px, 30vh, 260px) !important;
+    margin-top: clamp(230px, 35svh, 310px) !important;
 
     margin-inline: auto;
     max-width: 32ch;
@@ -342,7 +328,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     flex-wrap: wrap;
   }
 
@@ -350,4 +336,3 @@
     display: none !important;
   }
 }
-
