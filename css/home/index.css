@@ -327,21 +327,27 @@
     pointer-events: none;
   }
 
-  /* Intro card — align to BODY level of the figure */
+  /* Intro card — lift higher */
   .hero-intro{
     position: relative;
     z-index: 3;
 
     /*
-      🔑 Main fix:
-      Since the figure is pulled up (-100px), the intro must be pushed DOWN more.
-      This places the text around chest/torso level.
+      🔑 Updated:
+      Lower margin-top = intro sits higher.
+      Small translateY gives fine control without breaking layout.
     */
-    margin-top: clamp(320px, 44vh, 390px);
+    margin-top: clamp(260px, 38vh, 330px);
+    transform: translateY(-18px);
 
-    transform: none;
     text-align: center; /* optional but usually looks better on mobile */
   }
+
+  .hero-hi{
+  display: inline-block; /* allows transform without layout side effects */
+  transform: translateY(-20px);
+}
+
 
   /* Buttons centered */
   .hero-actions{
@@ -368,6 +374,7 @@
     max-width: 30ch; /* keeps the paragraph readable */
   }
 }
+
 
 
 
