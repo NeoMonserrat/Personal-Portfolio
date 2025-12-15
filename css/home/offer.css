@@ -4,14 +4,12 @@
 .offer-pillars::before{
   content:"";
   position:absolute;
-  inset:0;
+  inset:-1px 0;
   pointer-events:none;
   background:
     radial-gradient(640px 360px at 15% 60%, rgba(124,92,255,0.16), transparent 70%),
     radial-gradient(680px 380px at 85% 40%, rgba(255,138,91,0.12), transparent 72%);
   opacity:.62;
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
-  mask-image:linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
 }
 
 .offer-inner{

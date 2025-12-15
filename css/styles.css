@@ -42,15 +42,42 @@
 html, body{ height:100%; }
 html{ scroll-behavior:smooth; }
 
+/*
+  GLOBAL BACKGROUND FIX
+  ---------------------
+  Paint the gradients on a fixed pseudo-element so the background feels like
+  one continuous canvas across full-screen sections.
+*/
+html{ background:var(--bg-0); }
+
 body{
   margin:0;
   font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--ink);
+  background:var(--bg-0);
+  overflow-x:hidden;
+  position:relative;
+  isolation:isolate;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
   background:
+    /* top energy */
     radial-gradient(1200px 700px at 18% 18%, rgba(124,92,255,0.32), transparent 60%),
     radial-gradient(1000px 700px at 78% 55%, rgba(255,138,91,0.18), transparent 60%),
+
+    /* mid-page lift (prevents the "cut" feeling between sections) */
+    radial-gradient(1100px 720px at 22% 72%, rgba(124,92,255,0.14), transparent 62%),
+    radial-gradient(1100px 720px at 82% 88%, rgba(255,138,91,0.10), transparent 64%),
+
+    /* base */
     linear-gradient(135deg, var(--bg-0), var(--bg-1) 40%, var(--bg-2));
-  overflow-x:hidden;
+  transform:translateZ(0);
 }
 
 a{ color:inherit; text-decoration:none; }
@@ -517,15 +544,4 @@ html.nav-open .mobile-sidebar{
     align-self:flex-start;
     white-space:normal;
   }
-}
-
-
-/* Generic page wrapper: pushes content below fixed topbar */
-.page{
-  padding-top: calc(var(--topbar-offset) + 28px);
-  padding-bottom: var(--section-pad-bottom);
-}
-
-.section{
-  padding: 0;
 }
