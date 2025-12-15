@@ -339,3 +339,86 @@
   }
 }
 
+@media (max-width: 430px){
+
+  /* Remove any carousel strip background */
+  .tech-grid{
+    background: transparent !important;
+  }
+
+  /* Remove fade indicators */
+  .tech-group::before,
+  .tech-group::after{
+    display: none !important;
+  }
+
+  /* Remove chevron indicator */
+  .tech-grid::after{
+    display: none !important;
+  }
+
+  /* Remove extra padding reserved for indicators */
+  .tech-grid{
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 430px){
+
+  /* Ensure no wrapper is painting a panel behind the carousel */
+  .tech-group,
+  .tech-grid{
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  /* If any pseudo elements remain from earlier, kill them hard */
+  .tech-group::before,
+  .tech-group::after,
+  .tech-grid::before,
+  .tech-grid::after{
+    content: none !important;
+    display: none !important;
+  }
+
+  /* ✅ Remove the "background panel" look: cards become border-only */
+  .tech-card{
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    border: 1px solid rgba(255,255,255,0.14) !important; /* keep a clean outline */
+  }
+}
+
+@media (max-width: 430px){
+
+  /* Pull the whole Tech section up a bit */
+  .tech-stack.screen-section,
+  #tech.tech-stack{
+    padding-top: calc(var(--topbar-offset) + 10px) !important; /* tighter */
+    padding-bottom: 6px !important;
+  }
+
+  /* Tighten header spacing */
+  .tech-header{
+    margin-bottom: 6px !important;
+  }
+
+  /* Tighten group label + group spacing */
+  .tech-group{
+    margin-bottom: 8px !important;
+  }
+
+  .tech-group-title,
+  .tech-label{
+    margin: 4px 0 5px !important;
+  }
+
+  /* Remove extra bottom padding used for indicators */
+  .tech-grid{
+    padding-bottom: 0 !important;
+  }
+}
