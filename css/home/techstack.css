@@ -252,6 +252,90 @@
   .tech-card:hover{ transform: none; }
 }
 
+@media (max-width: 430px){
 
+  /* ---------- 1) Fade edges (most universal cue) ---------- */
+  .tech-group{
+    position: relative; /* needed for overlays */
+  }
 
+  /* Right fade */
+  .tech-group::after{
+    content:"";
+    position:absolute;
+    top: 28px;                /* starts below the group label */
+    right: 0;
+    width: 36px;
+    height: calc(100% - 28px);
+    pointer-events:none;
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(12,8,24,0.85));
+    border-radius: 14px;
+    opacity: .95;
+  }
+
+  /* Left fade (only shows when user has scrolled a bit — still ok as a cue) */
+  .tech-group::before{
+    content:"";
+    position:absolute;
+    top: 28px;
+    left: 0;
+    width: 18px;
+    height: calc(100% - 28px);
+    pointer-events:none;
+    background: linear-gradient(to left, rgba(0,0,0,0), rgba(12,8,24,0.55));
+    border-radius: 14px;
+    opacity: .65;
+  }
+
+  /* ---------- 2) “Swipe” hint on the label row ---------- */
+  .tech-group-title,
+  .tech-label{
+    position: relative;
+    padding-right: 64px !important; /* room for hint */
+  }
+
+  .tech-group-title::after,
+  .tech-label::after{
+    content: "Swipe →";
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    font-size: 10px;
+    letter-spacing: .10em;
+    color: rgba(244,241,255,0.55);
+    opacity: .9;
+  }
+
+  /* ---------- 3) Optional chevron overlay near the right edge ---------- */
+  .tech-grid{
+    position: relative;
+  }
+
+  .tech-grid::after{
+    content: "›";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(0,0,0,0.20);
+    color: rgba(244,241,255,0.70);
+
+    pointer-events: none;
+    opacity: .85;
+  }
+
+  /* makes sure chevron isn't clipped */
+  .tech-grid{
+    padding-right: 28px !important;
+  }
+}
 
