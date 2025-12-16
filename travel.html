@@ -18,57 +18,59 @@
   <link rel="stylesheet" href="css/about/travel.css" />
 </head>
 
-<body>
+<body class="about">
   <!-- header include -->
   <div data-include="partials/header2.html"></div>
 
   <!-- MAIN CONTENT -->
-  <main class="page">
-    <section class="section travel">
-      <!-- Back link -->
-      <a href="about.html" class="project-back-link">&larr; Back to About</a>
+  <main class="about-view page" data-view="travel">
+    <div class="about-shell">
+      <section class="section travel">
+        <!-- Back link -->
+        <a href="about.html" class="project-back-link">&larr; Back to About</a>
 
-      <!-- HERO / FLAG BANNER -->
-      <div id="travel-hero" class="travel-hero">
-        <div id="travel-banner" class="travel-banner"></div>
+        <!-- HERO / FLAG BANNER -->
+        <div id="travel-hero" class="travel-hero">
+          <div id="travel-banner" class="travel-banner"></div>
 
-        <div class="travel-hero-overlay">
-          <div class="travel-hero-text">
-            <div id="travel-region-pill" class="travel-region-pill">Region</div>
-            <h1 id="travel-page-title" class="travel-hero-title">Destination</h1>
-            <p id="travel-page-subtitle" class="travel-hero-subtitle">
-              Loading destination...
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONTENT LAYOUT: SUMMARY + GALLERY -->
-      <div class="travel-layout">
-        <!-- SUMMARY CARD -->
-        <article class="card travel-summary-card">
-          <div class="travel-summary-header">
-            <h3 class="card-title">Trip Overview</h3>
-            <p id="travel-year" class="travel-year-meta">Year visited</p>
-          </div>
-          <p id="travel-destination-description" class="card-text travel-summary-text"></p>
-        </article>
-
-        <!-- GALLERY CARD -->
-        <article class="card travel-gallery-card">
-          <div class="travel-gallery-header">
-            <div>
-              <h3 class="card-title">Photo Gallery</h3>
-              <p id="travel-gallery-hint" class="card-meta">
-                Photos loaded from the destination’s gallery folder.
+          <div class="travel-hero-overlay">
+            <div class="travel-hero-text">
+              <div id="travel-region-pill" class="travel-region-pill">Region</div>
+              <h1 id="travel-page-title" class="travel-hero-title">Destination</h1>
+              <p id="travel-page-subtitle" class="travel-hero-subtitle">
+                Loading destination...
               </p>
             </div>
           </div>
+        </div>
 
-          <div class="carousel" id="travel-carousel"></div>
-        </article>
-      </div>
-    </section>
+        <!-- CONTENT LAYOUT: SUMMARY + GALLERY -->
+        <div class="travel-layout">
+          <!-- SUMMARY CARD -->
+          <article class="card travel-summary-card">
+            <div class="travel-summary-header">
+              <h3 class="card-title">Trip Overview</h3>
+              <p id="travel-year" class="travel-year-meta">Year visited</p>
+            </div>
+            <p id="travel-destination-description" class="card-text travel-summary-text"></p>
+          </article>
+
+          <!-- GALLERY CARD -->
+          <article class="card travel-gallery-card">
+            <div class="travel-gallery-header">
+              <div>
+                <h3 class="card-title">Photo Gallery</h3>
+                <p id="travel-gallery-hint" class="card-meta">
+                  Photos loaded from the destination’s gallery folder.
+                </p>
+              </div>
+            </div>
+
+            <div class="carousel" id="travel-carousel"></div>
+          </article>
+        </div>
+      </section>
+    </div>
   </main>
 
   <!-- footer include -->

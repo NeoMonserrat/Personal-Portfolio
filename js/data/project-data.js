@@ -29,7 +29,7 @@
       meta: "Unity · C# · XR Interaction Toolkit · Meta Quest SDK",
       github: "https://github.com/NeoMonserrat/DrumXRoll",
       summary:
-        "An XR-based interactive drumming system with a 3D piano-roll guide, real-time visual feedback, and immersive improvisation training sequences.",
+        "XR drumming trainer with a 3D piano-roll guide and real-time visual feedback for improvisation practice.",
       thumbnail: cdnThumb("DrumXRoll"),
       media: {
         images: [
@@ -66,7 +66,7 @@
       meta: "HTML · CSS · JavaScript",
       github: "https://github.com/NeoMonserrat/LPPWDFI",
       summary:
-        "A responsive web-based record management system with CRUD operations, authentication, and streamlined data handling to improve organizational workflow.",
+        "Responsive CRUD system with authentication to manage beneficiary records and streamline workflow.",
       thumbnail: cdnThumb("LPPWDFI"),
       media: {
         images: [],
@@ -83,7 +83,7 @@
       title: "Band Remote Covers",
       meta: "Song Covers · Improvisation · Mixing",
       summary:
-        "A collection of remote band covers and collaborations, combining individually recorded parts into full arrangements and mixes for online release.",
+        "Remote band covers built from individually recorded parts, arranged and mixed for online release.",
       thumbnail: cdnThumb("RemoteBandCovers"),
       media: {
         images: [],
@@ -126,7 +126,7 @@
       title: "Music Production for APPPKP",
       meta: "Music Production · Freelance · Short Film",
       summary:
-        "Handled end-to-end music production for an APPPKP short film project—composing, arranging, and mixing soundtrack cues that support mood, pacing, and narrative impact, while collaborating with directors and editors for final delivery.",
+        "End-to-end scoring and mixing for an APPPKP short film, aligned to mood, pacing, and story beats.",
       thumbnail: cdnThumb("APPPKP"),
       media: {
         images: [],
@@ -159,7 +159,7 @@
       title: "Drum Covers",
       meta: "Drum Covers · Improvisation · Mixing",
       summary:
-        "A growing collection of drum covers highlighting my groove versatility, timing precision, and improvisational style. Each cover is recorded and mixed with attention to tone, clarity, and musical expression.",
+        "Drum covers showcasing groove, timing, and tasteful improvisation—recorded and mixed for clarity.",
       thumbnail: cdnThumb("DrumCovers"),
       media: {
         images: [],

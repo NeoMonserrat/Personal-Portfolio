@@ -10,29 +10,36 @@
 
   <body class="about">
     <div class="page-scroll" id="top">
-      <div data-include="partials/header.html"></div>
+      <div data-include="partials/header2.html"></div>
       <div data-include="partials/about-subnav.html"></div>
 
       <main class="page about-view" data-view="travel">
         <section class="section">
           <div id="travel" class="about-anchor"></div>
 
-          <div class="about-pane" data-pane="travel" style="display: block;">
-            <header class="section-header compact">
-              <h1 class="section-title">Travel</h1>
-              <p class="section-subtitle">
-                [Description coming soon]
-              </p>
-            </header>
+          <div class="about-pane" data-pane="travel" style="display:block;">
+            <div class="about-shell">
 
-            <div class="card travel-card compact">
-              <h3 class="card-title">Places I’ve been</h3>
-              <p class="card-text">
-                Organized by region — tap a country to view highlights.
-              </p>
+              <header class="section-header compact">
+                <h1 class="about-title">Travel</h1>
+                <p class="section-subtitle">
+                  [Description coming soon]
+                </p>
+              </header>
 
-              <div id="travel-regions-root"></div>
-            </div>
+              <div class="card travel-card compact">
+                <!-- <h3 class="card-title">Places I’ve been</h3> -->
+                <p class="card-text">
+                  <p class="card-text card-text--instruction">
+                    Select a country to explore highlights by region.
+                  </p>
+
+                </p>
+
+                <div id="travel-regions-root"></div>
+              </div>
+
+            </div><!-- /about-shell -->
           </div>
         </section>
       </main>

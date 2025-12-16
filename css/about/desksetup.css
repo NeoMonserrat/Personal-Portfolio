@@ -7,16 +7,18 @@
 .section-desk{
   width:min(var(--desk-max-width), calc(100% - (var(--desk-side-pad) * 2)));
   margin-inline:auto;
-  padding:2.75rem var(--desk-side-pad) 3rem;
+  padding-top: calc(var(--topbar-offset) + 2.2rem);
+  padding-inline: var(--desk-side-pad);
+  padding-bottom: 3rem;
   overflow-x:clip;
 }
 
 .section-desk .section-header{
   max-width:860px;
-  margin-bottom:1.75rem;
+  margin-bottom:2.35rem;
 }
 
-.section-desk .section-title{ margin-bottom:.35rem; }
+.section-desk .section-title{ margin-bottom:.5rem; }
 
 .section-desk .section-subtitle{
   margin-top:0;
@@ -32,7 +34,7 @@
   font-size:.9rem;
   color:rgba(255,255,255,0.65);
   text-decoration:none;
-  margin-bottom:.5rem;
+  margin-bottom:.75rem;
 }
 
 .desk-back-link:hover{ color:#fff; }
@@ -41,7 +43,7 @@
 .desk-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-  gap:1.35rem;
+  gap:1.85rem;
   align-items:stretch;
   margin-top:.5rem;
   overflow-x:clip;

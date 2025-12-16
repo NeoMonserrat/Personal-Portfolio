@@ -1,8 +1,46 @@
-/* TRAVEL */
-.travel{
-  max-width:1000px;
-  margin:0 auto;
+/* =========================
+   TRAVEL — LAYOUT OVERRIDE
+   Center content (no About sidebar)
+========================= */
+
+body.about .about-view[data-view="travel"]{
+  padding-top:110px;
+  padding-right:24px;
+  padding-bottom:56px;
+  padding-left:24px; /* ⬅️ OVERRIDE sidebar offset */
+  box-sizing:border-box;
 }
+
+@media (max-width:980px){
+  body.about .about-view[data-view="travel"]{
+    padding-top:120px;
+    padding-inline:24px;
+  }
+}
+
+/* =========================
+   CENTERED SHELL
+========================= */
+
+.about-shell{
+  width:min(1120px, 100%);
+  margin-inline:auto;
+}
+
+/* =========================
+   SECTION RESET
+========================= */
+
+.section.travel{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .travel-hero{
   position:relative;
@@ -57,13 +95,20 @@
   color:rgba(255,255,255,0.85);
 }
 
+/* =========================
+   CONTENT
+========================= */
+
 .travel-layout{
   display:grid;
-  grid-template-columns:minmax(0, 1fr);
+  grid-template-columns:1fr;
   gap:1.4rem;
 }
 
-/* CARDS */
+/* =========================
+   CARDS
+========================= */
+
 .travel-summary-card{
   padding-top:1.2rem;
   padding-bottom:1.3rem;
@@ -76,8 +121,6 @@
   color:var(--muted);
   margin-top:.15rem;
 }
-
-.travel-summary-text{ margin-top:.2rem; }
 
 .travel-gallery-card{
   padding-top:1.1rem;
@@ -99,7 +142,10 @@
 
 .travel-gallery-card .carousel{ margin-top:.4rem; }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width:640px){
   .travel-hero{ border-radius:16px; }
   .travel-banner{ height:190px; }
@@ -111,36 +157,4 @@
 @media (max-width:420px){
   .travel-hero-overlay{ padding:.95rem 1rem; }
   .travel-region-pill{ font-size:.72rem; }
-}
-
-/* LIGHTBOX */
-.lightbox{
-  position:fixed;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,0,0,0.85);
-  z-index:999;
-}
-
-.lightbox.is-visible{ display:flex; }
-
-.lightbox img{
-  max-width:min(1100px, 92vw);
-  max-height:82vh;
-  border-radius:16px;
-}
-
-.lightbox-close{
-  position:absolute;
-  top:18px;
-  right:18px;
-  width:40px;
-  height:40px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.25);
-  background:rgba(0,0,0,0.35);
-  color:rgba(255,255,255,0.9);
-  cursor:pointer;
 }

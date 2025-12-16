@@ -8,7 +8,8 @@
 .section.section-gaming{
   width:min(var(--gaming-max), calc(100% - (var(--gaming-pad) * 2)));
   margin:0 auto;
-  padding-top:3.1rem;
+  padding-top: calc(var(--topbar-offset) + 2.2rem);
+  padding-bottom: 2.6rem;
   padding-left:var(--gaming-pad);
   padding-right:var(--gaming-pad);
   overflow-x:clip;
@@ -33,7 +34,7 @@
 .gaming-layout{
   display:grid;
   grid-template-columns:minmax(0, 2.05fr) minmax(0, 1.15fr);
-  gap:1.75rem;
+  gap:2.25rem;
   margin-top:0;
   align-items:start;
   overflow-x:clip;
@@ -242,7 +243,7 @@
 .ign-card{
   width:100%;
   max-width:420px;
-  margin-top:3.2rem;
+  margin-top: 3rem;
   padding:1.25rem 1.35rem;
   border-radius:1.25rem;
 

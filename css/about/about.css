@@ -2,51 +2,71 @@
 :root{
   --about-sidebar-w:228px;
   --about-sidebar-gap:1.4rem;
-  --about-content-max:1180px;
-
   --about-pill-bg: rgba(255,255,255,0.06);
   --about-pill-bd: rgba(255,255,255,0.14);
   --about-accent: rgba(124,92,255,0.85);
   --about-accent-soft: rgba(124,92,255,0.18);
 }
 
-/* PAGE BACKGROUND + SPACING FIX */
+/* PAGE BACKGROUND */
 .about .page-scroll{
   min-height:100vh;
   background:
     radial-gradient(1100px 700px at 18% 12%, rgba(124,92,255,0.22), transparent 60%),
     radial-gradient(900px 520px at 85% 18%, rgba(79,140,255,0.14), transparent 55%),
     radial-gradient(900px 520px at 55% 92%, rgba(124,92,255,0.10), transparent 60%);
-  padding-bottom: 16px;
+  padding-bottom:16px;
 }
 
-/* ACCOUNT FOR LEFT SUBNAV (so content doesn't look dragged left) */
-.about .page.about-view{
-  padding-left: calc(var(--about-sidebar-w) + var(--about-sidebar-gap));
-  padding-right: var(--about-sidebar-gap);
+/* ABOUT VIEW PADDING (matches Music page parity) */
+body.about .about-view{
+  padding-top:110px;
+  padding-right:24px;
+  padding-bottom:56px;
+  padding-left:300px;
+  box-sizing:border-box;
 }
 
-/* LAYOUT */
+/* CENTERED SHELL */
+.about-shell{
+  width:min(1120px, 100%);
+  margin:0 auto;
+}
+
+/* SECTION BASE */
 .section{
-  max-width:var(--about-content-max);
-  margin-left:auto;
-  margin-right:auto;
+  margin:0;
+  padding:0;
   padding-bottom:1.25rem;
 }
 
-.section-header{
-  margin-bottom: 1rem;
+.section-header{ margin-bottom:1rem; }
+
+/* TYPO */
+.about .section-title{ margin:0 0 .2rem; }
+.about .section-subtitle{ margin:0; max-width:72ch; }
+
+.about-title{
+  margin:0;
+  font-size:clamp(30px, 3.2vw, 40px);
+  letter-spacing:-0.02em;
 }
 
-/* CARDS */
+/* CARD BASE */
 .card{
   height:auto;
   border-radius:18px;
   padding:1.15rem 1.3rem;
-  background:
-    radial-gradient(120% 140% at 20% 0%, rgba(124,92,255,0.10), rgba(255,255,255,0.02) 60%);
+  background:radial-gradient(120% 140% at 20% 0%, rgba(124,92,255,0.10), rgba(255,255,255,0.02) 60%);
   border:1px solid rgba(255,255,255,0.10);
   box-shadow:0 10px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.card-header{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  margin:0 0 .4rem;
 }
 
 .card-title{
@@ -63,13 +83,6 @@
 }
 
 .card-text + .card-text{ margin-top:.6rem; }
-
-.card-header{
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-  margin:0 0 .4rem;
-}
 
 .card-icon{
   width:38px;
@@ -95,7 +108,7 @@
   justify-content:flex-end;
 }
 
-/* Tag row (Interests label) */
+/* TAG PILL */
 .card-tag{
   display:inline-flex;
   align-items:center;
@@ -108,10 +121,10 @@
   color:rgba(244,241,255,0.78);
   font-size:.82rem;
   font-weight:650;
-  margin: .55rem 0 .55rem;
+  margin:.55rem 0;
 }
 
-/* Buttons */
+/* CTA BUTTON */
 .card-link-btn{
   display:inline-flex;
   align-items:center;
@@ -141,49 +154,34 @@
 
 .card-link-btn:active{ transform:translateY(0); }
 
-/* =========================
-   FIT LAYOUT (2-column top)
-   ========================= */
-
-.about .page{
-  padding-bottom: 0 !important;
-}
-
-.about .section-title{ margin: 0 0 .2rem; }
-
-.about .section-subtitle{
-  margin: 0;
-  max-width: 72ch;
-}
-
-/* ✅ 2-column: EQUAL (left = journey, right = gallery) */
+/* TOP GRID (Journey + Gallery) */
 .about-top-grid{
   display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: .9rem;
-  align-items: start;
-  margin-bottom: 2rem;
+  grid-template-columns:1fr 1fr;
+  gap:.9rem;
+  align-items:start;
+  margin-bottom:2rem;
 }
 
-.about-hero{ min-width: 0; }
+.about-hero{ min-width:0; }
+
 .about-gallery{
-  padding: .75rem;
+  padding:.75rem;
   display:flex;
   flex-direction:column;
 }
 
-/* ✅ Gallery container: fixed visual frame (prevents duplicate images stacking) */
+/* GALLERY FRAME */
 .thumb-gallery{
   position:relative;
   width:100%;
-  height: clamp(220px, 30vh, 320px); /* adjust if you want taller */
+  height:clamp(220px, 30vh, 320px);
   border-radius:16px;
   overflow:hidden;
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.08);
+  background:rgba(0,0,0,0.25);
+  border:1px solid rgba(255,255,255,0.08);
 }
 
-/* ✅ Make all media overlap inside the same frame */
 .thumb-gallery img,
 .thumb-gallery video{
   position:absolute;
@@ -193,7 +191,6 @@
   object-fit:cover;
   display:block;
 }
-
 
 .gallery-btn{
   position:absolute;
@@ -223,25 +220,25 @@
   border:1px solid rgba(255,255,255,0.12);
 }
 
-/* =========================
-   Interests row
-   ========================= */
-
-.about-interests{ margin-top: .6rem; }
+/* INTERESTS ROW */
+.about-interests{ margin-top:.6rem; }
 
 .about-interests-row{
   display:flex;
-  gap: 2rem;
+  gap:2rem;
   justify-content:center;
   flex-wrap:wrap;
 }
 
-.about-interests-row::-webkit-scrollbar{ height: 12px; }
+.about-interests-row::-webkit-scrollbar{ height:12px; }
 
+/* INTEREST CARD (keeps button pinned bottom) */
 .about-interest-card{
-  flex: 1 1 360px;
-  max-width: 420px;
-  height: 320px;
+  flex:1 1 360px;
+  max-width:350px;
+  height:250px;
+  display:flex;
+  flex-direction:column;
 }
 
 .about-interest-card:hover{
@@ -257,31 +254,37 @@
   overflow:hidden;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
-@media (max-width: 980px){
-  .about-top-grid{ grid-template-columns: 1fr; }
-  .about-gallery{ padding: .85rem; }
-
-  .thumb-gallery{
-    height: clamp(180px, 24vh, 235px);
-    min-height: unset;
-  }
-
-  .about-interest-card{ flex-basis: 290px; }
-
-  /* collapse sidebar offset on smaller screens */
-  .about .page.about-view{
-    padding-left: 0;
-    padding-right: 0;
-  }
+.about-interest-card .card-link-btn{
+  margin-top:auto;
+  align-self:flex-end;
 }
 
-@media (max-width:720px){
+/* PAGE FOOTER BREATHING ROOM */
+.about main{ margin-bottom:8.5rem; }
+
+/* RESPONSIVE */
+@media (max-width: 980px){
+  body.about .about-view{
+    padding-left:24px;
+    padding-right:24px;
+    padding-top:120px;
+  }
+
+  .about-top-grid{ grid-template-columns:1fr; }
+  .about-gallery{ padding:.85rem; }
+
+  .thumb-gallery{
+    height:clamp(180px, 24vh, 235px);
+    min-height:unset;
+  }
+
+  .about-interest-card{ flex-basis:290px; }
+}
+
+@media (max-width: 720px){
   .about-subnav-wrap{
     position:sticky;
-    top: calc(var(--topbar-offset) + 14px);
+    top:calc(var(--topbar-offset) + 14px);
     left:0;
     width:100%;
   }
@@ -306,24 +309,5 @@
   }
 
   .section-subtitle{ max-width:none; }
-  .about-interest-card{ flex-basis: 280px; }
-}
-
-.about main{
-  margin-bottom: 8.5rem;
-}
-
-.about-interest-card .card-actions{
-  margin-top: auto;
-}
-
-/* Force the button itself to sit at the bottom of the card */
-.about-interest-card{
-  display:flex;
-  flex-direction:column;
-}
-
-.about-interest-card .card-link-btn{
-  margin-top:auto;
-  align-self:flex-end;
+  .about-interest-card{ flex-basis:280px; }
 }
