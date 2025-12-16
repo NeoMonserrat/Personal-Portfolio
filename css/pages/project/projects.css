@@ -1,12 +1,5 @@
 /* =============== PROJECTS PAGE (Editorial Rail) =============== */
 
-/* Active nav */
-.nav-links a[href="projects.html"],
-.nav-links a[href="/public/projects.html"] {
-  color: #fff;
-  font-weight: 800;
-}
-
 /* Tokens */
 :root {
   --page-max: 1200px;

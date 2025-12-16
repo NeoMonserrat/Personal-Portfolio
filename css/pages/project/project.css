@@ -1,14 +1,7 @@
 /* =========================
    PROJECT (DETAIL PAGE) — project.html
    ========================= */
-
-/* Keep Projects highlighted in nav even on the detail page */
-.nav-links a[href="projects.html"],
-.nav-links a[href="/public/projects.html"]{
-  color:#fff;
-  font-weight:800;
-}
-
+   
 /* ---------------------------------------------------------
    FIX: Ensure content starts BELOW the fixed header/topbar
    --------------------------------------------------------- */

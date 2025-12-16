@@ -1,0 +1,13 @@
+.container{
+  width:min(var(--container), calc(100% - (var(--container-pad) * 2)));
+  margin-inline:auto;
+}
+
+/* RESPONSIVE */
+@media (max-width:1024px){
+
+}
+
+@media (max-width:430px){
+
+}
