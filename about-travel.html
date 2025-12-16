@@ -20,23 +20,48 @@
           <div class="about-pane" data-pane="travel" style="display:block;">
             <div class="about-shell">
 
-              <header class="section-header compact">
-                <h1 class="about-title">Travel</h1>
-                <p class="section-subtitle">
-                  [Description coming soon]
-                </p>
-              </header>
+              <!-- HERO (match Music structure) -->
+              <div class="about-hero">
+                <div class="about-hero-text">
+                  <h1 class="about-title">Travel</h1>
+                  <p class="about-lead">[Description coming soon]</p>
+                </div>
 
-              <div class="card travel-card compact">
-                <!-- <h3 class="card-title">Places I’ve been</h3> -->
-                <p class="card-text">
-                  <p class="card-text card-text--instruction">
-                    Select a country to explore highlights by region.
-                  </p>
+                <!-- Optional hero card slot (kept for parity with Music; leave empty/commented) -->
+                <!--
+                <div class="about-hero-card">
+                  <div class="mini-card">
+                    <div class="mini-kicker">Snapshot</div>
+                    <div class="mini-title">[Coming soon]</div>
+                    <p class="mini-text">[Coming soon]</p>
+                  </div>
+                </div>
+                -->
+              </div>
 
-                </p>
+              <!-- CONTENT GRID (match Music naming) -->
+              <div class="about-grid">
 
-                <div id="travel-regions-root"></div>
+                <!-- LEFT: Travel explorer (your unique section preserved) -->
+                <article class="panel panel-primary">
+                  <div class="panel-head">
+                    <div class="panel-tag">Places</div>
+                    <h2 class="panel-title">Places I’ve been to</h2>
+                    <p class="panel-sub">Select a country to explore highlights by region.</p>
+                  </div>
+
+                  <div class="panel-body">
+                    <!-- Unique Travel root (DO NOT REMOVE) -->
+                    <div id="travel-regions-root"></div>
+                  </div>
+                </article>
+
+                  <div class="panel-body">
+                    <!-- Keep this empty for now so the layout matches Music.
+                         If you later add a travel gallery, drop it here. -->
+                  </div>
+                </article>
+
               </div>
 
             </div><!-- /about-shell -->

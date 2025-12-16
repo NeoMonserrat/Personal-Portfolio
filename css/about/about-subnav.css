@@ -90,3 +90,107 @@
     white-space: nowrap;
   }
 }
+
+/* =================================================
+   ABOUT — Mobile Subnav (Option 1)
+   Sticky segmented control card
+   <= 430px
+================================================= */
+@media (max-width: 430px){
+
+    .about-subnav-wrap{
+    position: sticky;
+    top: calc(var(--topbar-offset) + 14px);
+    left: 0;
+    width: 100%;
+  }
+
+  .about-subnav{
+    flex-direction: row;
+    max-height: 320px;
+    border-radius: 999px;
+    padding: .5rem;
+    overflow-x: auto;
+  }
+
+  .about-subnav-link{
+    font-size: .85rem;
+    padding: .45rem .75rem;
+    white-space: nowrap;
+  }
+
+  /* Wrapper: sticky + full-width centering row */
+  .about-subnav-wrap{
+    position: sticky;
+    top: calc(var(--topbar-offset) + 10px);
+    z-index: 30;
+
+    width: 100%;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+
+    margin: 0 0 14px;
+    padding: 0;
+  }
+
+  /* Glass segmented bar */
+  .about-subnav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .35rem;
+
+    width: fit-content;
+    max-width: calc(100vw - 2rem);
+    margin-inline: auto;
+
+    padding: .4rem;
+    border-radius: 999px;
+
+    background: rgba(0,0,0,0.42);
+    border: 1px solid rgba(255,255,255,0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .about-subnav::-webkit-scrollbar{ display: none; }
+
+  /* Pills */
+  .about-subnav-link{
+    flex: 0 0 auto;
+    padding: .42rem .72rem;
+    border-radius: 999px;
+
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .01em;
+    white-space: nowrap;
+
+    color: rgba(244,241,255,0.78);
+    background: transparent;
+    border: 1px solid transparent;
+
+    transition:
+      background .15s ease,
+      border-color .15s ease,
+      color .15s ease;
+  }
+
+  .about-subnav-link.active{
+    color: #fff;
+    background: rgba(124,92,255,0.18);
+    border-color: rgba(124,92,255,0.45);
+  }
+
+  /* Prevent content from feeling jammed under it */
+  body.about .about-view{
+    padding-top: calc(var(--topbar-offset) + 88px);
+  }
+}
+
