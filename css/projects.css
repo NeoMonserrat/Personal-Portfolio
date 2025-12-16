@@ -364,12 +364,6 @@
   #personal-section .cards-grid > .card{
     scroll-snap-align: start;
   }
-    /* Increase top spacing inside each slide */
-  #academic-section,
-  #personal-section{
-    padding-top: 10px; /* adjust freely: 24px–40px */
-  }
-
     .section-title{
     max-width: none;        /* remove forced narrow column */
     white-space: normal;    /* allow normal wrapping */
