@@ -1,13 +1,8 @@
 <header class="topbar">
   <div class="topbar-left">
-    <img
-      class="topbar-avatar"
-      src="assets/icons/profileLogo.png"
-      alt="Neo avatar"
-    />
+    <img class="topbar-avatar" src="assets/icons/profileLogo.png" alt="Neo avatar" />
   </div>
 
-  <!-- Desktop nav pill -->
   <nav class="topbar-nav" aria-label="Primary">
     <a class="topbar-link is-active" href="index.html">Home</a>
     <span class="topbar-sep">/</span>
@@ -17,13 +12,11 @@
   </nav>
 
   <div class="topbar-right">
-    <!-- Desktop CTA -->
     <a class="topbar-cta topbar-cta-desktop" href="contact.html">
       <span class="cta-icon">✉</span>
       Contact Me
     </a>
 
-    <!-- Mobile burger -->
     <button
       class="topbar-burger"
       type="button"
@@ -38,25 +31,15 @@
   </div>
 </header>
 
-<!-- Mobile scrim + sidebar -->
 <div class="nav-scrim" data-nav-close aria-hidden="true"></div>
 
 <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Mobile menu">
   <div class="mobile-sidebar-head">
     <div class="mobile-brand">
-      <img
-        class="mobile-avatar"
-        src="assets/icons/profileLogo.png"
-        alt="Neo avatar"
-      />
+      <img class="mobile-avatar" src="assets/icons/profileLogo.png" alt="Neo avatar" />
     </div>
 
-    <button
-      class="sidebar-close"
-      type="button"
-      aria-label="Close menu"
-      data-nav-close
-    >
+    <button class="sidebar-close" type="button" aria-label="Close menu" data-nav-close>
       ✕
     </button>
   </div>
@@ -64,10 +47,9 @@
   <nav class="mobile-nav" aria-label="Mobile primary">
     <a class="mobile-link is-active" href="index.html">Home</a>
 
-    <!-- About (dropdown) -->
     <div class="mobile-link-group">
       <button
-        class="mobile-link mobile-link-toggle"
+        class="mobile-link-toggle"
         type="button"
         aria-expanded="false"
         aria-controls="aboutSubmenu"
@@ -76,7 +58,7 @@
         <span class="mobile-link-arrow" aria-hidden="true">▾</span>
       </button>
 
-      <div class="mobile-submenu" id="aboutSubmenu" hidden>
+      <div class="mobile-submenu" id="aboutSubmenu">
         <a class="mobile-sublink" href="about.html">General</a>
         <a class="mobile-sublink" href="about-music.html">Music</a>
         <a class="mobile-sublink" href="about-sports.html">Sports</a>
@@ -94,79 +76,3 @@
     </a>
   </div>
 </aside>
-
-<script>
-  (() => {
-    const root = document.documentElement;
-    const burger = document.querySelector(".topbar-burger");
-    const sidebar = document.querySelector("#mobileSidebar");
-    const scrim = document.querySelector(".nav-scrim");
-    const closeBtns = document.querySelectorAll("[data-nav-close]");
-
-    // Close sidebar ONLY when clicking real navigation links
-    const navLinks = document.querySelectorAll(
-      ".mobile-nav a.mobile-link, .mobile-nav a.mobile-sublink"
-    );
-
-    const openNav = () => {
-      root.classList.add("nav-open");
-      burger?.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
-    };
-
-    const closeNav = () => {
-      root.classList.remove("nav-open");
-      burger?.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-      closeAboutMenu();
-    };
-
-    // Burger toggle
-    burger?.addEventListener("click", () => {
-      root.classList.contains("nav-open") ? closeNav() : openNav();
-    });
-
-    // Close buttons + scrim
-    closeBtns.forEach((b) => b.addEventListener("click", closeNav));
-
-    // Close on real link click
-    navLinks.forEach((a) => a.addEventListener("click", closeNav));
-
-    // Escape key
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeNav();
-    });
-
-    // Safety: close on desktop resize
-    window.addEventListener("resize", () => {
-      if (window.matchMedia("(min-width: 721px)").matches) closeNav();
-    });
-
-    // --------------------------------
-    // Mobile About dropdown (FIXED)
-    // --------------------------------
-    const aboutToggle = document.querySelector(".mobile-link-toggle");
-    const aboutMenu = document.querySelector("#aboutSubmenu");
-
-    const closeAboutMenu = () => {
-      if (!aboutToggle || !aboutMenu) return;
-      aboutToggle.setAttribute("aria-expanded", "false");
-      aboutMenu.hidden = true;
-    };
-
-    // Ensure closed on load
-    closeAboutMenu();
-
-    // Toggle submenu without closing sidebar
-    aboutToggle?.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (!aboutMenu) return;
-
-      const isOpen = aboutToggle.getAttribute("aria-expanded") === "true";
-      aboutToggle.setAttribute("aria-expanded", String(!isOpen));
-      aboutMenu.hidden = isOpen;
-    });
-  })();
-</script>

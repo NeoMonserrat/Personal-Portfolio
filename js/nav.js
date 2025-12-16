@@ -3,7 +3,14 @@
     const root = document.documentElement;
     const burger = document.querySelector(".topbar-burger");
     const closeBtns = document.querySelectorAll("[data-nav-close]");
-    const links = document.querySelectorAll(".mobile-link");
+
+    // Close only on actual anchor links (not buttons)
+    const navLinks = document.querySelectorAll(
+      ".mobile-nav a.mobile-link, .mobile-nav a.mobile-sublink"
+    );
+
+    // About dropdown
+    const aboutToggle = document.querySelector(".mobile-link-toggle");
 
     if (!burger) return false; // header not injected yet
 
@@ -13,10 +20,16 @@
       document.body.style.overflow = "hidden";
     };
 
+    const closeAboutMenu = () => {
+      if (!aboutToggle) return;
+      aboutToggle.setAttribute("aria-expanded", "false");
+    };
+
     const closeNav = () => {
       root.classList.remove("nav-open");
       burger.setAttribute("aria-expanded", "false");
       document.body.style.overflow = "";
+      closeAboutMenu();
     };
 
     burger.addEventListener("click", () => {
@@ -24,7 +37,21 @@
     });
 
     closeBtns.forEach((b) => b.addEventListener("click", closeNav));
-    links.forEach((a) => a.addEventListener("click", closeNav));
+
+    // Close sidebar on link click
+    navLinks.forEach((a) => a.addEventListener("click", closeNav));
+
+    // Ensure About submenu starts closed
+    closeAboutMenu();
+
+    // Toggle About submenu without closing sidebar
+    aboutToggle?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const isOpen = aboutToggle.getAttribute("aria-expanded") === "true";
+      aboutToggle.setAttribute("aria-expanded", String(!isOpen));
+    });
 
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeNav();
