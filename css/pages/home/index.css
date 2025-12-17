@@ -1,89 +1,56 @@
-/* =================================================
-   MOBILE SNAP SWIPE (<= 430px)
-   One swipe -> smooth animated jump (no in-between scroll)
-================================================= */
-@media (max-width: 430px){
-
-  /* Body doesn't scroll; the page wrapper does */
-  body.home{
-    overflow: hidden;
-  }
-
-  /* Scroll container (still scrollable via programmatic jumps) */
-  body.home .page-scroll{
-    height: 100svh;
-    height: 100dvh;
-    overflow-y: auto;
-
-    /* Prevent partial "in-between" native scroll on touch */
-    touch-action: pan-x;
-
-    /* Optional: stops rubber-band chaining */
-    overscroll-behavior-y: contain;
-
-    /* Optional: hide scrollbar */
-    scrollbar-width: none;
-
-    /* Smooth animation when JS scrolls */
-    scroll-behavior: smooth;
-  }
-  body.home .page-scroll::-webkit-scrollbar{ display:none; }
-
-  /* Hide arrows if they exist */
-  .scroll-arrow{
-    display: none !important;
-  }
+/* Snap base */
+:root{
+  --topbar-offset: var(--topbar-h, 78px);
 }
 
-/* =================================================
-   MOBILE SLIDE SHRINK PACK (<= 430px)
-   Goal: fit more content per slide without changing layout
-   - GLOBAL bits only (shared)
-================================================= */
-@media (max-width: 430px){
+html, body{
+  height:100%;
+}
 
-  :root{
-    --slide-pad: 14px;
-  }
+body.home{
+  margin:0;
+  overflow:hidden;
+}
 
-  /* reduce default section padding if any */
-  .screen-section{
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
+/* Scroll container */
+body.home #snapContainer{
+  height:100vh;
+  overflow-y:auto;
+  overflow-x:hidden;
 
-  /* ---------- FOOTER: shrink typography + spacing ---------- */
-  .site-footer,
-  #footer{
-    padding-top: 18px !important;
-    padding-bottom: 18px !important;
-  }
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
 
-  .footer-inner{
-    gap: 14px !important;
-  }
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+body.home #snapContainer::-webkit-scrollbar{
+  display:none;
+}
 
-  .footer-name{
-    font-size: 14px !important;
-  }
+/* Snap pages */
+body.home #snapContainer > main{
+  min-height:100%;
+}
 
-  .footer-meta{
-    font-size: 12.5px !important;
-    line-height: 1.4 !important;
-  }
+body.home #snapContainer .snap-page{
+  height:100vh;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  overflow:hidden;
+}
 
-  .footer-contact-title{
-    font-size: 11px !important;
-    letter-spacing: .18em !important;
-  }
+/* Tech page layout */
+body.home #snapContainer .tech-page-inner{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+}
 
-  .footer-contact-list li{
-    font-size: 12.5px !important;
-    gap: 6px !important;
-  }
-
-  .footer-copy{
-    font-size: 12px !important;
-    margin-top: 10px !important;
+/* Mobile behavior */
+@media (max-width:430px){
+  body.home #snapContainer{
+    touch-action:pan-x;
   }
 }

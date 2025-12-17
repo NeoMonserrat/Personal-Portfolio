@@ -11,7 +11,8 @@
   align-items: center;
   gap: clamp(18px, 4vw, 64px);
 
-  padding-top: calc(var(--topbar-offset) + clamp(10px, 3vh, 26px));
+  /* body already accounts for topbar */
+  padding-top: clamp(10px, 3vh, 26px);
   padding-bottom: clamp(56px, 10vh, 110px);
   padding-inline: var(--container-pad);
 }
@@ -19,7 +20,7 @@
 /* HERO BACKDROP */
 .hero-outline{
   position: absolute;
-  top: calc(var(--topbar-offset) + clamp(18px, 5vh, 60px));
+  top: clamp(18px, 5vh, 60px);
   left: 50%;
   transform: translateX(-50%);
   font-size: clamp(90px, 16vw, 260px);
@@ -39,7 +40,7 @@
 .hero-circle{
   position: absolute;
   left: 52%;
-  top: calc(var(--topbar-offset) + clamp(18px, 6vh, 78px));
+  top: clamp(18px, 6vh, 78px);
   transform: translateX(-50%);
   width: min(56vw, 760px);
   aspect-ratio: 1/1;
@@ -254,10 +255,10 @@
     justify-items: center;
     text-align: center;
 
-    min-height: calc(100svh - var(--topbar-offset)) !important;
-    min-height: calc(100dvh - var(--topbar-offset)) !important;
+    min-height: 100svh !important;
+    min-height: 100dvh !important;
 
-    padding-top: calc(var(--topbar-offset) + 12px) !important;
+    padding-top: 12px !important;
     padding-bottom: 64px !important;
     padding-inline: var(--container-pad) !important;
   }
@@ -271,7 +272,6 @@
     font-size: 11px !important;
     letter-spacing: .16em !important;
     margin-top: 6px !important;
-    padding-top: 6px;
     line-height: 1.25;
   }
 
@@ -284,29 +284,25 @@
     margin-inline: auto;
   }
 
-  .hero-actions .btn{
-    padding: .72rem 1.0rem !important;
-    font-size: 14px !important;
+  .hero-actions{
+    justify-content: center;
+    gap: 14px;
   }
 
   .hero-circle.hero-circle--pop{
-    position: absolute;
-    top: calc(var(--topbar-offset) - 36px) !important;
+    top: -36px !important;
     left: 50%;
     transform: translateX(-50%);
     width: min(72vw, 280px) !important;
-    max-height: 58vh;
     z-index: 1;
     opacity: .85;
   }
 
   .hero-figure{
-    position: absolute;
-    top: calc(var(--topbar-offset) - 88px) !important;
+    top: -88px !important;
     left: 50%;
     transform: translateX(-50%);
     width: min(64vw, 240px) !important;
-    max-height: 58vh;
     z-index: 2;
   }
 
@@ -314,9 +310,8 @@
     position: relative;
     z-index: 3;
     margin-top: clamp(190px, 30vh, 260px) !important;
-
-    margin-inline: auto;
     max-width: 32ch;
+    margin-inline: auto;
 
     display: flex;
     flex-direction: column;
@@ -324,15 +319,7 @@
     text-align: center;
   }
 
-  .hero-actions{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  .scroll-arrow{
+  .hero-canvas .scroll-arrow{
     display: none !important;
   }
 }

@@ -4,19 +4,26 @@
   --bg-1:#15122a;
   --bg-2:#201b3a;
 
-  --ink:#f4f1ff;
-  --muted:rgba(244,241,255,0.70);
+  --surface:var(--bg-1);
+  --surface-2:var(--bg-2);
 
-  --stroke:rgba(244,241,255,0.16);
-  --glass:rgba(12,11,20,0.28);
-  --glass-2:rgba(12,11,20,0.44);
+  --ink:#f4f1ff;
+  --muted:rgb(244 241 255 / 0.70);
+
+  --stroke:rgb(244 241 255 / 0.16);
+
+  --glass:rgb(12 11 20 / 0.28);
+  --glass-2:rgb(12 11 20 / 0.44);
 
   --accent:#ff8a5b;
   --accent-2:#7c5cff;
-  --accent-soft:rgba(255,138,91,0.14);
+  --accent-soft:rgb(255 138 91 / 0.14);
 
-  --radius:18px;
-  --shadow:0 20px 60px rgba(0,0,0,0.45);
+  --r-1:12px;
+  --r-2:18px;
+
+  --shadow-1:0 10px 30px rgb(0 0 0 / 0.35);
+  --shadow-2:0 20px 60px rgb(0 0 0 / 0.45);
 
   --topbar-h:82px;
   --topbar-h-mobile:82px;

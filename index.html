@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta data-include="partials/head.html" />
-  
-  <!-- <link rel="stylesheet" href="css/components/topbar.css" /> -->
+
   <link rel="stylesheet" href="css/pages/home/index.css" />
   <link rel="stylesheet" href="css/pages/home/hero.css" />
   <link rel="stylesheet" href="css/pages/home/offer.css" />
@@ -11,31 +10,34 @@
 </head>
 
 <body class="home">
-  <!-- page wrapper -->
+
+  <div data-include="partials/header.html"></div>
+
   <div class="page-scroll" id="snapContainer">
-    <!-- header -->
-    <div data-include="partials/header.html"></div>
-
     <main>
-      <!-- hero -->
-      <div data-include="partials/home/hero.html"></div>
 
-      <!-- offer -->
-      <div data-include="partials/home/offer.html"></div>
+      <section id="home" class="snap-page">
+        <div data-include="partials/home/hero.html"></div>
+      </section>
 
-      <!-- tech stack -->
-      <div data-include="partials/home/techstack.html"></div>
+      <section id="offer" class="snap-page">
+        <div data-include="partials/home/offer.html"></div>
+      </section>
+
+      <section id="tech" class="snap-page">
+        <div data-include="partials/home/techstack.html"></div>
+      </section>
+
+      <section id="footerPage" class="snap-page snap-page--footer">
+        <div data-include="partials/footer.html"></div>
+      </section>
+
     </main>
-
-    <!-- footer -->
-    <div data-include="partials/footer.html"></div>
   </div>
 
-  <!-- includes loader -->
   <script src="js/includes.js"></script>
   <script src="js/nav.js"></script>
-
-  <!-- Mobile: one swipe = instant jump to next/prev section -->
+  <script src="js/desktop-snap.js"></script>
   <script src="js/mobile-snap.js"></script>
 
 </body>
