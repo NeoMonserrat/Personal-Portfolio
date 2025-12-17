@@ -178,7 +178,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: calc(var(--topbar-offset, 0px) + 14px) !important;
     padding-right: var(--container-pad) !important;
     padding-left:  var(--container-pad) !important;
     padding-bottom: 10px !important;
