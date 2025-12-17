@@ -1,12 +1,12 @@
-/* ABOUT/MUSIC — layout shell + spacing */
+/* ABOUT GALLERY PAGE ONLY */
 body.about .about-view{
-  padding:110px 24px 56px 300px;
+  padding:18px 18px 22px;
   box-sizing:border-box;
 }
 
 @media (max-width:980px){
   body.about .about-view{
-    padding:120px 24px 56px;
+    padding:14px 14px 18px;
   }
 }
 

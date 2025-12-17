@@ -1,51 +1,26 @@
-/* =========================
-   PROJECT (DETAIL PAGE) — project.html
-   ========================= */
-   
-/* ---------------------------------------------------------
-   FIX: Ensure content starts BELOW the fixed header/topbar
-   --------------------------------------------------------- */
+/* PROJECT — project.html */
 
-/* Adjust this if your header height changes */
+/* Topbar offset */
 :root{
-  --topbar-height: 78px;          /* estimated fixed header height */
-  --topbar-gap: 22px;             /* breathing room below header */
+  --topbar-height:78px;
+  --topbar-gap:22px;
 }
 
-/* If your header partial uses .topbar and it is fixed, this prevents overlap */
-.page--with-topbar{
-  padding-top: calc(var(--topbar-height) + var(--topbar-gap));
-}
+/* Layout */
 
-/* When jumping to anchors (or reloading with #...), keep section visible */
-#project-section{
-  scroll-margin-top: calc(var(--topbar-height) + 16px);
-}
-
-/* If your header partial uses .topbar instead of .nav */
-.topbar,
-header.topbar{
-  padding:10px 18px;
-}
-.topbar-nav a{
-  padding:.42rem .75rem;
-}
-.topbar .nav-cta,
-.topbar a.nav-cta{
-  padding:9px 12px;
-}
-
-/* PAGE base (keep same container behavior as listing) */
 .page{
   width:min(1200px, calc(100% - 3rem));
   margin:0 auto;
   padding-bottom:1rem;
 }
 
-/* PROJECT DETAIL HEADER */
+#project-section{
+  scroll-margin-top:calc(var(--topbar-height) + 16px);
+}
+
+/* Header card */
 #project-section .section-header{
   position:relative;
-  margin-bottom:1rem;
   padding:.8rem 1.15rem 1.05rem;
   border-radius:22px;
   background:radial-gradient(circle at top left, rgba(118,163,255,0.18), rgba(7,10,24,0.96));
@@ -68,6 +43,7 @@ header.topbar{
   z-index:1;
 }
 
+/* Back link */
 .project-back-link{
   display:inline-flex;
   align-items:center;
@@ -82,6 +58,7 @@ header.topbar{
   margin-bottom:.35rem;
 }
 
+/* Title row */
 .header-main{
   display:flex;
   justify-content:space-between;
@@ -112,6 +89,7 @@ header.topbar{
   box-shadow:0 0 12px rgba(110,190,255,0.9);
 }
 
+/* Links */
 .project-links{
   display:flex;
   align-items:center;
@@ -140,6 +118,7 @@ header.topbar{
   transform:translateY(-1px);
 }
 
+/* Meta row */
 .project-info-row{
   display:flex;
   align-items:center;
@@ -172,7 +151,7 @@ header.topbar{
   padding-left:1.1rem;
 }
 
-/* DETAIL CONTENT */
+/* Content card */
 #project-section article.card{
   padding:.2rem 1.2rem 1.4rem;
   padding-top:.2rem !important;
@@ -193,7 +172,7 @@ header.topbar{
   color:rgba(220,230,255,0.88);
 }
 
-/* MEDIA GALLERY */
+/* Gallery */
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
@@ -201,14 +180,17 @@ header.topbar{
   margin-top:.8rem;
 }
 
+/* Media card */
 .media-item{
+  position:relative;
+  z-index:0;
   display:flex;
   flex-direction:column;
   gap:.45rem;
-  background:radial-gradient(circle at top, #171729, #06060d);
-  border-radius:16px;
   padding:.7rem;
+  border-radius:16px;
   border:1px solid rgba(32,32,51,0.9);
+  background:radial-gradient(circle at top, #171729, #06060d);
   transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
 
@@ -218,11 +200,13 @@ header.topbar{
   background:radial-gradient(circle at top, rgba(79,140,255,0.26), #050509);
 }
 
+/* Embed */
 .media-embed{
   position:relative;
   padding-top:56.25%;
   overflow:hidden;
   border-radius:12px;
+  background:#000;
 }
 
 .media-embed iframe{
@@ -236,35 +220,62 @@ header.topbar{
   box-shadow:none !important;
 }
 
+/* Image support */
+.media-embed img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+  filter:none !important;
+}
+
+/* Captions */
+.media-title,
+.media-description{
+  position:relative;
+  z-index:2;
+  opacity:1 !important;
+  visibility:visible !important;
+  mix-blend-mode:normal !important;
+  filter:none !important;
+  transform:none !important;
+}
+
 .media-title{
+  margin-top:.15rem;
   font-size:.88rem;
   font-weight:600;
-  margin-top:.15rem;
+  line-height:1.25;
+  color:rgba(238,241,255,0.96);
 }
 
 .media-description{
   font-size:.78rem;
-  opacity:.85;
   line-height:1.35;
+  color:rgba(220,230,255,0.86);
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width:860px){
   :root{
-    --topbar-height: 74px;
-    --topbar-gap: 18px;
+    --topbar-height:74px;
+    --topbar-gap:18px;
   }
 
   .page{ width:calc(100% - 2rem); }
-
   #project-section .section-header{ padding:.85rem 1.05rem 1.1rem; }
   #project-section article.card{ padding:.2rem 1.1rem 1.5rem; }
 }
 
 @media (max-width:520px){
   :root{
-    --topbar-height: 72px;
-    --topbar-gap: 16px;
+    --topbar-height:72px;
+    --topbar-gap:16px;
   }
 
   .project-info-row,

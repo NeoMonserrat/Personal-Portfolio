@@ -1,43 +1,44 @@
-/* =========================================================
-   CONTACT PAGE – FIXED LAYOUT (container + 2-col grid)
-========================================================= */
+/* Make sure the contact container behaves even if .container differs globally */
+body.contact .section-contact .container{
+  width: min(var(--container, 1200px), calc(100% - (var(--container-pad, 18px) * 2)));
+  margin-inline: auto;
+}
 
-/* Remove obsolete nav highlighting */
-.nav-links a[href="/public/contact.html"] { all: unset; }
-
-/* Section spacing */
-.section-contact{
-  padding: 0;
+/* Ensure the section sits BELOW fixed header on desktop too */
+body.contact .section.section-contact{
+  padding-bottom: 72px;
+  min-height: calc(100svh - var(--topbar-offset));
+  min-height: calc(100dvh - var(--topbar-offset));
 }
 
 /* Desktop layout: left text + right card */
-.contact-layout{
+body.contact .contact-layout{
   display: grid;
-  grid-template-columns: minmax(280px, 520px) minmax(320px, 460px);
-  gap: clamp(24px, 4vw, 64px);
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 480px);
+  gap: clamp(24px, 4vw, 72px);
   align-items: start;
   justify-content: space-between;
 }
 
-.contact-header{
-  padding-top: 10px;
+/* Keep header readable */
+body.contact .contact-header{
+  padding-top: 6px;
 }
 
-.section-header{
-  max-width: 52ch;
+body.contact .section-header{
+  max-width: 56ch;
 }
 
 /* Main contact card */
-.contact-main-card{
-  max-width: 460px;
+body.contact .contact-main-card{
+  max-width: 480px;
   width: 100%;
   margin: 0;
   padding: 2rem 1.9rem;
   border-radius: 26px;
 
   background:
-    radial-gradient(
-      140% 120% at 20% 0%,
+    radial-gradient(140% 120% at 20% 0%,
       rgba(124, 92, 255, 0.14),
       rgba(255, 255, 255, 0.04) 55%,
       rgba(0, 0, 0, 0.02) 100%
@@ -54,7 +55,7 @@
 }
 
 /* Profile */
-.contact-photo{
+body.contact .contact-photo{
   width: 110px;
   height: 110px;
   border-radius: 999px;
@@ -64,20 +65,20 @@
   margin: 0 auto 1rem;
 }
 
-.contact-name{
+body.contact .contact-name{
   font-size: 1.2rem;
   font-weight: 650;
   margin-bottom: 0.2rem;
 }
 
-.contact-role,
-.contact-location{
+body.contact .contact-role,
+body.contact .contact-location{
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
 }
 
 /* Contact methods */
-.contact-methods{
+body.contact .contact-methods{
   list-style: none;
   margin: 1.25rem 0 0;
   padding: 0;
@@ -86,64 +87,77 @@
   gap: 0.6rem;
 }
 
-.contact-method{
+body.contact .contact-method{
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.04);
-  transition: transform 0.15s ease, border-color 0.18s ease, background 0.18s ease;
+  transition:
+    transform 0.15s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
-.contact-method-link{
+body.contact .contact-method-link{
   display: block;
   padding: 0.75rem 0.85rem;
   text-decoration: none;
 }
 
-.contact-method-main{
+body.contact .contact-method-main{
   display: flex;
   align-items: center;
   gap: 0.7rem;
   text-align: left;
 }
 
-.icon svg{
+body.contact .icon svg{
   width: 18px;
   height: 18px;
   fill: rgba(255, 255, 255, 0.7);
   transition: fill 0.18s ease;
 }
 
-.contact-method-title{
+body.contact .contact-method-title{
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
 }
 
-.contact-method-value{
+body.contact .contact-method-value{
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.92);
   word-break: break-word;
 }
 
-.contact-method:hover{
+/* “Light up” hover */
+body.contact .contact-method:hover{
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(124, 92, 255, 0.55);
+  box-shadow: 0 10px 26px rgba(124, 92, 255, 0.14);
 }
 
-.contact-method:hover .icon svg{
+body.contact .contact-method:hover .icon svg{
   fill: rgba(124, 92, 255, 1);
 }
 
+/* Keyboard accessibility */
+body.contact .contact-method-link:focus-visible{
+  outline: var(--focus-ring, 2px) solid rgba(124, 92, 255, 0.9);
+  outline-offset: var(--focus-offset, 3px);
+  border-radius: 14px;
+}
+
 /* Socials */
-.contact-socials{
+body.contact .contact-socials{
   margin-top: 1.4rem;
   padding-top: 1.2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
 
-.contact-socials-title{
+body.contact .contact-socials-title{
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -152,21 +166,21 @@
   margin-bottom: 0.9rem;
 }
 
-.social-main{
+body.contact .social-main{
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
   align-items: center;
 }
 
-.social-up,
-.social-down{
+body.contact .social-up,
+body.contact .social-down{
   display: flex;
   gap: 0.6rem;
   justify-content: center;
 }
 
-.social-card{
+body.contact .social-card{
   width: 86px;
   height: 86px;
   display: flex;
@@ -176,101 +190,104 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.14);
 
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45),
-              inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
-.social-card:hover{
+body.contact .social-card:hover{
   transform: translateY(-2px) scale(1.05);
   border-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(124, 92, 255, 0.12),
+    0 0 28px rgba(124, 92, 255, 0.12);
+}
+
+body.contact .social-card:focus-visible{
+  outline: var(--focus-ring, 2px) solid rgba(124, 92, 255, 0.9);
+  outline-offset: var(--focus-offset, 3px);
 }
 
 /* Rounded quadrants */
-.card1 { border-radius: 86px 10px 10px 10px; }
-.card2 { border-radius: 10px 86px 10px 10px; }
-.card3 { border-radius: 10px 10px 10px 86px; }
-.card4 { border-radius: 10px 10px 86px 10px; }
+body.contact .card1{ border-radius: 86px 10px 10px 10px; }
+body.contact .card2{ border-radius: 10px 86px 10px 10px; }
+body.contact .card3{ border-radius: 10px 10px 10px 86px; }
+body.contact .card4{ border-radius: 10px 10px 86px 10px; }
 
 /* Icon colors + micro alignment */
-.instagram { fill:#cc39a4; transform: translate(3px,6px); }
-.facebook  { fill:#1877f2; transform: translate(-6px,2px); }
-.tiktok    { fill:#00f2ea; transform: translate(5px,-3px); }
-.discord   { fill:#8c9eff; transform: translate(-6px,-2px); }
+body.contact .instagram{ fill:#cc39a4; transform: translate(3px,6px); }
+body.contact .facebook { fill:#1877f2; transform: translate(-6px,2px); }
+body.contact .tiktok   { fill:#00f2ea; transform: translate(5px,-3px); }
+body.contact .discord  { fill:#8c9eff; transform: translate(-6px,-2px); }
 
-.card1:hover { background:#cc39a4; }
-.card2:hover { background:#1877f2; }
-.card3:hover { background:#ff0033; }
-.card4:hover { background:#8c9eff; }
+body.contact .card1:hover{ background:#cc39a4; }
+body.contact .card2:hover{ background:#1877f2; }
+body.contact .card3:hover{ background:#ff0033; }
+body.contact .card4:hover{ background:#8c9eff; }
 
-.card1:hover .instagram,
-.card2:hover .facebook,
-.card3:hover .tiktok,
-.card4:hover .discord{
+body.contact .card1:hover .instagram,
+body.contact .card2:hover .facebook,
+body.contact .card3:hover .tiktok,
+body.contact .card4:hover .discord{
   fill:#ffffff;
 }
 
 /* =========================================================
-   CONTACT PAGE – MOBILE COMPAT (<= 430px)
-   Drop this at the END of contact.css
+   MOBILE (<= 430px)
 ========================================================= */
 @media (max-width: 430px){
 
-  /* Make this page behave like your home "slides" */
-  main.page{
+  body.contact main.page{
     min-height: 100svh;
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
   }
 
-  /* Full-screen section + keep bottom breathing room */
-  .section.section-contact{
+  body.contact .section.section-contact{
     flex: 1 1 auto;
     display: flex;
     align-items: flex-start;
 
-    min-height: calc(100svh - var(--topbar-offset)) !important;
-    min-height: calc(100dvh - var(--topbar-offset)) !important;
-
-    padding-top: calc(var(--topbar-offset) + 12px) !important;
-    padding-bottom: 64px !important; /* ✅ remaining margin below */
-    padding-inline: var(--container-pad) !important;
+    padding-bottom: 64px !important;
+    padding-inline: var(--container-pad, 18px) !important;
 
     overflow: hidden;
   }
 
-  /* Stack layout like mobile */
-  .contact-layout{
+  body.contact .contact-layout{
     grid-template-columns: 1fr !important;
     justify-items: center;
     align-content: start;
     gap: 18px !important;
   }
 
-  .section-header.contact-header{
+  body.contact .section-header.contact-header{
     width: 100%;
     max-width: 62ch;
     text-align: left;
     padding-top: 0 !important;
   }
 
-  /* Card sizing for iPhone widths */
-  .contact-main-card{
+  body.contact .contact-main-card{
     justify-self: center !important;
     max-width: 100% !important;
     padding: 1.35rem 1.1rem !important;
     border-radius: 22px !important;
   }
 
-  /* Slightly tighter internals (optional but helps fit) */
-  .contact-methods{ gap: 0.55rem !important; }
-  .contact-method-link{ padding: 0.7rem 0.8rem !important; }
+  body.contact .contact-methods{ gap: 0.55rem !important; }
+  body.contact .contact-method-link{ padding: 0.7rem 0.8rem !important; }
 
-  .social-card{
+  body.contact .social-card{
     width: 82px !important;
     height: 82px !important;
   }
 }
-

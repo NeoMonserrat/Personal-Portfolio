@@ -4,69 +4,59 @@
     <meta data-include="partials/head.html" />
 
     <link rel="stylesheet" href="css/components/about-subnav.css" />
+    <link rel="stylesheet" href="css/pages/about/about.css" />
     <link rel="stylesheet" href="css/pages/about/about-travel.css" />
   </head>
 
   <body class="about">
     <div class="page-scroll" id="top">
       <div data-include="partials/header2.html"></div>
-      <div data-include="partials/about-subnav.html"></div>
 
-      <main class="page about-view" data-view="travel">
-        <section class="section">
-          <div id="travel" class="about-anchor"></div>
-
-          <div class="about-pane" data-pane="travel" style="display:block;">
-            <div class="about-shell">
-
-              <!-- HERO (match Music structure) -->
-              <div class="about-hero">
-                <div class="about-hero-text">
-                  <h1 class="about-title">Travel</h1>
-                  <p class="about-lead">[Description coming soon]</p>
-                </div>
-
-                <!-- Optional hero card slot (kept for parity with Music; leave empty/commented) -->
-                <!--
-                <div class="about-hero-card">
-                  <div class="mini-card">
-                    <div class="mini-kicker">Snapshot</div>
-                    <div class="mini-title">[Coming soon]</div>
-                    <p class="mini-text">[Coming soon]</p>
-                  </div>
-                </div>
-                -->
-              </div>
-
-              <!-- CONTENT GRID (match Music naming) -->
-              <div class="about-grid">
-
-                <!-- LEFT: Travel explorer (your unique section preserved) -->
-                <article class="panel panel-primary">
-                  <div class="panel-head">
-                    <div class="panel-tag">Places</div>
-                    <h2 class="panel-title">Places I’ve been to</h2>
-                    <p class="panel-sub">Select a country to explore highlights by region.</p>
-                  </div>
-
-                  <div class="panel-body">
-                    <!-- Unique Travel root (DO NOT REMOVE) -->
-                    <div id="travel-regions-root"></div>
-                  </div>
-                </article>
-
-                  <div class="panel-body">
-                    <!-- Keep this empty for now so the layout matches Music.
-                         If you later add a travel gallery, drop it here. -->
-                  </div>
-                </article>
-
-              </div>
-
-            </div><!-- /about-shell -->
+      <div class="about-layout">
+        <aside class="about-subnav-col">
+          <div class="about-subnav-head">
+            <div class="about-subnav-kicker">About</div>
           </div>
-        </section>
-      </main>
+
+          <div data-include="partials/about-subnav.html"></div>
+        </aside>
+
+        <main class="page about-view" data-view="travel">
+          <div class="about-content-card">
+            <header class="about-view-head" aria-label="About section header">
+              <div class="about-breadcrumb">
+                <span class="about-bc-muted">About</span>
+                <span class="about-bc-sep">→</span>
+                <span class="about-bc-strong">Travel</span>
+              </div>
+            </header>
+
+            <section class="section">
+              <div id="travel" class="about-anchor"></div>
+
+              <div class="about-pane" data-pane="travel" style="display:block;">
+                <div class="about-shell">
+                  <div class="about-grid">
+                    <article class="panel panel-primary">
+                      <div class="panel-head">
+                        <div class="panel-tag">Places</div>
+                        <h2 class="panel-title">Places I’ve been to</h2>
+                        <p class="panel-sub">
+                          Select a country to explore highlights by region.
+                        </p>
+                      </div>
+
+                      <div class="panel-body">
+                        <div id="travel-regions-root"></div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
 
       <div data-include="partials/footer.html"></div>
     </div>

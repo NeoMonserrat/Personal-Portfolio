@@ -1,24 +1,48 @@
-/* GAMING TOKENS */
+/* TOKENS */
 :root{
-  --gaming-max:1180px;
+  --gaming-max:1320px;
   --gaming-pad:clamp(16px, 3vw, 36px);
 }
 
-/* CONTAINER */
+/* PAGE OVERRIDES */
+body.gaming .page{ padding-top:0 !important; }
+
+body.gaming .page-scroll{
+  align-items:stretch !important;
+  justify-content:flex-start !important;
+}
+
+/* FULL-WIDTH SECTION (BACKGROUND BLEEDS LIKE HOME) */
 .section.section-gaming{
-  width:min(var(--gaming-max), calc(100% - (var(--gaming-pad) * 2)));
-  margin:0 auto;
-  padding-top: calc(var(--topbar-offset) + 2.2rem);
-  padding-bottom: 2.6rem;
-  padding-left:var(--gaming-pad);
-  padding-right:var(--gaming-pad);
+  width:100%;
+  margin:0;
   overflow-x:clip;
 }
 
-.section.section-gaming .section-header{ max-width:74ch; }
+/* CENTERED INNER RAIL (CONTENT READABLE + PREMIUM) */
+.section-gaming-inner{
+  width:min(var(--gaming-max), calc(100% - (var(--gaming-pad) * 2)));
+  margin:0 auto;
+  padding-inline:var(--gaming-pad);
+}
 
-/* BACK LINK */
-.gaming-back-link{
+.section-gaming{
+  position:relative;
+  z-index:1;
+}
+
+/* HEADER */
+.section-gaming .section-header{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.35rem;
+  margin-bottom:1.6rem;
+}
+
+.section-gaming .gaming-back-link{
   display:inline-flex;
   align-items:center;
   gap:.45rem;
@@ -28,14 +52,30 @@
   margin-bottom:.65rem;
 }
 
-.gaming-back-link:hover{ color:rgba(244,241,255,0.95); }
+.section-gaming .gaming-back-link:hover{
+  color:rgba(244,241,255,0.95);
+}
+
+.section-gaming .section-title{
+  margin:0;
+  font-size:clamp(1.5rem, 2.4vw, 2rem);
+  font-weight:800;
+  letter-spacing:-0.02em;
+  color:rgba(255,255,255,0.95);
+}
+
+.section-gaming .section-subtitle{
+  margin:0;
+  font-size:.95rem;
+  color:rgba(220,225,255,0.75);
+  max-width:52ch;
+}
 
 /* LAYOUT */
 .gaming-layout{
   display:grid;
-  grid-template-columns:minmax(0, 2.05fr) minmax(0, 1.15fr);
-  gap:2.25rem;
-  margin-top:0;
+  grid-template-columns:minmax(0, 2.4fr) minmax(0, 1.2fr);
+  gap:3rem;
   align-items:start;
   overflow-x:clip;
 }
@@ -43,13 +83,13 @@
 .gaming-heading{
   font-size:1rem;
   font-weight:650;
-  margin-bottom:.95rem;
+  margin:0 0 .95rem;
   color:rgba(244,241,255,0.92);
 }
 
-/* GENRE CARDS */
+/* GENRE CARD */
 .genre-card{
-  margin-bottom:1.35rem;
+  margin:0 0 1.35rem;
   padding:1.1rem 1.15rem;
   border-radius:1.25rem;
   background:
@@ -64,14 +104,14 @@
 .genre-header{
   display:flex;
   align-items:center;
-  margin-bottom:.7rem;
+  margin:0 0 .7rem;
   min-height:2.45rem;
 }
 
 .genre-card.collapsed .genre-header{ margin-bottom:0; }
 
 .genre-toggle{
-  border:none;
+  border:0;
   background:none;
   padding:0;
   margin:0;
@@ -216,7 +256,7 @@
 }
 
 .game-notes{
-  margin-top:.08rem;
+  margin:.08rem 0 0;
   font-size:.82rem;
   line-height:1.5;
   color:rgba(220,225,255,0.78);
@@ -225,9 +265,9 @@
 .game-photo{
   width:48px;
   height:48px;
+  flex:0 0 48px;
   object-fit:contain;
   border-radius:.75rem;
-  flex:0 0 48px;
   opacity:.9;
   transition:opacity .2s ease, transform .2s ease;
   background:rgba(0,0,0,0.18);
@@ -239,37 +279,29 @@
   transform:scale(1.03);
 }
 
-/* IGNs CARD */
+/* IGNS CARD */
 .ign-card{
   width:100%;
-  max-width:420px;
-  margin-top: 3rem;
+  max-width:480px;
+  margin:0;
   padding:1.25rem 1.35rem;
   border-radius:1.25rem;
-
   position:sticky;
-  top:6rem;
-
+  top:var(--gaming-top);
   background:
     radial-gradient(820px 520px at 20% 10%, rgba(124,92,255,0.14), transparent 62%),
     rgba(255,255,255,0.035);
-
   border:1px solid rgba(255,255,255,0.12);
   box-shadow:0 20px 44px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.04);
   backdrop-filter:blur(12px);
 }
 
-.ign-card h3,
-.ign-card .card-title{ margin-bottom:.55rem; }
-
-.ign-card p{
-  margin-bottom:.9rem;
-  max-width:46ch;
-}
+.ign-card .card-tag{ margin:0 0 .45rem; }
+.ign-card .card-title{ margin:0 0 .75rem; }
 
 .ign-list{
   list-style:none;
-  margin:.75rem 0 0;
+  margin:0;
   padding:0;
   display:flex;
   flex-direction:column;
@@ -298,7 +330,7 @@
 }
 
 .ign-footnote{
-  margin-top:1rem;
+  margin:1rem 0 0;
   font-size:.78rem;
   line-height:1.5;
   color:rgba(184,195,238,0.78);
@@ -337,7 +369,7 @@
   position:absolute;
   top:.85rem;
   right:.95rem;
-  border:none;
+  border:0;
   background:none;
   color:rgba(230,236,255,0.85);
   font-size:1.4rem;
@@ -383,11 +415,11 @@
   font-size:1.15rem;
   font-weight:800;
   color:rgba(255,255,255,0.96);
-  margin-bottom:.35rem;
+  margin:0 0 .35rem;
 }
 
 .game-modal-notes{
-  margin-top:.3rem;
+  margin:.3rem 0 0;
   font-size:.9rem;
   line-height:1.6;
   color:rgba(220,225,255,0.85);
@@ -397,7 +429,7 @@
   width:100%;
   max-width:420px;
   align-self:flex-start;
-  margin-top:1rem;
+  margin:.95rem 0 0;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -415,16 +447,16 @@
 
 /* RESPONSIVE */
 @media (max-width:960px){
-  .gaming-layout{ grid-template-columns:minmax(0, 1fr); }
+  .gaming-layout{ grid-template-columns:1fr; }
+
   .ign-card{
     position:static;
     max-width:100%;
-    margin-top:1.6rem;
+    margin-top:1.1rem;
   }
 }
 
 @media (max-width:640px){
-  .section.section-gaming{ padding-top:2.6rem; }
   .genre-card{ padding:1rem; }
 
   .game-photo{

@@ -22,6 +22,24 @@
 
   window.PROJECTS = [
     {
+      id: "beneficiary-system",
+      category: "academic",
+      tag: "Course Project · 2023–2024",
+      title: "Beneficiary Record Management for Las Piñas PWD Federation Inc.",
+      meta: "HTML · CSS · JavaScript",
+      github: "https://github.com/NeoMonserrat/LPPWDFI",
+      summary:
+        "Responsive CRUD system with authentication to manage beneficiary records and streamline workflow.",
+      thumbnail: cdnThumb("LPPWDFI"),
+      media: {
+        images: [],
+        videos: [],
+        audio: [],
+        youtube: []
+      }
+    },
+
+    {
       id: "drumxroll",
       category: "academic",
       tag: "Thesis · 2024–2026",
@@ -52,24 +70,6 @@
               "Immersive practice environment on Meta Quest with interactive UI."
           }
         ],
-        videos: [],
-        audio: [],
-        youtube: []
-      }
-    },
-
-    {
-      id: "beneficiary-system",
-      category: "academic",
-      tag: "Course Project · 2023–2024",
-      title: "Beneficiary Record Management for Las Piñas PWD Federation Inc.",
-      meta: "HTML · CSS · JavaScript",
-      github: "https://github.com/NeoMonserrat/LPPWDFI",
-      summary:
-        "Responsive CRUD system with authentication to manage beneficiary records and streamline workflow.",
-      thumbnail: cdnThumb("LPPWDFI"),
-      media: {
-        images: [],
         videos: [],
         audio: [],
         youtube: []

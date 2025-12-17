@@ -1,56 +1,79 @@
-/* Snap base */
 :root{
-  --topbar-offset: var(--topbar-h, 78px);
-}
-
-html, body{
-  height:100%;
+  /* Page-specific: arrow spacing */
+  --arrow-bottom: 26px;
 }
 
 body.home{
-  margin:0;
-  overflow:hidden;
+  margin: 0;
+  overflow: hidden;
 }
 
-/* Scroll container */
+/* Snap container owns the scroll */
 body.home #snapContainer{
-  height:100vh;
-  overflow-y:auto;
-  overflow-x:hidden;
+  height: calc(100vh - var(--topbar-offset));
+  overflow-y: auto;
+  overflow-x: hidden;
 
-  scroll-snap-type:y mandatory;
-  scroll-behavior:smooth;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 body.home #snapContainer::-webkit-scrollbar{
-  display:none;
+  display: none;
 }
 
-/* Snap pages */
+/* If your <main> is the direct child, keep it full height */
 body.home #snapContainer > main{
-  min-height:100%;
+  height: 100%;
 }
 
-body.home #snapContainer .snap-page{
-  height:100vh;
-  scroll-snap-align:start;
-  scroll-snap-stop:always;
-  overflow:hidden;
+body.home .snap-page{
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Tech page layout */
-body.home #snapContainer .tech-page-inner{
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  min-height:0;
+.scroll-arrow{
+  position: absolute;
+  left: 50%;
+  bottom: var(--arrow-bottom);
+  transform: translateX(-50%);
+  font-size: 22px;
+  line-height: 1;
+  color: rgba(244,241,255,0.55);
+  cursor: pointer;
+  user-select: none;
+  z-index: 50;
+  animation: scrollArrowPulse 1.8s infinite;
 }
 
-/* Mobile behavior */
+@media (hover:hover){
+  .scroll-arrow:hover{
+    color: rgba(244,241,255,0.85);
+  }
+}
+
+@keyframes scrollArrowPulse{
+  0%{ transform: translateX(-50%) translateY(0); opacity: .45; }
+  50%{ transform: translateX(-50%) translateY(6px); opacity: .75; }
+  100%{ transform: translateX(-50%) translateY(0); opacity: .45; }
+}
+
 @media (max-width:430px){
+  :root{
+    --arrow-bottom: 18px;
+  }
+
   body.home #snapContainer{
-    touch-action:pan-x;
+    height: calc(100svh - var(--topbar-offset));
+    touch-action: pan-x;
+  }
+
+  .scroll-arrow{
+    font-size: 20px;
   }
 }

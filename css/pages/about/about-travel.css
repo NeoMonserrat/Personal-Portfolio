@@ -1,17 +1,11 @@
-/* =========================================================
-   ABOUT/TRAVEL — align with Music (hero + grid + panel system)
-   but KEEP unique Travel region UI styles
-   ========================================================= */
-
-/* PAGE SPACING (keep your unique footer push) */
-body.about .about-view[data-view="travel"]{
-  padding:110px 24px 200px 300px; /* bottom padding pushes footer lower */
+body.about .about-view{
+  padding:18px 18px 22px;
   box-sizing:border-box;
 }
 
 @media (max-width:980px){
-  body.about .about-view[data-view="travel"]{
-    padding:120px 24px 200px; /* keep same bottom push on smaller screens */
+  body.about .about-view{
+    padding:14px 14px 18px;
   }
 }
 
@@ -276,3 +270,59 @@ body.about .about-view[data-view="travel"]{
 .about-pane[data-pane="travel"] .panel-primary{
   grid-column: 1 / -1;
 }
+
+/* TRAVEL — 1 VIEW COMPACT */
+.about-pane[data-pane="travel"] .about-hero{
+  margin-bottom:12px;
+}
+
+.about-pane[data-pane="travel"] .about-lead{
+  margin-top:6px;
+  line-height:1.45;
+}
+
+.about-pane[data-pane="travel"] .panel-head{
+  padding:14px 14px 8px;
+}
+
+.about-pane[data-pane="travel"] .panel-body{
+  padding:12px 14px 14px;
+}
+
+/* Make region grid shorter */
+#travel-regions-root{
+  gap:.45rem;
+  grid-auto-rows:minmax(72px, auto);
+}
+
+/* Make each region card tighter */
+.travel-region-group{
+  padding:.52rem .6rem;
+  border-radius:12px;
+}
+
+.travel-region-title{
+  margin-bottom:.35rem;
+  padding:.24rem .4rem;
+  font-size:.64rem;
+}
+
+/* Country rows tighter */
+.travel-country-select{ gap:.32rem; }
+
+.travel-select-row{
+  padding:.38rem .52rem;
+  border-radius:9px;
+}
+
+.travel-flag-icon{
+  width:20px;
+  height:14px;
+}
+
+.travel-select-row .travel-name{
+  font-size:.80rem;
+}
+
+/* Remove extra page bottom spacing that forces scrolling */
+.about main{ margin-bottom:0; }

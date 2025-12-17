@@ -6,6 +6,16 @@
   --lh-body: 1.5;
   --focus-ring: 2px;
   --focus-offset: 3px;
+
+  /* Global layout primitive: fixed topbar offset */
+  --topbar-offset: var(--topbar-h, 78px);
+}
+
+/* Mobile: topbar offset changes */
+@media (max-width:430px){
+  :root{
+    --topbar-offset: var(--topbar-h-mobile, var(--topbar-offset));
+  }
 }
 
 /* Box sizing reset */
@@ -23,6 +33,11 @@ html{
   background: var(--bg-0);
 }
 
+/* Allow % heights to work when needed */
+html, body{
+  height: 100%;
+}
+
 /* Body defaults */
 body{
   margin: 0;
@@ -34,6 +49,9 @@ body{
   isolation: isolate;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Global content offset for fixed topbar */
+  padding-top: var(--topbar-offset);
 }
 
 /* Media elements */
@@ -70,6 +88,19 @@ select{
   outline-offset: var(--focus-offset);
 }
 
+/* Background layer */
+body::before{
+  z-index: 0;
+}
+
+/* Content layer */
+body > header,
+body > main,
+body > footer{
+  position: relative;
+  z-index: 1;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
@@ -85,15 +116,6 @@ select{
 
 /* Tablet overrides */
 @media (max-width: 1024px){
-}
-
-/* Mobile overrides */
-@media (max-width: 430px){
-}
-
-/* Global content offset for fixed topbar */
-body{
-  padding-top: var(--topbar-h);
 }
 
 /* Mobile override */

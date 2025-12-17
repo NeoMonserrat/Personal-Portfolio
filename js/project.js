@@ -11,30 +11,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const projectId = params.get("id");
 
-  const project = (window.PROJECTS || []).find(
-    (p) => p.id === projectId
-  );
+  const project = (window.PROJECTS || []).find((p) => p.id === projectId);
 
   if (!project) {
-    document.getElementById("project-title").textContent =
-      "Project not found";
+    document.getElementById("project-title").textContent = "Project not found";
     return;
   }
 
   /* ==============================
      Header content
   ============================== */
-  document.getElementById("project-title").textContent =
-    project.title || "";
-
-  document.getElementById("project-tag").textContent =
-    project.tag || "";
-
-  document.getElementById("project-meta").textContent =
-    project.meta || "";
-
-  document.getElementById("project-summary").textContent =
-    project.summary || "";
+  document.getElementById("project-title").textContent = project.title || "";
+  document.getElementById("project-tag").textContent = project.tag || "";
+  document.getElementById("project-meta").textContent = project.meta || "";
+  document.getElementById("project-summary").textContent = project.summary || "";
 
   // GitHub pill
   const linksContainer = document.getElementById("project-links");
@@ -68,52 +58,66 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  function addCaption(container, media) {
-    if (media.title) {
+  function addCaption(container, m) {
+    if (m.title) {
       const title = document.createElement("p");
       title.className = "media-title";
-      title.textContent = media.title;
+      title.textContent = m.title;
       container.appendChild(title);
     }
-    if (media.description) {
+    if (m.description) {
       const desc = document.createElement("p");
       desc.className = "media-description";
-      desc.textContent = media.description;
+      desc.textContent = m.description;
       container.appendChild(desc);
     }
   }
 
-  /* ---------- Images ---------- */
+  /* ---------- Images (FIXED: wrap in .media-embed) ---------- */
   if (media.images?.length) {
     media.images.forEach((m) => {
       const item = document.createElement("div");
       item.className = "media-item";
 
+      const wrap = document.createElement("div");
+      wrap.className = "media-embed";
+
       const img = document.createElement("img");
       img.src = m.src;
-      img.alt = m.title || project.title;
+      img.alt = m.title || project.title || "Project image";
       img.loading = "lazy";
       img.decoding = "async";
+      img.referrerPolicy = "no-referrer";
 
-      item.appendChild(img);
+      // Optional: if an image fails to load, don't leave an empty box
+      img.addEventListener("error", () => {
+        wrap.style.background = "rgba(0,0,0,0.35)";
+      });
+
+      wrap.appendChild(img);
+      item.appendChild(wrap);
       addCaption(item, m);
 
       gallery.appendChild(item);
     });
   }
 
-  /* ---------- Videos ---------- */
+  /* ---------- Videos (also wrapped for consistent sizing) ---------- */
   if (media.videos?.length) {
     media.videos.forEach((m) => {
       const item = document.createElement("div");
       item.className = "media-item";
+
+      const wrap = document.createElement("div");
+      wrap.className = "media-embed";
 
       const video = document.createElement("video");
       video.src = m.src;
       video.controls = true;
       video.preload = "metadata";
 
-      item.appendChild(video);
+      wrap.appendChild(video);
+      item.appendChild(wrap);
       addCaption(item, m);
 
       gallery.appendChild(item);
@@ -146,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const wrap = document.createElement("div");
       wrap.className = "media-embed";
 
-      let embedUrl = m.src
+      const embedUrl = (m.src || "")
         .replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/")
         .replace("https://youtu.be/", "https://www.youtube.com/embed/");
 

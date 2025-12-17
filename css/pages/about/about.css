@@ -1,131 +1,53 @@
-/* =========================
-   ABOUT TOKENS
-   ========================= */
+/* TOKENS */
 :root{
-  --about-sidebar-w:228px;
-  --about-sidebar-gap:1.4rem;
+  --about-shell:1400px;
+  --about-sidebar-gap:24px;
 
-  --about-pill-bg: rgba(255,255,255,0.06);
-  --about-pill-bd: rgba(255,255,255,0.14);
+  --about-pill-bg:rgba(255,255,255,0.06);
+  --about-pill-bd:rgba(255,255,255,0.14);
 
-  --about-accent: rgba(124,92,255,0.85);
-  --about-accent-soft: rgba(124,92,255,0.18);
+  --about-accent:rgba(124,92,255,0.85);
+  --about-accent-soft:rgba(124,92,255,0.18);
 }
 
-/* =========================
-   ABOUT VIEW PADDING (baseline parity)
-   ========================= */
+/* LAYOUT */
+body.about .about-layout{
+  width:min(var(--about-shell), calc(100% - (var(--container-pad) * 2)));
+  margin-inline:auto;
+  display:grid;
+  grid-template-columns:clamp(220px, 20%, 320px) minmax(0, 1fr);
+  gap:0;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+  box-shadow:0 18px 46px rgba(0,0,0,0.28);
+  backdrop-filter:blur(10px);
+  overflow:hidden;
+  margin-top:16px;
+  margin-bottom:56px;
+}
+
+body.about .about-subnav-col{
+  padding:18px 16px;
+  border-right:1px solid rgba(255,255,255,0.10);
+}
+
 body.about .about-view{
-  padding-top:110px;
-  padding-right:24px;
-  padding-bottom:56px;
-  padding-left:300px;
+  padding:18px 18px 22px;
   box-sizing:border-box;
 }
 
-/* CENTERED SHELL */
 .about-shell{
-  width:min(1120px, 100%);
-  margin:0 auto;
+  width:min(1240px, 100%);
+  margin:0;
 }
 
-/* SECTION BASE */
 .section{
   margin:0;
-  padding:0;
-  padding-bottom:1.25rem;
+  padding:0 0 1.25rem;
 }
 
-/* =========================
-   HERO (matches new HTML)
-   ========================= */
-.about-hero{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:16px;
-  margin-bottom:18px;
-  min-width:0;
-}
-
-@media (max-width:980px){
-  .about-hero{ grid-template-columns:1fr; }
-}
-
-.about-hero-text{ min-width:0; }
-
-.about-title{
-  margin:0;
-  font-size:clamp(30px, 3.2vw, 40px);
-  letter-spacing:-0.02em;
-}
-
-.about-lead{
-  margin:8px 0 0;
-  color:rgba(255,255,255,0.78);
-  line-height:1.55;
-  max-width:72ch;
-}
-
-/* Optional hero mini-card slot (kept consistent with Music pattern) */
-.about-hero-card .mini-card{
-  height:100%;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,0.12);
-  background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-  box-shadow:0 18px 40px rgba(0,0,0,0.25);
-  padding:16px;
-  backdrop-filter:blur(10px);
-}
-
-.mini-kicker{
-  font-size:.78rem;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.62);
-}
-
-.mini-title{
-  margin-top:6px;
-  font-size:1.05rem;
-  font-weight:700;
-}
-
-.mini-text{
-  margin-top:8px;
-  color:rgba(255,255,255,0.76);
-  line-height:1.55;
-}
-
-/* =========================
-   GRID (new HTML uses .about-grid)
-   ========================= */
-.about-grid{
-  display:grid;
-  grid-template-columns:.95fr 1.05fr;
-  gap:16px;
-  align-items:start;
-  margin-bottom:18px;
-}
-
-@media (max-width:1100px){
-  .about-grid{ grid-template-columns:1fr; }
-}
-
-/* Backwards-compat: if old markup still exists */
-.about-top-grid{ 
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:.9rem;
-  align-items:start;
-  margin-bottom:18px;
-}
-@media (max-width:980px){
-  .about-top-grid{ grid-template-columns:1fr; }
-}
-
-/* =========================
-   PANEL SYSTEM (required by new HTML)
-   ========================= */
+/* PANELS */
 .panel{
   border-radius:20px;
   border:1px solid rgba(255,255,255,0.12);
@@ -164,21 +86,17 @@ body.about .about-view{
   line-height:1.55;
 }
 
-.panel-body{
-  padding:14px 16px 16px;
-}
+.panel-body{ padding:14px 16px 16px; }
 
-/* =========================
-   YOUR EXISTING CARD SYSTEM (used by interests)
-   ========================= */
+/* CARD BASE */
 .card{
-  height:auto;
+  height:200px;
   border-radius:18px;
   padding:1.15rem 1.3rem;
   background:radial-gradient(120% 140% at 20% 0%, rgba(124,92,255,0.10), rgba(255,255,255,0.02) 60%);
   border:1px solid rgba(255,255,255,0.10);
   box-shadow:0 10px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.04);
-  transition: transform .12s ease, box-shadow .15s ease, border-color .15s ease;
+  transition:transform .12s ease, box-shadow .15s ease, border-color .15s ease;
 }
 
 .card-header{
@@ -201,33 +119,6 @@ body.about .about-view{
   font-size:.94rem;
 }
 
-.card-text + .card-text{ margin-top:.6rem; }
-
-.card-icon{
-  width:38px;
-  height:38px;
-  display:grid;
-  place-items:center;
-  border-radius:12px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.10);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.03);
-  flex:0 0 auto;
-}
-
-.card-icon svg{
-  width:22px;
-  height:22px;
-  fill:rgba(255,255,255,0.88);
-}
-
-.card-actions{
-  margin-top:auto;
-  display:flex;
-  justify-content:flex-end;
-}
-
-/* TAG PILL */
 .card-tag{
   display:inline-flex;
   align-items:center;
@@ -243,7 +134,12 @@ body.about .about-view{
   margin:.55rem 0;
 }
 
-/* CTA BUTTON */
+.card-actions{
+  margin-top:auto;
+  display:flex;
+  justify-content:flex-end;
+}
+
 .card-link-btn{
   display:inline-flex;
   align-items:center;
@@ -259,11 +155,6 @@ body.about .about-view{
   transition:transform .12s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
 }
 
-.card-link-btn .btn-arrow{
-  font-size:1.05em;
-  opacity:.9;
-}
-
 .card-link-btn:hover{
   border-color:rgba(124,92,255,0.55);
   box-shadow:0 0 0 3px rgba(124,92,255,0.16);
@@ -271,113 +162,77 @@ body.about .about-view{
   transform:translateY(-1px);
 }
 
-.card-link-btn:active{ transform:translateY(0); }
-
-/* =========================
-   GALLERY (thumb container used by about.js)
-   ========================= */
-.thumb-gallery{
-  position:relative;
-  width:100%;
-  height:clamp(220px, 30vh, 320px);
-  border-radius:16px;
-  overflow:hidden;
-  background:rgba(0,0,0,0.25);
-  border:1px solid rgba(255,255,255,0.08);
+/* SUBNAV HEADER */
+.about-subnav-head{
+  margin:0 0 12px;
+  padding:0 2px 10px;
+  border-bottom:1px solid rgba(255,255,255,0.10);
 }
 
-.thumb-gallery img,
-.thumb-gallery video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+.about-subnav-kicker{
+  font-weight:800;
+  letter-spacing:.02em;
+  color:rgba(255,255,255,0.92);
 }
 
-.gallery-btn{
-  position:absolute;
-  right:12px;
-  bottom:12px;
-  border:0;
-  padding:.42rem .65rem;
-  border-radius:999px;
-  font-weight:700;
-  font-size:.82rem;
-  color:rgba(255,255,255,0.9);
-  background:rgba(0,0,0,0.45);
-  border:1px solid rgba(255,255,255,0.12);
-  cursor:pointer;
+.about-subnav-hint{
+  margin-top:4px;
+  font-size:.86rem;
+  color:rgba(244,241,255,0.62);
 }
 
-.gallery-counter{
-  position:absolute;
-  left:12px;
-  bottom:12px;
-  padding:.35rem .55rem;
-  border-radius:999px;
-  font-size:.78rem;
-  font-weight:700;
-  color:rgba(255,255,255,0.85);
-  background:rgba(0,0,0,0.45);
-  border:1px solid rgba(255,255,255,0.12);
+/* VIEW HEADER */
+.about-view-head{
+  margin:0 0 12px;
+  padding:0 0 10px;
+  border-bottom:1px solid rgba(255,255,255,0.10);
 }
 
-/* =========================
-   INTERESTS (new HTML wraps it inside a panel)
-   ========================= */
-.about-interests{ margin-top:.6rem; }
-
-.about-interests-row{
+.about-breadcrumb{
   display:flex;
-  gap:2rem;
-  justify-content:center;
-  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  font-size:.95rem;
 }
 
-/* INTEREST CARD (keeps button pinned bottom) */
-.about-interest-card{
-  flex:1 1 360px;
-  max-width:350px;
-  height:250px;
+.about-bc-muted{
+  color:rgba(244,241,255,0.65);
+  font-weight:650;
+}
+
+.about-bc-sep{ opacity:.55; }
+
+.about-bc-strong{
+  color:rgba(255,255,255,0.92);
+  font-weight:850;
+}
+
+/* RESPONSIVE */
+@media (max-width:980px){
+  body.about .about-layout{
+    grid-template-columns:1fr;
+    margin-top:10px;
+  }
+
+  body.about .about-subnav-col{
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,0.10);
+    padding:12px 12px;
+  }
+
+  body.about .about-view{
+    padding:14px 14px 18px;
+  }
+}
+
+/* TRAVEL ONLY: push footer below the fold */
+body.about .about-view[data-view="travel"]{
+  min-height:calc(100vh - var(--topbar-offset) - 56px);
   display:flex;
   flex-direction:column;
 }
 
-.about-interest-card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(124,92,255,0.32);
-  box-shadow:0 14px 36px rgba(0,0,0,0.42), inset 0 0 0 1px rgba(255,255,255,0.04);
-}
-
-.about-interest-card .card-text{
-  display:-webkit-box;
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:2;
-  overflow:hidden;
-}
-
-.about-interest-card .card-link-btn{
-  margin-top:auto;
-  align-self:flex-end;
-}
-
-/* PAGE FOOTER BREATHING ROOM */
-.about main{ margin-bottom:8.5rem; }
-
-/* RESPONSIVE */
-@media (max-width: 980px){
-  body.about .about-view{
-    padding-left:24px;
-    padding-right:24px;
-    padding-top:120px;
-  }
-
-  .thumb-gallery{
-    height:clamp(180px, 24vh, 235px);
-    min-height:unset;
-  }
-
-  .about-interest-card{ flex-basis:290px; }
+body.about .about-view[data-view="travel"] .about-content-card{
+  flex:1;
+  padding-bottom:28px; /* extra breathing room */
 }

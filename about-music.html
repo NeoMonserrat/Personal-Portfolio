@@ -4,149 +4,127 @@
     <meta data-include="partials/head.html" />
 
     <link rel="stylesheet" href="css/components/about-subnav.css" />
+    <link rel="stylesheet" href="css/pages/about/about.css" />
     <link rel="stylesheet" href="css/pages/about/about-gallery.css" />
   </head>
 
   <body class="about">
     <div class="page-scroll" id="top">
       <div data-include="partials/header2.html"></div>
-      <div data-include="partials/about-subnav.html"></div>
 
-      <main class="page about-view" data-view="music">
-        <section class="section">
-          <div id="music" class="about-anchor"></div>
+      <div class="about-layout">
+        <aside class="about-subnav-col">
+          <div class="about-subnav-head">
+            <div class="about-subnav-kicker">About</div>
+          </div>
 
-          <div
-            class="about-pane"
-            data-pane="music"
-            style="display: block;"
-          >
-            <!-- centered container shell -->
-            <div class="about-shell">
-              <div class="about-hero">
-                <div class="about-hero-text">
-                  <h1 class="about-title">Music</h1>
-                  <p class="about-lead">
-                    [Description coming soon]
-                  </p>
+          <div data-include="partials/about-subnav.html"></div>
+        </aside>
 
-                  <!--
-                  <div class="about-chips">
-                    <span class="chip">Drumming</span>
-                    <span class="chip">Timing</span>
-                    <span class="chip">Consistency</span>
-                    <span class="chip">Live + Remote</span>
-                  </div>
-                  -->
-                </div>
-
-                <!--
-                <div class="about-hero-card">
-                  <div class="mini-card">
-                    <div class="mini-kicker">What it built</div>
-                    <div class="mini-title">
-                      Rhythm → Problem-solving
-                    </div>
-                    <p class="mini-text">
-                      Practice taught me iteration, attention to detail,
-                      and staying calm under pressure — the same mindset
-                      I bring to builds and deadlines.
-                    </p>
-                  </div>
-                </div>
-                -->
+        <main class="page about-view" data-view="music">
+          <div class="about-content-card">
+            <header class="about-view-head" aria-label="About section header">
+              <div class="about-breadcrumb">
+                <span class="about-bc-muted">About</span>
+                <span class="about-bc-sep">→</span>
+                <span class="about-bc-strong">Music</span>
               </div>
+            </header>
 
-              <!-- content grid -->
-              <div class="about-grid">
-                <!-- LEFT: description + highlights -->
-                <article class="panel panel-primary">
-                  <div class="panel-head">
-                    <div class="panel-tag">Creative Outlet</div>
-                    <h2 class="panel-title">Music</h2>
-                    <p class="panel-sub">
-                     [Description coming soon]
-                    </p>
-                  </div>
+            <section class="section">
+              <div id="music" class="about-anchor"></div>
 
-                  <div class="panel-body">
-                    <div class="feature-list">
-                      <div class="feature">
-                        <div class="feature-title">
-                          Drums
-                          <span class="chip" style="margin-left: 8px;">
-                            Primary
-                          </span>
-                        </div>
-                        <div class="feature-text">
-                          [Description coming soon]
-                        </div>
-                      </div>
-
-                      <div class="feature">
-                        <div class="feature-title">
-                          Guitar
-                          <span class="chip" style="margin-left: 8px;">
-                            Secondary
-                          </span>
-                        </div>
-                        <div class="feature-text">
-                          [Description coming soon]
-                        </div>
-                      </div>
-
-                      <div class="feature">
-                        <div class="feature-title">
-                          Keyboard
-                          <span class="chip" style="margin-left: 8px;">
-                            Secondary
-                          </span>
-                        </div>
-                        <div class="feature-text">
-                          [Description coming soon]
-                        </div>
-                      </div>
-                    </div>
+              <div class="about-pane" data-pane="music" style="display:block;">
+                <div class="about-shell">
+                  
 
                     <!--
-                    <div class="callout">
-                      <div class="callout-title">
-                        How I apply this to tech
+                    <div class="about-hero-card">
+                      <div class="mini-card">
+                        <div class="mini-kicker">What it built</div>
+                        <div class="mini-title">Rhythm → Problem-solving</div>
+                        <p class="mini-text">
+                          Practice taught me iteration, attention to detail,
+                          and staying calm under pressure — the same mindset
+                          I bring to builds and deadlines.
+                        </p>
                       </div>
-                      <p class="callout-text">
-                        I treat projects like practice: break problems
-                        into drills, track progress, and iterate until
-                        it feels “tight.”
-                      </p>
                     </div>
                     -->
                   </div>
-                </article>
 
-                <!-- RIGHT: gallery -->
-                <article class="panel panel-gallery">
-                  <div class="panel-head">
-                    <div class="panel-tag">Gallery</div>
-                    <h2 class="panel-title">Moments</h2>
-                    <p class="panel-sub">
-                      A quick look at key memories and milestones.
-                    </p>
-                  </div>
+                  <div class="about-grid">
+                    <article class="panel panel-primary">
+                      <div class="panel-head">
+                        <div class="panel-tag">Creative Outlet</div>
+                        <h2 class="panel-title">Music</h2>
+                        <p class="panel-sub">[Description coming soon]</p>
+                      </div>
 
-                  <div class="panel-body">
-                    <div
-                      class="thumb-gallery"
-                      data-cdn-prefix="music"
-                      data-count="15"
-                    ></div>
+                      <div class="panel-body">
+                        <div class="feature-list">
+                          <div class="feature">
+                            <div class="feature-title">
+                              Drums
+                              <span class="chip" style="margin-left:8px;">Primary</span>
+                            </div>
+                            <div class="feature-text">[Description coming soon]</div>
+                          </div>
+
+                          <div class="feature">
+                            <div class="feature-title">
+                              Guitar
+                              <span class="chip" style="margin-left:8px;">Secondary</span>
+                            </div>
+                            <div class="feature-text">[Description coming soon]</div>
+                          </div>
+
+                          <div class="feature">
+                            <div class="feature-title">
+                              Keyboard
+                              <span class="chip" style="margin-left:8px;">Secondary</span>
+                            </div>
+                            <div class="feature-text">[Description coming soon]</div>
+                          </div>
+                        </div>
+
+                        <!--
+                        <div class="callout">
+                          <div class="callout-title">How I apply this to tech</div>
+                          <p class="callout-text">
+                            I treat projects like practice: break problems
+                            into drills, track progress, and iterate until
+                            it feels “tight.”
+                          </p>
+                        </div>
+                        -->
+                      </div>
+                    </article>
+
+                    <article class="panel panel-gallery">
+                      <div class="panel-head">
+                        <div class="panel-tag">Gallery</div>
+                        <h2 class="panel-title">Moments</h2>
+                        <p class="panel-sub">
+                          A quick look at key memories and milestones.
+                        </p>
+                      </div>
+
+                      <div class="panel-body">
+                        <div
+                          class="thumb-gallery"
+                          data-cdn-prefix="music"
+                          data-count="15"
+                        ></div>
+                      </div>
+                    </article>
                   </div>
-                </article>
+                </div>
               </div>
-            </div>
-            <!-- /about-shell -->
+            </section>
           </div>
-        </section>
-      </main>
+        </main>
+      </div>
 
       <div data-include="partials/footer.html"></div>
     </div>

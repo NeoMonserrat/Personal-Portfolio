@@ -1,105 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta data-include="partials/head.html" />
-  
-  <link rel="stylesheet" href="css/pages/about/gaming.css" />
-</head>
+  <head>
+    <meta data-include="partials/head.html" />
+    <link rel="stylesheet" href="css/pages/about/gaming.css" />
+  </head>
 
-<body>
-  <!-- header include -->
-  <div data-include="partials/header2.html"></div>
+  <body class="gaming">
+    <div class="page-scroll" id="top">
+      <div data-include="partials/header2.html"></div>
 
-  <!-- MAIN CONTENT -->
-  <main class="page">
-    <section class="section section-gaming">
-      <div class="section-header">
-        <a href="about.html" class="gaming-back-link">← Back to About</a>
-        <h1 class="section-title">Gaming</h1>
-        <p class="section-subtitle">
-          [Description coming soon]
-        </p>
-      </div>
-
-      <div class="gaming-layout">
-        <!-- LEFT: GAME CATALOG -->
-        <div class="gaming-column">
-          <h2 class="gaming-heading">Games I Play</h2>
-
-          <!-- populated by gaming.js using GAMING_GENRES -->
-          <div id="gaming-genres"></div>
-        </div>
-
-        <!-- RIGHT: IGNS -->
-        <aside class="card ign-card">
-          <div class="card-tag">Handles</div>
-          <h2 class="card-title">Gaming IGNs</h2>
-          <!-- <p class="card-text">
-            Names I usually use in-game. These may vary slightly per region or platform.
-          </p> -->
-
-          <!-- populated by gaming.js using GAMING_IGNS -->
-          <ul class="ign-list"></ul>
-
-          <p class="ign-footnote">
-            If a name is taken on a platform, I usually add numbers or a short suffix.
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- GAME DETAILS MODAL -->
-    <div class="game-modal-overlay" aria-hidden="true">
-      <div class="game-modal" role="dialog" aria-modal="true">
-        <button
-          class="game-modal-close"
-          type="button"
-          aria-label="Close game details"
-        >
-          ×
-        </button>
-
-        <div class="game-modal-body">
-          <div class="game-modal-image-wrapper">
-            <img src="" alt="" class="game-modal-image" />
-          </div>
-
-          <div class="game-modal-details">
-            <div class="game-modal-header">
-              <div class="game-modal-title-row">
-                <h2 class="game-modal-title"></h2>
-                <span class="game-modal-type"></span>
-              </div>
+      <main class="page">
+        <section class="section section-gaming">
+          <div class="section-gaming-inner">
+            <!-- PAGE HEADER -->
+            <div class="section-header">
+              <a href="about.html" class="gaming-back-link">← Back to About</a>
+              <h1 class="section-title">Gaming</h1>
+              <p class="section-subtitle">Games I play and where to find me online.</p>
             </div>
 
-            <p class="game-modal-notes"></p>
+            <!-- CONTENT -->
+            <div class="gaming-layout">
+              <div class="gaming-column">
+                <div id="gaming-genres"></div>
+              </div>
 
-            <a
-              href="#"
-              class="game-modal-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open official site ↗
-            </a>
+              <aside class="card ign-card">
+                <div class="card-tag">Handles</div>
+                <h2 class="card-title">Gaming IGNs</h2>
+
+                <ul class="ign-list"></ul>
+
+                <p class="ign-footnote">
+                  If a name is taken on a platform, I usually add numbers or a short suffix.
+                </p>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <div class="game-modal-overlay" aria-hidden="true">
+          <div class="game-modal" role="dialog" aria-modal="true">
+            <button class="game-modal-close" type="button" aria-label="Close game details">×</button>
+
+            <div class="game-modal-body">
+              <div class="game-modal-image-wrapper">
+                <img src="" alt="" class="game-modal-image" />
+              </div>
+
+              <div class="game-modal-details">
+                <div class="game-modal-header">
+                  <div class="game-modal-title-row">
+                    <h2 class="game-modal-title"></h2>
+                    <span class="game-modal-type"></span>
+                  </div>
+                </div>
+
+                <p class="game-modal-notes"></p>
+
+                <a href="#" class="game-modal-link" target="_blank" rel="noreferrer">
+                  Open official site ↗
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
+
+      <div data-include="partials/footer.html"></div>
     </div>
-  </main>
 
-  <!-- footer include -->
-  <div data-include="partials/footer.html"></div>
-
-  <!-- scripts -->
-  <script src="js/includes.js"></script>
-  <script src="js/nav.js"></script>
-
-  <!-- DATA FIRST, THEN BEHAVIOR -->
-  <script src="data/gaming-data.js"></script>
-  <script src="js/gaming.js"></script>
-
-  <!-- footer year (external) -->
-  <script src="js/footer-year.js"></script>
-</body>
+    <script src="js/includes.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="data/gaming-data.js"></script>
+    <script src="js/gaming.js"></script>
+    <script src="js/footer-year.js"></script>
+  </body>
 </html>

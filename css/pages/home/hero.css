@@ -1,7 +1,6 @@
-/* HERO BASE */
 .hero-canvas{
   padding: 0;
-  min-height: 100svh;
+  height: 100%;
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -11,13 +10,11 @@
   align-items: center;
   gap: clamp(18px, 4vw, 64px);
 
-  /* body already accounts for topbar */
   padding-top: clamp(10px, 3vh, 26px);
   padding-bottom: clamp(56px, 10vh, 110px);
   padding-inline: var(--container-pad);
 }
 
-/* HERO BACKDROP */
 .hero-outline{
   position: absolute;
   top: clamp(18px, 5vh, 60px);
@@ -36,7 +33,6 @@
   z-index: 1;
 }
 
-/* HERO VISUALS */
 .hero-circle{
   position: absolute;
   left: 52%;
@@ -92,7 +88,6 @@
   user-select: none;
 }
 
-/* HERO COPY */
 .hero-intro{
   position: relative;
   z-index: 5;
@@ -131,7 +126,6 @@
   flex-wrap: wrap;
 }
 
-/* HERO NOTE */
 .hero-note{
   position: relative;
   z-index: 5;
@@ -192,58 +186,7 @@
   background: rgba(255,255,255,0.10);
 }
 
-/* HERO SCROLL ARROW */
-.hero-canvas .scroll-arrow{
-  position: absolute;
-  left: 50%;
-  bottom: var(--arrow-bottom);
-  transform: translateX(-50%);
-  font-size: 22px;
-  color: rgba(244,241,255,0.45);
-  animation: heroScrollPulse 1.8s infinite;
-  cursor: pointer;
-  user-select: none;
-  z-index: 6;
-}
-
-.hero-canvas .scroll-arrow:hover{
-  color: rgba(244,241,255,0.75);
-}
-
-@keyframes heroScrollPulse{
-  0%{ transform: translateX(-50%) translateY(0); opacity: .45; }
-  50%{ transform: translateX(-50%) translateY(6px); opacity: .7; }
-  100%{ transform: translateX(-50%) translateY(0); opacity: .45; }
-}
-
-/* HERO <= 980px */
-@media (max-width: 980px){
-  .hero-canvas{
-    grid-template-columns: 1fr;
-    align-content: center;
-    gap: clamp(14px, 3.6vw, 28px);
-  }
-
-  .hero-note{
-    justify-self: start;
-    width: min(520px, 100%);
-  }
-
-  .hero-circle{
-    left: 56%;
-    width: min(72vw, 720px);
-  }
-
-  .hero-outline{
-    left: 2vw;
-    transform: none;
-    opacity: .42;
-  }
-}
-
-/* HERO <= 430px */
 @media (max-width: 430px){
-
   .hero-outline,
   .hero-note{
     display: none !important;
@@ -255,8 +198,7 @@
     justify-items: center;
     text-align: center;
 
-    min-height: 100svh !important;
-    min-height: 100dvh !important;
+    height: 100% !important;
 
     padding-top: 12px !important;
     padding-bottom: 64px !important;
@@ -317,9 +259,5 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  .hero-canvas .scroll-arrow{
-    display: none !important;
   }
 }
