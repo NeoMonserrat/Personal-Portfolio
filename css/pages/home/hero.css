@@ -393,75 +393,113 @@
     display: none !important;
   }
 
-  /* 1) Hard reset the "desktop stage" behavior that causes drifting */
+  /* HERO: make it feel like a real mobile "cardless" hero */
   .hero-canvas{
-    height: 100% !important;
+    min-height: 100dvh !important;
+    height: auto !important;
+
     display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 
-    padding-top: 12px !important;
     padding-left: var(--container-pad) !important;
     padding-right: var(--container-pad) !important;
-    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
 
     gap: 12px !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
+
+    overflow: hidden !important; /* keep hero clean; no internal scroll */
     overscroll-behavior: contain;
   }
 
-  /* Ensure absolutely-positioned hero art doesn't anchor to weird places */
+  /* Remove the circle if you want a cleaner mobile hero */
+  .hero-circle-bg,
+  .hero-circle--pop::after{
+    display: none !important;
+  }
+
+  /* ART STAGE (stable sizing, no clipping) */
   .hero-circle{
     position: relative !important;
     left: auto !important;
     top: auto !important;
     transform: none !important;
+
+    width: min(86vw, 340px) !important;
+    aspect-ratio: 1 / 1 !important;
+    margin-top: 6px !important;
+
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+
+    display: grid !important;
+    place-items: center !important;
   }
 
-
+  /* Portrait: centered, full visible, responsive */
   .hero-figure{
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    position: relative !important; /* stop absolute drift */
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
 
-    /* gentle pop-out but safe */
-    bottom: clamp(-14px, -2.6vh, -8px) !important;
+    width: min(74vw, 290px) !important;
+    max-height: 42dvh !important; /* keeps space for text + button */
+    height: auto !important;
 
-    width: 92% !important;
-    filter: drop-shadow(0 16px 34px rgba(0,0,0,0.35)) !important;
+    object-fit: contain !important;
+
+    margin: 0 !important;
+    filter: drop-shadow(0 18px 36px rgba(0,0,0,0.38)) !important;
+    pointer-events: none;
   }
 
-  /* 4) Typography tuned for mobile card */
+  /* TEXT: centered, compact, intentional */
+  .hero-intro{
+    width: 100% !important;
+    max-width: 34ch !important;
+
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 2px !important;
+  }
+
   .hero-hi{
-    font-size: clamp(34px, 9.5vw, 46px) !important;
+    font-size: clamp(36px, 10vw, 46px) !important;
     line-height: 1.02 !important;
-    margin: 6px 0 6px !important;
+    margin: 0 0 6px !important;
     letter-spacing: -0.04em;
   }
 
   .hero-subline{
     margin: 0 0 10px !important;
     font-size: 10.5px !important;
-    letter-spacing: .16em !important;
-    opacity: .85;
+    letter-spacing: .18em !important;
+    opacity: .8 !important;
   }
 
+  /* Remove blurb on mobile */
   .hero-blurb{
-    margin: 0 0 14px !important;
-    font-size: 13.8px !important;
-    line-height: 1.45 !important;
-    max-width: 34ch !important;
+    display: none !important;
   }
 
-  /* 5) Buttons: full-width, thumb-friendly */
+  /* CTA: single primary button, full width */
   .hero-actions{
-    width: 100%;
+    width: 100% !important;
+    max-width: 360px !important;
+
     display: grid !important;
     grid-template-columns: 1fr !important;
+
     gap: 10px !important;
-    margin-top: 4px !important;
+    margin-top: 6px !important;
   }
 
   .hero-actions > *{
@@ -469,13 +507,20 @@
     justify-content: center;
   }
 
-  /* 6) Arrow stays visible but not fighting layout */
+  /* Remove Download CV on mobile */
+  .hero-actions > :nth-child(2){
+    display: none !important;
+  }
+
+  /* Arrow: pinned near bottom, subtle */
   .scroll-arrow{
-    order: 3;
-    margin-top: 6px;
-    opacity: .55;
+    margin-top: auto !important;
+    padding-top: 10px !important;
+    opacity: .55 !important;
   }
 }
+
+
 
 
 
