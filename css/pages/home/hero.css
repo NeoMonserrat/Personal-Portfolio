@@ -227,7 +227,7 @@
     transform: none !important;
 
     width: min(72vw, 280px) !important;
-    margin-top: 15px !important;
+    margin-top: 20px !important;
 
     z-index: 1;
     opacity: .95;
