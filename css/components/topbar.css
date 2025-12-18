@@ -184,6 +184,25 @@
     height:var(--topbar-h-mobile);
     grid-template-columns:auto 1fr;
     padding:14px var(--container-pad);
+
+    /* HARD TRANSPARENT */
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Kill glass overlay layers (common culprit) */
+  header.topbar::before,
+  header.topbar::after,
+  .topbar::before,
+  .topbar::after{
+    content: none !important;          /* stronger than background:transparent */
+    display: none !important;
   }
 
   .topbar-nav,

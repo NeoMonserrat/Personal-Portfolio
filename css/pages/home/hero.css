@@ -186,341 +186,111 @@
   background: rgba(255,255,255,0.10);
 }
 
-/* =========================
-   HERO — css/pages/home/hero.css
-   Desktop first (unchanged), Mobile overrides patterned like offer.css
-   ========================= */
-
-.hero-canvas{
-  padding: 0;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: clamp(18px, 4vw, 64px);
-
-  padding-top: clamp(10px, 3vh, 26px);
-  padding-bottom: clamp(56px, 10vh, 110px);
-  padding-inline: var(--container-pad);
-}
-
-.hero-outline{
-  position: absolute;
-  top: clamp(18px, 5vh, 60px);
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(90px, 16vw, 260px);
-  font-weight: 900;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.18);
-  opacity: .55;
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-}
-
-.hero-circle{
-  position: absolute;
-  left: 52%;
-  top: clamp(18px, 6vh, 78px);
-  transform: translateX(-50%);
-  width: min(56vw, 760px);
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: var(--shadow);
-  overflow: visible;
-  z-index: 2;
-}
-
-.hero-circle-bg{
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.16);
-  overflow: hidden;
-}
-
-.hero-circle-bg::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(closest-side at 35% 30%, rgba(124,92,255,0.55), transparent 62%),
-    radial-gradient(closest-side at 70% 70%, rgba(255,138,91,0.30), transparent 64%);
-  opacity: .55;
-  pointer-events: none;
-}
-
-.hero-circle--pop::after{
-  content: "";
-  position: absolute;
-  inset: -2%;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.12);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero-figure{
-  position: absolute;
-  left: 50%;
-  bottom: -100px;
-  transform: translateX(-50%);
-  width: 78%;
-  z-index: 3;
-  filter: drop-shadow(0 22px 45px rgba(0,0,0,0.45));
-  pointer-events: none;
-  user-select: none;
-}
-
-.hero-intro{
-  position: relative;
-  z-index: 5;
-  max-width: 520px;
-}
-
-.hero-hi{
-  margin: 0 0 10px;
-  font-size: clamp(44px, 4.6vw, 72px);
-  line-height: 1.02;
-  letter-spacing: -.04em;
-}
-
-.wave{ margin-left: 8px; }
-.hero-name{ color: var(--accent); }
-
-.hero-subline{
-  margin-top: 6px;
-  font-weight: 800;
-  letter-spacing: .18em;
-  font-size: 12px;
-  color: rgba(244,241,255,0.55);
-}
-
-.hero-blurb{
-  margin: 18px 0 22px;
-  color: rgba(244,241,255,0.78);
-  line-height: 1.7;
-  font-size: 15.5px;
-  max-width: 54ch;
-}
-
-.hero-actions{
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.hero-note{
-  position: relative;
-  z-index: 5;
-  justify-self: end;
-
-  width: min(360px, 34vw);
-  padding: 18px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(0,0,0,0.22);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-}
-
-.note-title{
-  font-weight: 900;
-  margin-bottom: 10px;
-  color: rgba(244,241,255,0.92);
-}
-
-.note-body{
-  color: rgba(244,241,255,0.70);
-  line-height: 1.65;
-  font-size: 14px;
-}
-
-.note-link{
-  color: var(--accent);
-  font-weight: 800;
-  text-decoration: underline;
-  text-decoration-color: rgba(255,138,91,0.35);
-  text-underline-offset: 3px;
-}
-
-.note-actions{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 14px;
-}
-
-.note-pill{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: .55rem .78rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
-  color: rgba(244,241,255,0.86);
-  font-weight: 800;
-  font-size: 13px;
-  transition: transform .16s ease, background .16s ease;
-}
-
-.note-pill:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,0.10);
-}
-
-/* =========================
-   HERO <= 430px (Offer-style spacing)
-   - header-ish block fixed (circle)
-   - content block scrollable when needed
-   - no giant margin-top hacks
-   ========================= */
-/* HERO <= 430px — CLEAN MOBILE CARD LAYOUT (CSS-only, resets desktop rules) */
 @media (max-width: 430px){
 
+  /* Keep these hidden on mobile */
   .hero-outline,
   .hero-note{
-    display: none !important;
+    display:none !important;
   }
 
-  /* HERO: make it feel like a real mobile "cardless" hero */
+    /* REMOVE BLURB ON MOBILE */
+  .hero-blurb{
+    display:none !important;
+  }
+
+  /* Mobile layout: single column, content flows naturally */
   .hero-canvas{
-    min-height: 100dvh !important;
-    height: auto !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto;          /* art, then intro */
+    align-content: start;
+    justify-items: center;
+    text-align: center;
 
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-
-    padding-left: var(--container-pad) !important;
-    padding-right: var(--container-pad) !important;
-    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
-
-    gap: 12px !important;
-
-    overflow: hidden !important; /* keep hero clean; no internal scroll */
+    /* IMPORTANT: let the hero content layout instead of clipping */
+    height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;           /* prevents cut-off on short screens */
+    -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+
+    padding-top: 10px !important;
+    padding-bottom: 64px !important;
+    padding-inline: var(--container-pad) !important;
   }
 
-  /* Remove the circle if you want a cleaner mobile hero */
-  .hero-circle-bg,
-  .hero-circle--pop::after{
-    display: none !important;
-  }
-
-  /* ART STAGE (stable sizing, no clipping) */
-  .hero-circle{
+  /* Make the circle part of the normal flow (NOT absolute) */
+  .hero-circle.hero-circle--pop{
     position: relative !important;
-    left: auto !important;
     top: auto !important;
+    left: auto !important;
     transform: none !important;
 
-    width: min(86vw, 340px) !important;
-    aspect-ratio: 1 / 1 !important;
-    margin-top: 6px !important;
+    width: min(72vw, 280px) !important;
+    margin-top: 15px !important;
 
-    border: 0 !important;
-    box-shadow: none !important;
-    overflow: visible !important;
-
-    display: grid !important;
-    place-items: center !important;
+    z-index: 1;
+    opacity: .95;
   }
 
-  /* Portrait: centered, full visible, responsive */
+  /* Keep the illustration anchored within the circle */
   .hero-figure{
-    position: relative !important; /* stop absolute drift */
-    left: auto !important;
-    right: auto !important;
     top: auto !important;
-    bottom: auto !important;
-    transform: none !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 
-    width: min(74vw, 290px) !important;
-    max-height: 42dvh !important; /* keeps space for text + button */
-    height: auto !important;
-
-    object-fit: contain !important;
-
-    margin: 0 !important;
-    filter: drop-shadow(0 18px 36px rgba(0,0,0,0.38)) !important;
-    pointer-events: none;
+    bottom: -18px !important;              /* small “pop out”, not huge */
+    width: min(64vw, 240px) !important;
+    z-index: 2;
   }
 
-  /* TEXT: centered, compact, intentional */
+  /* Intro now sits directly under the art */
   .hero-intro{
-    width: 100% !important;
-    max-width: 34ch !important;
+    position: relative;
+    z-index: 3;
 
-    display: flex !important;
+    margin-top: 6px !important;            /* replaces the huge clamp() margin */
+    max-width: 32ch;
+    margin-inline: auto;
+
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-
-    margin-top: 2px !important;
   }
 
   .hero-hi{
-    font-size: clamp(36px, 10vw, 46px) !important;
-    line-height: 1.02 !important;
-    margin: 0 0 6px !important;
-    letter-spacing: -0.04em;
+    font-size: clamp(38px, 10vw, 48px) !important;
+    line-height: 1.0 !important;
   }
 
   .hero-subline{
-    margin: 0 0 10px !important;
-    font-size: 10.5px !important;
-    letter-spacing: .18em !important;
-    opacity: .8 !important;
-  }
-
-  /* Remove blurb on mobile */
-  .hero-blurb{
-    display: none !important;
-  }
-
-  /* CTA: single primary button, full width */
-  .hero-actions{
-    width: 100% !important;
-    max-width: 360px !important;
-
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-
-    gap: 10px !important;
+    font-size: 11px !important;
+    letter-spacing: .16em !important;
     margin-top: 6px !important;
+    line-height: 1.25;
+    padding-bottom: 20px !important;
   }
 
-  .hero-actions > *{
-    width: 100% !important;
+  .hero-actions{
     justify-content: center;
+    gap: 14px;
   }
 
-  /* Remove Download CV on mobile */
-  .hero-actions > :nth-child(2){
-    display: none !important;
+  /* Extra safety for short-height phones (prevents clipping) */
+  @media (max-height: 740px){
+    .hero-circle.hero-circle--pop{
+      width: min(68vw, 250px) !important;
+      margin-bottom: 10px !important;
+    }
+    .hero-figure{
+      width: min(60vw, 220px) !important;
+      bottom: -14px !important;
+    }
+    .hero-blurb{
+      max-width: 34ch !important;
+    }
   }
 
-  /* Arrow: pinned near bottom, subtle */
-  .scroll-arrow{
-    margin-top: auto !important;
-    padding-top: 10px !important;
-    opacity: .55 !important;
-  }
+
 }
-
-
-
-
-
