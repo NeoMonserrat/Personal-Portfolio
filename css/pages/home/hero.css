@@ -186,111 +186,45 @@
   background: rgba(255,255,255,0.10);
 }
 
-@media (max-width: 430px){
+@media (max-width:430px){
 
-  /* Keep these hidden on mobile */
-  .hero-outline,
-  .hero-note{
-    display:none !important;
-  }
-
-    /* REMOVE BLURB ON MOBILE */
-  .hero-blurb{
-    display:none !important;
-  }
-
-  /* Mobile layout: single column, content flows naturally */
   .hero-canvas{
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto auto;          /* art, then intro */
-    align-content: start;
-    justify-items: center;
-    text-align: center;
-
-    /* IMPORTANT: let the hero content layout instead of clipping */
-    height: 100% !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;           /* prevents cut-off on short screens */
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
-
-    padding-top: 10px !important;
-    padding-bottom: 64px !important;
-    padding-inline: var(--container-pad) !important;
+    /* Image background on mobile */
+    background: none;
+    background-image:
+  
+  url("../../../assets/icons/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  /* Make the circle part of the normal flow (NOT absolute) */
-  .hero-circle.hero-circle--pop{
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-
-    width: min(72vw, 280px) !important;
-    margin-top: 20px !important;
-
-    z-index: 1;
-    opacity: .95;
+  /* Remove hero circle on mobile */
+  .hero-circle,
+  .hero-note,
+  .hero-outline{
+    display:none !important;
   }
 
-  /* Keep the illustration anchored within the circle */
-  .hero-figure{
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-
-    bottom: -18px !important;              /* small “pop out”, not huge */
-    width: min(64vw, 240px) !important;
-    z-index: 2;
+  .hero-outline{
+    top:10%;
+    font-size:clamp(2.4rem, 14vw, 4.2rem);
+    opacity:.07;
   }
 
-  /* Intro now sits directly under the art */
   .hero-intro{
-    position: relative;
-    z-index: 3;
-
-    margin-top: 6px !important;            /* replaces the huge clamp() margin */
-    max-width: 32ch;
-    margin-inline: auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    width:calc(100% - 32px);
+    text-align:left;
   }
 
-  .hero-hi{
-    font-size: clamp(38px, 10vw, 48px) !important;
-    line-height: 1.0 !important;
+  .hero-note{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    margin:18px auto 70px;
   }
 
-  .hero-subline{
-    font-size: 11px !important;
-    letter-spacing: .16em !important;
-    margin-top: 6px !important;
-    line-height: 1.25;
-    padding-bottom: 20px !important;
+  .scroll-arrow{
+    bottom:10px;
   }
-
-  .hero-actions{
-    justify-content: center;
-    gap: 14px;
-  }
-
-  /* Extra safety for short-height phones (prevents clipping) */
-  @media (max-height: 740px){
-    .hero-circle.hero-circle--pop{
-      width: min(68vw, 250px) !important;
-      margin-bottom: 10px !important;
-    }
-    .hero-figure{
-      width: min(60vw, 220px) !important;
-      bottom: -14px !important;
-    }
-    .hero-blurb{
-      max-width: 34ch !important;
-    }
-  }
-
-
 }
