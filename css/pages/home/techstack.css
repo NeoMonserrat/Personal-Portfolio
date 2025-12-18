@@ -128,7 +128,6 @@
 
   .tech-stack.screen-section,
   #tech.tech-stack{
-    padding-top: calc(var(--topbar-offset) + 10px) !important;
     padding-bottom: 6px !important;
     overflow: hidden !important;
   }
