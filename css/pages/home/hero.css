@@ -385,6 +385,7 @@
    - content block scrollable when needed
    - no giant margin-top hacks
    ========================= */
+/* HERO <= 430px — CLEAN MOBILE CARD LAYOUT (CSS-only, resets desktop rules) */
 @media (max-width: 430px){
 
   .hero-outline,
@@ -392,123 +393,89 @@
     display: none !important;
   }
 
+  /* 1) Hard reset the "desktop stage" behavior that causes drifting */
   .hero-canvas{
     height: 100% !important;
     display: flex !important;
     flex-direction: column;
-    padding-right: var(--container-pad) !important;
-    padding-left:  var(--container-pad) !important;
-    padding-top: 12px !important;
-
-    /* FIX: give more safe space + allow internal scroll so bottom won't clip */
-    padding-bottom: 22px !important;
-
-    gap: 10px !important;
     align-items: center;
     justify-content: flex-start;
-    text-align: center;
 
-    /* FIX: was overflow:hidden which causes clipping */
+    padding-top: 12px !important;
+    padding-left: var(--container-pad) !important;
+    padding-right: var(--container-pad) !important;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+
+    gap: 12px !important;
     overflow-y: auto !important;
-    overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
   }
 
-  /* Make the portrait participate in layout (no absolute positioning on mobile) */
-  .hero-circle.hero-circle--pop{
+  /* Ensure absolutely-positioned hero art doesn't anchor to weird places */
+  .hero-circle{
     position: relative !important;
     left: auto !important;
     top: auto !important;
     transform: none !important;
-
-    flex: 0 0 auto;
-    width: min(72vw, 280px) !important;
-    aspect-ratio: 1/1;
-
-    z-index: 1;
-    opacity: .95;
-
-    /* Responsive downward spacing */
-    margin-top: clamp(12px, 4vh, 28px) !important;
-    margin-bottom: 0 !important;
   }
 
+
   .hero-figure{
+    position: absolute !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
 
-    /* Responsive “pop out” depth (less likely to clip) */
-    bottom: clamp(-32px, -6vh, -18px) !important;
+    /* gentle pop-out but safe */
+    bottom: clamp(-14px, -2.6vh, -8px) !important;
 
-    width: min(64vw, 240px) !important;
-    z-index: 2;
+    width: 92% !important;
+    filter: drop-shadow(0 16px 34px rgba(0,0,0,0.35)) !important;
   }
 
-  /* Content area should NOT be the scroller (the whole hero-canvas scrolls) */
-  .hero-intro{
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 34ch;
-    margin: 0 !important;
-
-    /* FIX: prevent nested scroll fighting / clipping */
-    overflow: visible !important;
-    padding-bottom: 10px !important;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
+  /* 4) Typography tuned for mobile card */
   .hero-hi{
-    font-size: clamp(36px, 9.5vw, 46px) !important;
+    font-size: clamp(34px, 9.5vw, 46px) !important;
     line-height: 1.02 !important;
-    margin: 0 0 8px !important;
-    letter-spacing: -.035em;
+    margin: 6px 0 6px !important;
+    letter-spacing: -0.04em;
   }
 
   .hero-subline{
-    font-size: 11px !important;
-    letter-spacing: .16em !important;
     margin: 0 0 10px !important;
-    line-height: 1.25;
+    font-size: 10.5px !important;
+    letter-spacing: .16em !important;
+    opacity: .85;
   }
 
   .hero-blurb{
-    font-size: 14px !important;
-    line-height: 1.5 !important;
     margin: 0 0 14px !important;
-    max-width: 32ch !important;
-    margin-inline: auto;
+    font-size: 13.8px !important;
+    line-height: 1.45 !important;
+    max-width: 34ch !important;
   }
 
+  /* 5) Buttons: full-width, thumb-friendly */
   .hero-actions{
     width: 100%;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-
-    /* FIX: extra breathing room above iOS bottom bar */
-    padding-bottom: 10px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-top: 4px !important;
   }
 
-  /* Extra safety for short-height phones */
-  @media (max-height: 740px){
-    .hero-canvas{
-      padding-top: 10px !important;
-      padding-bottom: 20px !important;
-    }
-    .hero-circle.hero-circle--pop{
-      width: min(68vw, 260px) !important;
-      margin-top: clamp(10px, 3vh, 22px) !important;
-    }
-    .hero-figure{
-      width: min(60vw, 220px) !important;
-      bottom: clamp(-26px, -5vh, -14px) !important;
-    }
-    .hero-blurb{
-      margin-bottom: 12px !important;
-    }
+  .hero-actions > *{
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  /* 6) Arrow stays visible but not fighting layout */
+  .scroll-arrow{
+    order: 3;
+    margin-top: 6px;
+    opacity: .55;
   }
 }
+
+
+
