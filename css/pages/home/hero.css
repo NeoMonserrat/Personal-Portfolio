@@ -399,52 +399,62 @@
     padding-right: var(--container-pad) !important;
     padding-left:  var(--container-pad) !important;
     padding-top: 12px !important;
-    padding-bottom: 10px !important;
+
+    /* FIX: give more safe space + allow internal scroll so bottom won't clip */
+    padding-bottom: 22px !important;
+
     gap: 10px !important;
     align-items: center;
     justify-content: flex-start;
     text-align: center;
-    overflow: hidden; /* keep snap-page tidy */
+
+    /* FIX: was overflow:hidden which causes clipping */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   /* Make the portrait participate in layout (no absolute positioning on mobile) */
-.hero-circle.hero-circle--pop{
-  position: relative !important;
-  left: auto !important;
-  top: auto !important;
-  transform: none !important;
+  .hero-circle.hero-circle--pop{
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
 
-  flex: 0 0 auto;
-  width: min(72vw, 280px) !important;
-  aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+    width: min(72vw, 280px) !important;
+    aspect-ratio: 1/1;
 
-  z-index: 1;
-  opacity: .95;
+    z-index: 1;
+    opacity: .95;
 
-  /* Responsive downward spacing */
-  margin-top: clamp(12px, 4vh, 28px) !important;
-}
+    /* Responsive downward spacing */
+    margin-top: clamp(12px, 4vh, 28px) !important;
+    margin-bottom: 0 !important;
+  }
 
-.hero-figure{
-  left: 50% !important;
-  transform: translateX(-50%) !important;
+  .hero-figure{
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 
-  /* Responsive “pop out” depth */
-  bottom: clamp(-32px, -6vh, -18px) !important;
+    /* Responsive “pop out” depth (less likely to clip) */
+    bottom: clamp(-32px, -6vh, -18px) !important;
 
-  width: min(64vw, 240px) !important;
-  z-index: 2;
-}
+    width: min(64vw, 240px) !important;
+    z-index: 2;
+  }
 
-  /* Content becomes the scrollable area (Offer-style) */
+  /* Content area should NOT be the scroller (the whole hero-canvas scrolls) */
   .hero-intro{
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     width: 100%;
     max-width: 34ch;
     margin: 0 !important;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 6px !important;
+
+    /* FIX: prevent nested scroll fighting / clipping */
+    overflow: visible !important;
+    padding-bottom: 10px !important;
 
     display: flex;
     flex-direction: column;
@@ -478,6 +488,27 @@
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
-    padding-bottom: 4px;
+
+    /* FIX: extra breathing room above iOS bottom bar */
+    padding-bottom: 10px !important;
+  }
+
+  /* Extra safety for short-height phones */
+  @media (max-height: 740px){
+    .hero-canvas{
+      padding-top: 10px !important;
+      padding-bottom: 20px !important;
+    }
+    .hero-circle.hero-circle--pop{
+      width: min(68vw, 260px) !important;
+      margin-top: clamp(10px, 3vh, 22px) !important;
+    }
+    .hero-figure{
+      width: min(60vw, 220px) !important;
+      bottom: clamp(-26px, -5vh, -14px) !important;
+    }
+    .hero-blurb{
+      margin-bottom: 12px !important;
+    }
   }
 }
