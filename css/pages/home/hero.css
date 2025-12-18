@@ -202,7 +202,8 @@
   /* Remove hero circle on mobile */
   .hero-circle,
   .hero-note,
-  .hero-outline{
+  .hero-outline,
+  .hero-blurb{
     display:none !important;
   }
 
@@ -217,11 +218,8 @@
     text-align:left;
   }
 
-  .hero-note{
-    position:relative;
-    right:auto;
-    bottom:auto;
-    margin:18px auto 70px;
+  .hero-subline {
+    margin-bottom: 50px;
   }
 
   .scroll-arrow{
