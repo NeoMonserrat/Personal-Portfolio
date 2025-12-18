@@ -403,6 +403,7 @@
     align-items: center;
     justify-content: flex-start;
 
+    padding-top: calc(var(--topbar-offset, 78px) + 10px) !important;
     padding-left: var(--container-pad) !important;
     padding-right: var(--container-pad) !important;
     padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
