@@ -414,7 +414,6 @@ body.contact .card4:hover .discord{
   }
 
   body.contact .contact-layout{
-    padding-top: calc(var(--topbar-offset) + 12px) !important;
     grid-template-columns: 1fr !important;
     justify-items: center;
     align-content: start;

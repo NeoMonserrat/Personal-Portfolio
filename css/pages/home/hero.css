@@ -186,113 +186,298 @@
   background: rgba(255,255,255,0.10);
 }
 
+/* =========================
+   HERO — css/pages/home/hero.css
+   Desktop first (unchanged), Mobile overrides patterned like offer.css
+   ========================= */
+
+.hero-canvas{
+  padding: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(18px, 4vw, 64px);
+
+  padding-top: clamp(10px, 3vh, 26px);
+  padding-bottom: clamp(56px, 10vh, 110px);
+  padding-inline: var(--container-pad);
+}
+
+.hero-outline{
+  position: absolute;
+  top: clamp(18px, 5vh, 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(90px, 16vw, 260px);
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.18);
+  opacity: .55;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.hero-circle{
+  position: absolute;
+  left: 52%;
+  top: clamp(18px, 6vh, 78px);
+  transform: translateX(-50%);
+  width: min(56vw, 760px);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: var(--shadow);
+  overflow: visible;
+  z-index: 2;
+}
+
+.hero-circle-bg{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.16);
+  overflow: hidden;
+}
+
+.hero-circle-bg::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(closest-side at 35% 30%, rgba(124,92,255,0.55), transparent 62%),
+    radial-gradient(closest-side at 70% 70%, rgba(255,138,91,0.30), transparent 64%);
+  opacity: .55;
+  pointer-events: none;
+}
+
+.hero-circle--pop::after{
+  content: "";
+  position: absolute;
+  inset: -2%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-figure{
+  position: absolute;
+  left: 50%;
+  bottom: -100px;
+  transform: translateX(-50%);
+  width: 78%;
+  z-index: 3;
+  filter: drop-shadow(0 22px 45px rgba(0,0,0,0.45));
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-intro{
+  position: relative;
+  z-index: 5;
+  max-width: 520px;
+}
+
+.hero-hi{
+  margin: 0 0 10px;
+  font-size: clamp(44px, 4.6vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+}
+
+.wave{ margin-left: 8px; }
+.hero-name{ color: var(--accent); }
+
+.hero-subline{
+  margin-top: 6px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  font-size: 12px;
+  color: rgba(244,241,255,0.55);
+}
+
+.hero-blurb{
+  margin: 18px 0 22px;
+  color: rgba(244,241,255,0.78);
+  line-height: 1.7;
+  font-size: 15.5px;
+  max-width: 54ch;
+}
+
+.hero-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-note{
+  position: relative;
+  z-index: 5;
+  justify-self: end;
+
+  width: min(360px, 34vw);
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.22);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.note-title{
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: rgba(244,241,255,0.92);
+}
+
+.note-body{
+  color: rgba(244,241,255,0.70);
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+.note-link{
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,138,91,0.35);
+  text-underline-offset: 3px;
+}
+
+.note-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.note-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .55rem .78rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: rgba(244,241,255,0.86);
+  font-weight: 800;
+  font-size: 13px;
+  transition: transform .16s ease, background .16s ease;
+}
+
+.note-pill:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.10);
+}
+
+/* =========================
+   HERO <= 430px (Offer-style spacing)
+   - header-ish block fixed (circle)
+   - content block scrollable when needed
+   - no giant margin-top hacks
+   ========================= */
 @media (max-width: 430px){
 
-  /* Keep these hidden on mobile */
   .hero-outline,
   .hero-note{
-    display:none !important;
+    display: none !important;
   }
 
-  /* Mobile layout: single column, content flows naturally */
   .hero-canvas{
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto auto;          /* art, then intro */
-    align-content: start;
-    justify-items: center;
-    text-align: center;
-
-    /* IMPORTANT: let the hero content layout instead of clipping */
     height: 100% !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;           /* prevents cut-off on short screens */
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
-
-    padding-top: 10px !important;
-    padding-bottom: 64px !important;
-    padding-inline: var(--container-pad) !important;
+    display: flex !important;
+    flex-direction: column;
+    padding-right: var(--container-pad) !important;
+    padding-left:  var(--container-pad) !important;
+    padding-top: 12px !important;
+    padding-bottom: 10px !important;
+    gap: 10px !important;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    overflow: hidden; /* keep snap-page tidy */
   }
 
-  /* Make the circle part of the normal flow (NOT absolute) */
-  .hero-circle.hero-circle--pop{
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
+  /* Make the portrait participate in layout (no absolute positioning on mobile) */
+.hero-circle.hero-circle--pop{
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
 
-    width: min(72vw, 280px) !important;
-    margin-top: 6px !important;
-    margin-bottom: 12px !important;
+  flex: 0 0 auto;
+  width: min(72vw, 280px) !important;
+  aspect-ratio: 1 / 1;
 
-    z-index: 1;
-    opacity: .95;
-  }
+  z-index: 1;
+  opacity: .95;
 
-  /* Keep the illustration anchored within the circle */
-  .hero-figure{
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+  /* Responsive downward spacing */
+  margin-top: clamp(12px, 4vh, 28px) !important;
+}
 
-    bottom: -18px !important;              /* small “pop out”, not huge */
-    width: min(64vw, 240px) !important;
-    z-index: 2;
-  }
+.hero-figure{
+  left: 50% !important;
+  transform: translateX(-50%) !important;
 
-  /* Intro now sits directly under the art */
+  /* Responsive “pop out” depth */
+  bottom: clamp(-32px, -6vh, -18px) !important;
+
+  width: min(64vw, 240px) !important;
+  z-index: 2;
+}
+
+  /* Content becomes the scrollable area (Offer-style) */
   .hero-intro{
-    position: relative;
-    z-index: 3;
-
-    margin-top: 6px !important;            /* replaces the huge clamp() margin */
-    max-width: 32ch;
-    margin-inline: auto;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 34ch;
+    margin: 0 !important;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px !important;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
   .hero-hi{
-    font-size: clamp(38px, 10vw, 48px) !important;
-    line-height: 1.0 !important;
+    font-size: clamp(36px, 9.5vw, 46px) !important;
+    line-height: 1.02 !important;
+    margin: 0 0 8px !important;
+    letter-spacing: -.035em;
   }
 
   .hero-subline{
     font-size: 11px !important;
     letter-spacing: .16em !important;
-    margin-top: 6px !important;
+    margin: 0 0 10px !important;
     line-height: 1.25;
   }
 
   .hero-blurb{
     font-size: 14px !important;
-    line-height: 1.45 !important;
-    margin-top: 10px !important;
-    margin-bottom: 14px !important;
-    max-width: 30ch !important;
+    line-height: 1.5 !important;
+    margin: 0 0 14px !important;
+    max-width: 32ch !important;
     margin-inline: auto;
   }
 
   .hero-actions{
+    width: 100%;
     justify-content: center;
-    gap: 14px;
-  }
-
-  /* Extra safety for short-height phones (prevents clipping) */
-  @media (max-height: 740px){
-    .hero-circle.hero-circle--pop{
-      width: min(68vw, 250px) !important;
-      margin-bottom: 10px !important;
-    }
-    .hero-figure{
-      width: min(60vw, 220px) !important;
-      bottom: -14px !important;
-    }
-    .hero-blurb{
-      max-width: 34ch !important;
-    }
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 4px;
   }
 }
